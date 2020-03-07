@@ -63,7 +63,7 @@
                             <a class="nav-link" href="{{ route('exp_index') }}"><strong>{{ __('Expedientes') }}</strong></a>
                         </li>
                         <li class="nav-item links">
-                            <a class="nav-link" href="{{ route('login') }}"><strong>{{ __('Consultas') }}</strong></a>
+                            <a class="nav-link" href="{{url('/')}}"><strong>{{ __('Consultas') }}</strong></a>
                         </li>
                     </ul>
 

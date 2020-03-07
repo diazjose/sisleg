@@ -62,8 +62,16 @@
                                 <a class="nav-link" href="{{ route('exp_index') }}"><strong>{{ __('Expedientes') }}</strong></a>
                             </li>
                             <li class="nav-item links">
-                                <a class="nav-link" href="{{ route('login') }}"><strong>{{ __('Consultas') }}</strong></a>
+                                <a class="nav-link" href="#"><strong>{{ __('Consultas') }}</strong></a>
                             </li>
+                            @guest
+                            @else
+                                @if(Auth::user()->role == 'DIRECTOR')
+                                <li class="nav-item links">
+                                    <a class="nav-link" href="{{ route('users.index') }}">Usuarios</a>
+                                </li>
+                                @endif
+                            @endguest    
                         </ul>
 
                         <!-- Right Side Of Navbar -->
