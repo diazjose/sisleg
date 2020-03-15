@@ -56,15 +56,34 @@
                         <li class="nav-item links">
                             <a class="nav-link" href="{{ url('/') }}"><strong>{{ __('Principal') }}</strong></a>
                         </li>
-                        <li class="nav-item links">
-                            <a class="nav-link" href="{{ route('legajos_index') }}"><strong>{{ __('Legajos') }}</strong></a>
-                        </li>
-                        <li class="nav-item links">
-                            <a class="nav-link" href="{{ route('exp_index') }}"><strong>{{ __('Expedientes') }}</strong></a>
-                        </li>
-                        <li class="nav-item links">
-                            <a class="nav-link" href="{{url('/')}}"><strong>{{ __('Consultas') }}</strong></a>
-                        </li>
+                        @guest                                                        
+                            @else
+                                @switch(Auth::user()->role)
+                                    @case('DIRECTOR')
+                                        <li class="nav-item links">
+                                            <a class="nav-link" href="{{ route('exp_index') }}"><strong>{{ __('Expedientes') }}</strong></a>
+                                        </li>                            
+                                        <li class="nav-item links">
+                                            <a class="nav-link" href="#"><strong>{{ __('Consultas') }}</strong></a>
+                                        </li>
+                                        <li class="nav-item links">
+                                            <a class="nav-link" href="{{ route('users.index') }}">Usuarios</a>
+                                        </li>
+                                        @break
+                                    @case('MESA')
+                                        <li class="nav-item links">
+                                            <a class="nav-link" href="{{ route('legajos_index') }}"><strong>{{ __('Legajos') }}</strong></a>
+                                        </li>
+                                        <li class="nav-item links">
+                                            <a class="nav-link" href="{{ route('exp_index') }}"><strong>{{ __('Expedientes') }}</strong></a>
+                                        </li>
+                                        @break
+                                    @default
+                                        <li class="nav-item links">
+                                            <a class="nav-link" href="{{ route('exp_area', Auth::user()->role) }}"><strong>{{ __('Expedientes') }}</strong></a>
+                                        </li>    
+                                @endswitch
+                            @endguest                        
                     </ul>
 
                     <!-- Right Side Of Navbar -->
@@ -134,7 +153,7 @@
                     <div class="container">
                         <div class="row text-white">
                             <div class="col-md-4 my-4 text-center">
-                                <h5 class="footer"><strong>Seguinos</strong></h4>
+                                <h5 class="footer"><strong>Seguinos</strong></h5>
                                 <div class="d-flex justify-content-center">
                                     <div class="align-self-center">
                                         <ul class="social-network social-circle">

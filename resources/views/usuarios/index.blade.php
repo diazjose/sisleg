@@ -38,7 +38,7 @@
                                 <tr>
                                     <td>{{$user->surname}}</td>
                                     <td>{{$user->name}}</td>
-                                    <td>{{$user->role}}</td>
+                                    <td class="role">{{$user->role}}</td>
                                     <td>{{$user->email}}</td>
                                     <td>
                                         <a href="#" class="btn btn-white border p-1 mx-1" onclick="edit('{{$user->id}}','{{$user->name}}','{{$user->surname}}','{{$user->role}}','{{$user->email}}')" data-toggle="modal" data-target="#editModal" title="Editar Usuario" ><i class="fas fa-edit"></i></a>

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use App\Legajo;
 use App\Expediente;
 use App\Seguimiento;
@@ -81,6 +82,35 @@ class ExpedientesController extends Controller
         return response()->json($html); 
     }
 
+    public function search_area(Request $request){
+        $buscar = $request->input('buscar');
+        if ($buscar == '') {
+            $html = '';
+        }else{
+            $exps = Expediente::where('numero','LIKE', '%'.$buscar.'%')
+                                ->orWhere('formulario','LIKE', '%'.$buscar.'%')
+                                ->orderBy('id', 'DESC')
+                                ->paginate(10);
+            $html = '';
+            foreach ($exps as $exp) {
+                $seg = Seguimiento::where('expediente_id', $exp->id)->where('lugar', Auth::user()->role)->get();
+                if (count($seg) > 0) {
+                    $html.= '<tr>'; 
+                        $html .= '<td>'.$exp->numero.'</td>';
+                        $html .= '<td>'.$exp->iniciador.'</td>';
+                        $html .= '<td>'.$exp->asunto.'</td>';
+                        $html .= '<td></td>';
+                        $html .= '<td><a href="'.route('exp_area_view',[$exp->id]).'" class="btn btn-outline-info"><strong>Ver</strong></a></td>';
+                    $html .= '</tr>';    
+                }else{
+                    $html .= 'no hay expediente';                   
+                }   
+            }
+        }
+            
+        return response()->json($html); 
+    }
+
     public function edit($id){
         $exp = Expediente::find($id);
         return view('expedientes.edit', ['exp' => $exp]);
@@ -129,6 +159,28 @@ class ExpedientesController extends Controller
         $seg->save();
         return redirect()->route('exp_view', [$id])
                          ->with(['message' => 'El expediente se encuentra en un lugar nuevo', 'status' => 'success']);
+    }
+
+    public function area(Request $request){
+        $area = Auth::user()->role;
+        $exp = Seguimiento::where('lugar', $area)->where('estado','warning')->get();
+        return view('expedientes.area', ['exps' => $exp]);   
+    }
+
+    public function exp_area($id){
+        
+        $exp = Seguimiento::find($id);
+        return view('expedientes.area_view', ['exp' => $exp]);
+    }
+
+    public function exp_status(Request $request){
+        
+        $exp = Seguimiento::find($request->input('exp_id'));
+        $exp->estado = $request->input('estado');
+        $exp->observacion = $request->input('observacion');
+        
+        $exp->update();
+        return view('expedientes.area_view', ['exp' => $exp]);
     }
 }
 

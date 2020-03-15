@@ -42,6 +42,13 @@ header {
 #observacion{
   height: 40px;
 }
+/*
+.caja a:hover { color: black; font-family: arial; text-decoration: none }
+*/
+.caja:hover{
+  background-color: #c6c1c1 !important; 
+  margin-top: 2px;
+}
 
 footer {
 	/*

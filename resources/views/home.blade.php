@@ -7,12 +7,7 @@
             <div class="card">
                 <div class="card-header"><strong>Bienvenidos a SISLEG</strong></div>
 
-                <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                        </div>
-                    @endif
+                <div class="card-body">      
 
                      <p>
                         <strong>SISLEG version 1.0</strong>.  

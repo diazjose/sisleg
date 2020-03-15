@@ -14,27 +14,41 @@
                         <strong>{{ session('message') }}</strong>   
                     </div>  
                     @endif  
-                    <h5><strong>Datos del Expediente</strong></h5><hr>                 
+                    @if($exp->legajo_id != 0)
+                    <h5><strong>Datos del Legajo</strong></h5><hr>
                     <div class="row mx-2">
                         <div class="form-group col-md-3">
                             <label>N° Legajo</label>
-                            <div class="form-control">@if($exp->legajo_id == 0) Ninguno @else <a href="{{route('view_leg', [$exp->legajo_id])}}">{{$exp->legajo->numero}}</a>  @endif</div>
-                        </div>
+                            <div class="form-control">{{$exp->legajo->numero}}</div>
+                        </div>                        
                         <div class="form-group col-md-3">
+                            <label>Tipo</label>
+                            <div class="form-control">{{$exp->legajo->tipo}}</div>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label>Denominacion</label>
+                            <div class="form-control">{{$exp->legajo->denominacion}}</div>
+                        </div>                        
+                    </div>
+                    <hr>
+                    @endif
+                    <h5><strong>Datos del Expediente</strong></h5><hr>                 
+                    <div class="row mx-2">
+                        <div class="form-group col-md-2">
                             <label>N° Expediente</label>
                             <div class="form-control">{{$exp->numero}}</div>
                         </div>
-                        <div class="form-group col-md-6">
+                        <div class="form-group col-md-5">
                             <label>Asunto</label>
                             <div class="form-control">{{$exp->asunto}}</div>
-                        </div>                        
-                    </div>    
-                    <div class="row mx-2">
+                        </div>
                         <div class="form-group col-md-5">
                             <label>Iniciador</label>
                             <div class="form-control">{{$exp->iniciador}}</div>
                         </div>                        
-                        <div class="form-group col-md-3">
+                    </div>    
+                    <div class="row mx-2">                                                
+                        <div class="form-group col-md-4">
                             <label>N° Formulario</label>
                             <div class="form-control">{{$exp->formulario}}</div>
                         </div>
@@ -46,13 +60,11 @@
                             <label>N° Fojas</label>
                             <div class="form-control">{{$exp->fojas}}</div>
                         </div>
-                    </div>  
-                    <div class="row mx-2">
-                        <div class="form-group col-md-3">
+                        <div class="form-group col-md-2">
                             <label>Fecha de Entrada</label>
                             <div class="form-control">{{$exp->created_at->format('d/m/Y')}}</div>
                         </div>
-                        <div class="form-group col-md-3">
+                        <div class="form-group col-md-2">
                             <label>Fecha de Salida</label>
                             <?php if ($exp->fecha_fin): ?>                                
                             <div class="form-control">{{date('d/m/Y', strtotime($exp->fecha_fin))}}</div>
@@ -60,6 +72,8 @@
                             <div class="form-control">00/00/0000</div>
                             <?php endif ?>                            
                         </div>
+                    </div>  
+                    <div class="row mx-2">                        
                         <div class="form-group col-md-3">
                             <label>Resolución</label>
                             <div class="form-control">@if($exp->resolucion){{$exp->resolucion}} @else No Tiene @endif</div>
@@ -72,7 +86,7 @@
                         </div>
                     </div>
                     <div class="row mx-2">
-                        <a type="button" class="btn btn-primary" href="{{ route('exp_edit', [$exp->id]) }}">
+                        <a type="button" class="btn btn-outline-primary" href="{{ route('exp_edit', [$exp->id]) }}">
                             Editar Expediente
                         </a>                          
                     </div>
@@ -90,12 +104,14 @@
                                 <h4><i class="fas fa-angle-double-down" id="flecha-abajo"></i></h4>   
                             </div>
                             <?php endif ?>    
-                            <?php if (count($exp->lugar)==1): ?>
+                            <?php if (count($exp->lugar)<4): ?>
                             <div class="col-md-3">                                
-                            <?php endif ?>                        
-                            <div class="card bg-{{$lugar->estado}}">
+                            <?php endif ?>
+                            <a href="#" style="text-decoration:none;color:white;" onclick="abrirSeg('{{$lugar->lugar}}','{{$lugar->estado}}','{{$lugar->created_at->format('d/m/Y')}}','{{$lugar->updated_at->format('d/m/Y')}}','{{$lugar->id}}')" data-toggle="modal" data-target="#lugarModal">
+                                <input type="hidden" value="{{$lugar->observacion}}" id="lugar{{$lugar->id}}">
+                                <div class="card bg-{{$lugar->estado}} caja">
                                 <div class="card-body text-center">
-                                    <h5><strong>{{$lugar->lugar}}</strong></h5>
+                                    <h5><strong class="area">{{$lugar->lugar}}</strong></h5>
                                     @switch($lugar->estado)
                                         @case('success')
                                             <div class="row my-1 d-flex justify-content-center">
@@ -105,7 +121,7 @@
                                             @break
                                         @case('danger')
                                             <div class="my-1 d-flex justify-content-center">
-                                                <h4><i class="fas fa-hand-paper"></i></a></h4>
+                                                <h4><i class="fas fa-hand-paper"></i></h4>
                                             </div>    
                                             @break
                                         @case('warning')
@@ -117,19 +133,16 @@
                                             @break        
                                     @endswitch 
                                    
-                                </div>
+                                </div>                               
                             </div>
-                            <?php if (count($exp->lugar)==1): ?>
+                             </a>
+                            <?php if (count($exp->lugar)<4): ?>
                             </div>                                
                             <?php endif ?>
                             @endforeach
                         @endif
                          
-                    </div>                    
-                    <hr>
-                    <div class="progress">
-                        <div class="progress-bar progress-bar-striped" style="width:40%"><strong>40 %</strong></div>
-                    </div>
+                    </div>                
                     <hr>
                     <div class="container">
                         <div class="col-md-2">
@@ -148,5 +161,5 @@
 @endsection
 
 @section('script')
-    <script src="{{ asset('js/legajos.js') }}"></script>
+    <script src="{{ asset('js/expedientes.js') }}"></script>
 @endsection

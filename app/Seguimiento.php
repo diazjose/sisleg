@@ -12,6 +12,6 @@ class Seguimiento extends Model
         'expediente_id', 'lugar', 'observacion', 'estado',
     ];
     public function expediente(){
-    	return $this->belongsTo('App\Legajo', 'expediente_id'); 
+    	return $this->belongsTo('App\Expediente', 'expediente_id'); 
     }
 }

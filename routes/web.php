@@ -37,10 +37,14 @@ Route::get('/expedientes', 'ExpedientesController@index')->name('exp_index');
 Route::get('/expedientes/nuevo', 'ExpedientesController@new')->name('exp_new');
 Route::post('/expedientes/create', 'ExpedientesController@create')->name('exp_create');
 Route::post('/expedientes/buscar', 'ExpedientesController@search')->name('exp_search');
+Route::post('/expedientes/buscar_area', 'ExpedientesController@search_area')->name('exp_search_area');
 Route::get('/expedientes/ver/{id}', 'ExpedientesController@view')->name('exp_view');
 Route::get('/expedientes/editar/{id}', 'ExpedientesController@edit')->name('exp_edit');
 Route::post('/expedientes/update', 'ExpedientesController@update')->name('exp_update');
 Route::post('/expedientes/seguir', 'ExpedientesController@tracing')->name('seg_create');
+Route::get('/expedientes/{area}', 'ExpedientesController@area')->name('exp_area');
+Route::get('/expediente/{id}', 'ExpedientesController@exp_area')->name('exp_area_view');
+Route::post('/expediente/estado', 'ExpedientesController@exp_status')->name('exp_status');
 
 /*PERSONAS*/
 Route::post('/personas/create', 'PersonasController@create')->name('preson_create');

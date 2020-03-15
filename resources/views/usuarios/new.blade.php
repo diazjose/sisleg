@@ -59,15 +59,14 @@
                             <div class="col-md-6">
                                 <select id="role" class="form-control @error('role') is-invalid @enderror" name="role" value="{{ old('role') }}" required autocomplete="role" autofocus>
                                     <option value="DIRECTOR">Director</option>
-                                    <option value=" MESA">Mesa</option>
-                                    <option value="SECCION">Sección</option>
-                                    <option value="SA">Dpto. SA</option>
-                                    <option value="ASESORIA">Dpto. Asesoría</option>
+                                    <option value="MESA">Mesa</option>
+                                    <option value="Sección">Sección</option>
+                                    <option value="Dpto_SA">Dpto. SA</option>
+                                    <option value="Dpto_Asesoría">Dpto. Asesoría</option>
                                     <option value="CONTABLE">Dpto. Contable</option>
-                                    <option value="LEGALES">Legales</option>
-                                    <option value="CIVILES">Dpto. Civiles</option>
+                                    <option value="Legales">Legales</option>
+                                    <option value="Dpto_Civiles">Dpto. Civiles</option>
                                 </select>
-
                                 @error('role')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>

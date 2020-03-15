@@ -1,5 +1,12 @@
 window.addEventListener("load", function(){
+	$(".role").each(function(){
+		var rol = $(this).text();
+		var text = rol.replace('_',' ');
+		$(this).text(text);	
+	});
 	
+	
+
 });
 function edit(id,name,surname,role,email){
 	

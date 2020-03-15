@@ -37,15 +37,17 @@
                 <div class="form-group mx-2">
                     <label>Enviar a:</label>
                     <select class="form-control" name="lugar">
-                        <option>Sección</option>
-                        <option>Dpto. SA</option>
-                        <option>Dpto. Asesoría</option>
-                        <option>Dpto. Contable</option>
+                        <option value="DIRECTOR">Director</option>
+                        <option value="MESA">Mesa</option>
+                        <option value="SECCION">Sección</option>
+                        <option value="SA">Dpto. SA</option>
+                        <option value="ASESORIA">Dpto. Asesoría</option>
+                        <option value="CONTABLE">Dpto. Contable</option>
+                        <option value="LEGALES">Legales</option>
+                        <option value="CIVILES">Dpto. Civiles</option>
                         <option>Despacho</option>
                         <option>Legales</option>
                         <option>Archivo del Gobierno</option>
-                        <option>Dpto. Asc. Civiles</option>
-
                     </select>
                 </div>
                 <!--
@@ -66,20 +68,34 @@
 </div>
 
 <!-- Modal de Seguimiento -->
-<div class="modal fade" id="abrirModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+<div class="modal fade" id="lugarModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered" role="document">
-    <div class="modal-content">
-      <div class="modal-header bg-secondary text-white">
-        <h5 class="modal-title" id="exampleModalCenterTitle"><strong>Ubicacion de Expediente</strong></h5>
+    <div class="modal-content" id="mod-seg">
+      <div class="modal-header text-white">
+        <h5 class="modal-title" id="exampleModalCenterTitle"><strong id="lugar"></strong></h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-body">
-            seguimiento
+          
+          <div class="row mx-4">
+            <div class="form-group col-6">
+                <label><strong>Fecha de Ingreso</strong></label>
+                <p id="ini"></p>
+            </div>
+            <div class="form-group col-6">
+                <label><strong>Ultima Revision</strong></label>
+                <p id="fin"></p>
+            </div>
+          </div>  
+            <div class="form-group mx-4 col-8">
+                <label><strong>Observacion</strong></label>
+                <p id="obs"></p>
+            </div>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-primary">Enviar</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
       </div>
     </div>
   </div>
