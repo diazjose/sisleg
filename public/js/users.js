@@ -4,8 +4,24 @@ window.addEventListener("load", function(){
 		var text = rol.replace('_',' ');
 		$(this).text(text);	
 	});
-	
-	
+
+	$("#buscar").on("keyup", function(){
+		var buscar = $(this).val();
+		var form = $("#form-search");
+		var url = form.attr('action');
+		$("#form_buscar").val(buscar);
+		var data = form.serialize();
+		$.ajax({          
+	        url: 'usuarios/	buscar',
+	        type: 'POST',
+	        data : data,
+	        success: function(data){
+	        	$("#tbody").remove('tr');
+	            $("#tbody").html(data);
+	            console.log(data);
+	        }
+	    });
+	});
 
 });
 function edit(id,name,surname,role,email){
@@ -14,7 +30,7 @@ function edit(id,name,surname,role,email){
 	$("#user_id").val(id);
 	$("#name").val(name);
 	$("#surname").val(surname);
-	$("#role option[value="+ role +"]").attr("selected",true);
+	$('#role option[value="'+ role +'"]').attr("selected",true);
 	$("#email").val(email);
 };
 

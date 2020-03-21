@@ -59,7 +59,10 @@
                         @guest                                                        
                             @else
                                 @switch(Auth::user()->role)
-                                    @case('DIRECTOR')
+                                    @case('Director' or 'Secretaria')
+                                        <li class="nav-item links">
+                                            <a class="nav-link" href="{{ route('legajos_index') }}"><strong>{{ __('Legajos') }}</strong></a>
+                                        </li>
                                         <li class="nav-item links">
                                             <a class="nav-link" href="{{ route('exp_index') }}"><strong>{{ __('Expedientes') }}</strong></a>
                                         </li>                            
@@ -70,7 +73,7 @@
                                             <a class="nav-link" href="{{ route('users.index') }}">Usuarios</a>
                                         </li>
                                         @break
-                                    @case('MESA')
+                                    @case('Mesa_de_entrada')
                                         <li class="nav-item links">
                                             <a class="nav-link" href="{{ route('legajos_index') }}"><strong>{{ __('Legajos') }}</strong></a>
                                         </li>

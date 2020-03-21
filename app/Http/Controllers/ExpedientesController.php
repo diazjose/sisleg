@@ -18,8 +18,8 @@ class ExpedientesController extends Controller
     public function index(){
     	return view('expedientes.index');
     }
-    public function new(){
-    	return view('expedientes.new');
+    public function new($id = ''){
+    	return view('expedientes.new', ['id' => $id]);
     }
 
      public function create(Request $request){
@@ -46,7 +46,7 @@ class ExpedientesController extends Controller
     	$exp->formulario = $request->input('formulario');
 		
 		$exp->save();
-
+        
     	return redirect()->route('exp_new')
                          ->with(['message' => 'Expediente cargado correctamente', 'status' => 'success']);
 

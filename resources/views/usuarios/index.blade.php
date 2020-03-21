@@ -10,7 +10,7 @@
                 <div class="card-body">
                     <div class="row">
                         <div class="col-md-5 my-3">
-                          <input id="buscar" type="text" class="form-control" style="text-transform:uppercase;" placeholder="N° de Expediente o N° de Formulario"><br>
+                            <h5><strong>Listado de Usuarios</strong></h5>
                         </div>
                         <div class="col-md-5"></div>
                         <div class="col-md-2 my-3">
@@ -26,7 +26,7 @@
                     @endif 
                     <div class="table-responsive" id="resultado">
                         <table class="table">
-                            <thead>
+                            <thead class="thead-light">
                                 <th>Apellido</th>
                                 <th>Nombre</th>
                                 <th>Rol</th>
@@ -41,8 +41,8 @@
                                     <td class="role">{{$user->role}}</td>
                                     <td>{{$user->email}}</td>
                                     <td>
-                                        <a href="#" class="btn btn-white border p-1 mx-1" onclick="edit('{{$user->id}}','{{$user->name}}','{{$user->surname}}','{{$user->role}}','{{$user->email}}')" data-toggle="modal" data-target="#editModal" title="Editar Usuario" ><i class="fas fa-edit"></i></a>
-                                        <a href="#" class="btn btn-white border p-1 mx-1" onclick="Borrar({{$user->id}},'{{$user->name}}','{{$user->surname}}')" data-toggle="modal" data-target="#confirm" title="Eliminar Usuario"><i class="fas fa-trash-alt"></i></a>
+                                        <a href="#" class="btn btn-outline-primary" onclick="edit('{{$user->id}}','{{$user->name}}','{{$user->surname}}','{{$user->role}}','{{$user->email}}')" data-toggle="modal" data-target="#editModal" title="Editar Usuario" ><i class="fas fa-edit"></i></a>
+                                        <a href="#" class="btn btn-outline-danger" onclick="Borrar({{$user->id}},'{{$user->name}}','{{$user->surname}}')" data-toggle="modal" data-target="#confirm" title="Eliminar Usuario"><i class="fas fa-trash-alt"></i></a>
                                     </td>
                                 </tr>
                                 @endforeach
@@ -122,14 +122,15 @@
 
                             <div class="col-md-6">
                                 <select id="role" class="form-control @error('role') is-invalid @enderror" name="role" value="{{ old('role') }}" required autocomplete="role" autofocus>
-                                    <option value="DIRECTOR">Director</option>
-                                    <option value="MESA">Mesa</option>
-                                    <option value="SECCION">Sección</option>
-                                    <option value="SA">Dpto. SA</option>
-                                    <option value="ASESORIA">Dpto. Asesoría</option>
-                                    <option value="CONTABLE">Dpto. Contable</option>
-                                    <option value="LEGALES">Legales</option>
-                                    <option value="CIVILES">Dpto. Civiles</option>
+                                    <option value="Secretaria">Secretaria</option>
+                                    <option value="Director">Director</option>
+                                    <option value="Mesa">Mesa de Entrada</option>
+                                    <option value="Sección">Sección</option>
+                                    <option value="Dpto._SA">Dpto. SA</option>
+                                    <option value="Dpto._Asesoría">Dpto. Asesoría</option>
+                                    <option value="Dpto._Contable">Dpto. Contable</option>
+                                    <option value="Legales">Legales</option>
+                                    <option value="Dpto._Civiles">Dpto. Civiles</option>
                                 </select>
 
                                 @error('role')

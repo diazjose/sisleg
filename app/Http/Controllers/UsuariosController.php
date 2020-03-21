@@ -81,4 +81,27 @@ class UsuariosController extends Controller
                          ->with(['message' => 'Se ha eliminado a '.$name, 'status' => 'danger']);
 
     }
+
+    public function search(Request $request){
+        $buscar = $request->input('buscar');
+        $users = User::where('name','LIKE', '%'.$buscar.'%')
+                        ->orWhere('surname','LIKE', '%'.$buscar.'%')
+                        ->orWhere('role','LIKE', '%'.$buscar.'%')
+                        ->paginate(10);
+        $html = '';      
+        foreach ($users as $user) {
+            $html.= '<tr>'; 
+                $html .= '<td>'.$user->surname.'</td>';
+                $html .= '<td>'.$user->name.'</td>';
+                $html .= '<td>'.$user->role.'</td>';
+                $html .= '<td>'.$user->email.'</td>';
+                $html .= '<td>';
+                    $html .= '<a href="#" class="btn btn-outline-primary" onclick="edit('.$user->id.','.$user->name.','.$user->surname.','.$user->role.','.$user->email.')" data-toggle="modal" data-target="#editModal" title="Editar Usuario" ><i class="fas fa-edit"></i></a>';
+                    $html .= '<a href="#" class="btn btn-outline-danger" onclick="Borrar('.$user->id.','.$user->name.','.$user->surname.')" data-toggle="modal" data-target="#confirm" title="Eliminar Usuario"><i class="fas fa-trash-alt"></i></a>';
+                $html .= '</td>';
+            $html .= '</tr>';    
+        }
+            
+        return response()->json($html); 
+    }
 }

@@ -61,6 +61,57 @@ class LegajosController extends Controller
 
     }
 
+    public function update(Request $request){
+        
+        $id = $request->input('id');
+        $legajo = Legajo::find($id);        
+        /*
+        var_dump($request->input('id')."<br>");
+        var_dump($request->input('numero')."<br>");
+        var_dump($request->input('tipo')."<br>");
+        var_dump($request->input('denominacion')."<br>");
+        var_dump($request->input('juridiccion')."<br>");
+        var_dump($request->input('direccion')."<br>");
+        var_dump($request->input('resolucion')."<br>");
+        var_dump($request->input('fecha_inicio')."<hr>");
+        */
+        $validate = $this->validate($request, [
+                'numero' => ['required', 'string','max:255', 'unique:legajos,numero,'.$id],
+                'denominacion' => ['required', 'string','max:255', 'unique:legajos,denominacion,'.$id],
+                'juridiccion' => ['required', 'string','max:255'],
+                'direccion' => ['required', 'string','max:255'],
+                'resolucion' => ['required', 'string','max:255'],
+
+            ],
+            [
+                'numero.unique' => 'El N° Legajo ya existe en la Base de Datos',
+                'denominacion.unique' => 'Ya existe un Legajo con esta Denominacion',
+            ]);
+        
+        $legajo->numero = $request->input('numero');
+        $legajo->tipo = $request->input('tipo');
+        $legajo->denominacion = strtoupper($request->input('denominacion'));
+        $legajo->juridiccion = $request->input('juridiccion');
+        $legajo->direccion = strtoupper($request->input('direccion'));
+        $legajo->resolucion = $request->input('resolucion');
+        $legajo->fecha_inicio = $request->input('fecha_inicio');
+        /*
+        var_dump($legajo->numero."<br>");
+        var_dump($legajo->tipo."<br>");
+        var_dump($legajo->denominacion."<br>");
+        var_dump($legajo->juridiccion."<br>");
+        var_dump($legajo->direccion."<br>");
+        var_dump($legajo->resolucion."<br>");
+        var_dump($legajo->fecha_inicio."<br>");
+        die();*/
+        $legajo->update();
+        return view('legajos.view', ['legajo' => $legajo]);
+        /*
+        return redirect()->route('', ['legajo' => $legajo])
+                         ->with(['message' => 'Legajo Actualizado correctamente', 'status' => 'success']);
+    */
+    }
+
     public function search(Request $request){
         $buscar = $request->input('buscar');
         

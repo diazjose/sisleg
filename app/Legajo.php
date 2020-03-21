@@ -15,4 +15,8 @@ class Legajo extends Model
     public function cargos(){
     	return $this->hasMany('App\Cargo'); 
     }
+
+    public function expedientes(){
+    	return $this->hasMany('App\Expediente')->orderBy('id', 'DESC');	
+    }
 }
