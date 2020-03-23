@@ -81,15 +81,20 @@
                                             <th>Apellidos</th>
                                             <th>Inicio Mandato</th>
                                             <th>Fin de Mandato</th>
+                                            <th>Acciones</th>
                                         </thead>
                                         <tbody>
-                                        @foreach($legajo->cargos as $autoridad)
+                                        @foreach($legajo->cargoActivos as $autoridad)
                                             <tr>
                                                 <td>{{$autoridad->cargo}}</td>
                                                 <td>{{$autoridad->persona->name}}</td>
                                                 <td>{{$autoridad->persona->surname}}</td>
                                                 <td>{{date('d/m/Y', strtotime($autoridad->fecha_inicio))}}</td>
                                                 <td>{{date('d/m/Y', strtotime($autoridad->fecha_fin))}}</td>
+                                                <td>
+                                                    <a href="{{route('person_edit', $autoridad->id)}}" class="btn btn-outline-primary" title="Editar Usuario" ><i class="fas fa-edit"></i></a>
+                                                    <a href="#" class="btn btn-outline-danger" onclick="Borrar({{$autoridad->id}},{{$legajo->id}},'{{$autoridad->persona->name}}','{{$autoridad->persona->surname}}')" data-toggle="modal" data-target="#confirm" title="Eliminar Cargo"><i class="fas fa-trash-alt"></i></a>
+                                                </td>
                                             </tr>
                                         @endforeach
                                         </tbody>
@@ -235,9 +240,9 @@
                         </div>
                     </div>    
                     <div class="form-group row">
-                        <label for="adress" class="col-md-3 col-form-label text-md-right">{{ __('Direccion') }}</label>        
+                        <label for="address" class="col-md-3 col-form-label text-md-right">{{ __('Direccion') }}</label>        
                         <div class="col-md-7">
-                            <input id="adress" type="text" class="form-control" name="adress" value="{{ old('adress') }}"  style="text-transform:uppercase;" required autocomplete="adress">
+                            <input id="address" type="text" class="form-control" name="address" value="{{ old('address') }}"  style="text-transform:uppercase;" required autocomplete="adress">
                             @error('adress')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
@@ -343,6 +348,40 @@
             -->                    
         </div>
     </div>
+</div>
+<!--Confirm-->
+<div class="modal fade" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true" id="confirm">
+  <div class="modal-dialog modal-md">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title" id="myModalLabel">¿Estas seguro de realizar esta accion?</strong>?</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-dismiss="modal" data-toggle="modal" data-target="#confirm-si">Si</button>
+        <button type="button" class="btn btn-primary" data-dismiss="modal">No</button>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal fade" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true" id="confirm-si">
+  <div class="modal-dialog modal-md">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title" id="myModalLabel">¿Desea eliminar a <strong><span id="nombre"></span></strong> de su Cargo?</strong>?</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      </div>
+      <form method="POST" action="{{route('person_delete')}}">
+          @csrf
+          <input type="hidden" name="id" id="cargo_id" value="">
+          <input type="hidden" name="legajo" id="leg" value="">
+          <div class="modal-footer">
+            <button type="submit" class="btn btn-danger">Si</button>
+            <button type="button" class="btn btn-primary" data-dismiss="modal">No</button>
+          </div>
+      </form>
+    </div>
+  </div>
 </div>  
 
 @endsection

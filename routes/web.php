@@ -51,6 +51,9 @@ Route::post('/expediente/estado', 'ExpedientesController@exp_status')->name('exp
 /*PERSONAS*/
 Route::post('/personas/create', 'PersonasController@create')->name('preson_create');
 Route::post('/personas/buscar', 'PersonasController@search')->name('person_search');
+Route::get('/personas/editar/{id}', 'PersonasController@edit')->name('person_edit');
+Route::post('/persosnas/update', 'PersonasController@update')->name('person_update');
+Route::post('/personas/cargo/eliminar', 'PersonasController@destroy')->name('person_delete');
 
 
 

@@ -59,3 +59,12 @@ function edit(num,tipo,denominacion,juri,dir,resolucion,fecha){
 	$("#resolucion").val(resolucion);
 	$("#fecha_inicio").val(fecha);
 }
+
+function Borrar(id,leg,name,surname){
+	console.log(id+' '+name+' '+surname);
+	
+	$("#nombre").text(name+' '+surname);
+	$("#cargo_id").val(id);
+	$("#leg").val(leg);
+	
+}
