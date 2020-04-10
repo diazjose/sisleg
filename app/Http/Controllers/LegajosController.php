@@ -51,14 +51,16 @@ class LegajosController extends Controller
     	$legajo->denominacion = strtoupper($request->input('denominacion'));
     	$legajo->juridiccion = $request->input('juridiccion');
     	$legajo->direccion = strtoupper($request->input('direccion'));
+        $legajo->zona = $request->input('zona');
     	$legajo->resolucion = $request->input('resolucion');
     	$legajo->fecha_inicio = $request->input('fecha_inicio');
 
     	$legajo->save();
 
-    	return redirect()->route('new_legajo')
+        return view('legajos.view', ['legajo' => $legajo]);/*
+    	return redirect()->route('view_leg', [''])
                          ->with(['message' => 'Legajo cargado correctamente', 'status' => 'success']);
-
+*/
     }
 
     public function update(Request $request){

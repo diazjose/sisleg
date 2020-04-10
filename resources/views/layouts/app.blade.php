@@ -64,12 +64,32 @@
                                         </li>
                                         <li class="nav-item links">
                                             <a class="nav-link" href="{{ route('exp_index') }}"><strong>{{ __('Expedientes') }}</strong></a>
-                                        </li>                            
-                                        <li class="nav-item links">
-                                            <a class="nav-link" href="#"><strong>{{ __('Consultas') }}</strong></a>
-                                        </li>
+                                        </li>                    
                                         <li class="nav-item links">
                                             <a class="nav-link" href="{{ route('users.index') }}">Usuarios</a>
+                                        </li>
+                                        <li class="nav-item dropdown links">
+                                            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                                <strong>Consultas</strong><span class="caret"></span>
+                                            </a>
+
+                                            <div class="dropdown-menu dropdown-menu-right links" aria-labelledby="navbarDropdown">
+                                                <a class="dropdown-item" href="{{route('consultas.index', 'CENTRO VECINAL')}}">
+                                                    Centro Vecinales
+                                                </a>
+                                                <a class="dropdown-item" href="{{route('consultas.index', 'FUNDACION')}}">
+                                                    Fundaciones
+                                                </a>
+                                                <a class="dropdown-item" href="{{route('consultas.index', 'CLUB')}}">
+                                                    Clubes
+                                                </a>
+                                                <a class="dropdown-item" href="{{route('consultas.index', 'SAPEM')}}">
+                                                    SAPEM
+                                                </a>
+                                                <a class="dropdown-item" href="{{route('consultas.index', 'SAS')}}">
+                                                    S.A.S.
+                                                </a>
+                                            </div>
                                         </li>
                                         @break
                                     @case('Mesa_de_entrada')

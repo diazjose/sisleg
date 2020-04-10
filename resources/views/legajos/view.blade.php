@@ -58,7 +58,7 @@
                                         <div class="form-control">{{$legajo->resolucion}}</div>
                                     </div>
                                     <div class="form-group col-md-3">
-                                        <label>Fecha de Inicio de Actividad</label>
+                                        <label>Inicio de Actividad</label>
                                         <div class="form-control">{{date('d/m/Y', strtotime($legajo->fecha_inicio))}}</div>
                                     </div>
                                 </div>                     

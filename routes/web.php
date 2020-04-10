@@ -32,7 +32,7 @@ Route::get('/legajos/nuevo', 'LegajosController@new')->name('new_legajo');
 Route::post('/legajos/create', 'LegajosController@create')->name('create_leg');
 Route::post('/legajos/update', 'LegajosController@update')->name('update_leg');
 Route::post('/legajos/buscar', 'LegajosController@search')->name('search_leg');
-Route::get('/legajos/ver/{id}', 'LegajosController@view')->name('view_leg');
+Route::get('/legajos/ver/{id}/', 'LegajosController@view')->name('view_leg');
 
 /*EXPEDIENTES*/
 Route::get('/expedientes', 'ExpedientesController@index')->name('exp_index');
@@ -55,5 +55,8 @@ Route::get('/personas/editar/{id}', 'PersonasController@edit')->name('person_edi
 Route::post('/persosnas/update', 'PersonasController@update')->name('person_update');
 Route::post('/personas/cargo/eliminar', 'PersonasController@destroy')->name('person_delete');
 
+
+/*CONSULTAS*/
+Route::get('/consultas/{tipo}', 'ConsultasController@index')->name('consultas.index');
 
 

@@ -19,4 +19,8 @@ class Cargo extends Model
     public function persona(){
     	return $this->belongsTo('App\Persona', 'person_id'); 
     }
+
+    public function presidente(){
+        return $this->belongsTo('App\Persona', 'person_id')->where('cargo','PRESIDENTE')->where('estado', 'Activo');   
+    }
 }

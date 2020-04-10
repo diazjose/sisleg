@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col">
             <div class="card">
-                <div class="card-header"><strong>Manupular Legajos</strong></div>
+                <div class="card-header bg-secondary text-white"><h4><strong>Manupular Legajos</strong></h4></div>
 
                 <div class="card-body">
                     <div class="row">

@@ -98,6 +98,20 @@
                         </div>
 
                         <div class="form-group row">
+                            <label for="zona" class="col-md-4 col-form-label text-md-right">{{ __('Zona') }}</label>
+
+                            <div class="col-md-6">
+                                <select id="zona" class="form-control" name="zona" required>
+                                    <option disabled >--Seleccionar--</option>
+                                    <option value="Este">Este</option>
+                                    <option value="Oeste">Oeste</option>
+                                    <option value="Sur">Sur</option>
+                                    <option value="Norte">Norte</option>
+                                </select>
+                              </div>
+                        </div>
+
+                        <div class="form-group row">
                             <label for="resolucion" class="col-md-4 col-form-label text-md-right">{{ __('Resolucion') }}</label>
 
                             <div class="col-md-6">

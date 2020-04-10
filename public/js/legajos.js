@@ -35,7 +35,7 @@ window.addEventListener("load", function(){
 	        		$("#surname").val(persona[0].surname);
 	        		$("#email").val(persona[0].email);
 	        		$("#dni").val(persona[0].dni);
-	        		$("#adress").val(persona[0].adress);
+	        		$("#address").val(persona[0].address);
 	        		$("#phone").val(persona[0].phone);
 	        	}else{
 	        		console.log('no');

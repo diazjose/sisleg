@@ -19,3 +19,4 @@ class Expediente extends Model
     	return $this->hasMany('App\Seguimiento')->orderBy('id', 'ASC'); 
     }
 }
+
