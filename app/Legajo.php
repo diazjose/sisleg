@@ -24,9 +24,6 @@ class Legajo extends Model
     	return $this->hasMany('App\Expediente')->orderBy('id', 'DESC');	
     }
 
-    public function pres(){
-        return $this->hasMany('App\Cargo')->where('cargo', 'PRESIDENTE')->where('estado','Activo');
-    }
 }
 
 

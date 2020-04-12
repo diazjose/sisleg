@@ -57,6 +57,7 @@ Route::post('/personas/cargo/eliminar', 'PersonasController@destroy')->name('per
 
 
 /*CONSULTAS*/
-Route::get('/consultas/{tipo}', 'ConsultasController@index')->name('consultas.index');
+Route::get('/consultas/{tipo}/{juri?}/{zona?}/{mandato?}', 'ConsultasController@index')->name('consultas.index');
+//Route::post('/consultas/{tipo}', 'ConsultasController@index')->name('consultas.index');
 
 

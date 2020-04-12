@@ -12,10 +12,10 @@
                         <div class="col-md-2 border-right">
                             <h5><strong>Realizar Busqueda</strong></h5>
                             <form method="" action="">
-                                <input type="hidden" name="tipo" value="{{$tipo}}">
+                                <input type="hidden" id="tipo" name="tipo" value="{{$tipo}}">
                                 <div class="form-group">
                                     <label for="juridiccion"><strong>Juridiccion</strong></label>
-                                    <select id="juridiccion" class="form-control" name="juridiccion">
+                                    <select id="juridiccion" class="form-control search" name="juridiccion">
                                         <option value="todos">Todos</option>
                                         <option value="Arauco (Aimogasta)">Arauco (Aimogasta)</option>
                                         <option value="Capital (La Rioja)">Capital (La Rioja)</option>
@@ -37,9 +37,9 @@
                                         <option value="Vinchina (Villa San José de Vinchina)">Vinchina (Villa San José de Vinchina)</option>
                                     </select>
                                 </div>
-                                <div class="form-group">
+                                <div class="form-group" id="zona-select" style="display: none;">
                                     <label for="zona"><strong>Zona</strong></label>
-                                    <select id="zona" class="form-control" name="zona">
+                                    <select id="zona" class="form-control search" name="zona">
                                         <option value="todos">Todos</option>
                                         <option value="Este">Este</option>
                                         <option value="Oeste">Oeste</option>
@@ -49,14 +49,14 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="mandato"><strong>Mandato</strong></label>
-                                    <select id="mandato" class="form-control" name="mandato">
+                                    <select id="mandato" class="form-control search" name="mandato">
                                         <option value="todos">Todos</option>
-                                        <option value="Este">Activo</option>
-                                        <option value="Oeste">Vencido</option>
+                                        <option value="Activo">Activo</option>
+                                        <option value="Vencido">Vencido</option>
                                     </select>
                                 </div>
                                 <div class="form-group">
-                                    <button type="submit" class="form-control my-2 btn btn-success"><strong>Buscar</strong></button>
+                                    <a href="#" id="consultar" class="form-control my-2 btn btn-primary"><strong>Buscar</strong></a>
                                 </div>
                             </form>
                         </div>
@@ -77,6 +77,7 @@
                                         <th>Direccion</th>
                                         <th>Resolucion</th>
                                         <th>Presidente</th>
+                                        <th>Mandato</th>
                                         <th>Acciones</th>
                                     </thead>
                                     <tbody id="tbody">
@@ -87,13 +88,14 @@
                                             <td>{{$centro->zona}}</td>
                                             <td>{{$centro->direccion}}</td>
                                             <td>{{$centro->resolucion}}</td>
-                                            <td>
-                                                @foreach($centro->cargoActivos as $pres)
-                                                    @if($pres->cargo == 'PRESIDENTE')
+                                            @foreach($centro->cargoActivos as $pres)
+                                                @if($pres->cargo == 'PRESIDENTE')
+                                                <td>
                                                     {{$pres->persona->name}} {{$pres->persona->surname}}
-                                                    @endif
-                                                @endforeach
-                                            </td>
+                                                </td>
+                                                <td>{{date('d/m/Y', strtotime($pres->fecha_fin))}}</td>    
+                                                @endif
+                                            @endforeach
                                             <td>
                                                 <a href="{{route('view_leg', $centro->id)}}" class="btn btn-outline-primary" title="Ver Institucion" ><i class="far fa-eye"></i></a>
                                             </td>
@@ -122,5 +124,5 @@
 </div>
 @endsection
 @section('script')
-    <script src="{{ asset('js/users.js') }}"></script>
+    <script src="{{ asset('js/consultas.js') }}"></script>
 @endsection

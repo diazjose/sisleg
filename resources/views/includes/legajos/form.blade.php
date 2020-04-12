@@ -102,7 +102,7 @@
 
                             <div class="col-md-6">
                                 <select id="zona" class="form-control" name="zona" required>
-                                    <option disabled >--Seleccionar--</option>
+                                    <option value="Todos">Todos</option>
                                     <option value="Este">Este</option>
                                     <option value="Oeste">Oeste</option>
                                     <option value="Sur">Sur</option>
