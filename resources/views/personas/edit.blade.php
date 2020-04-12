@@ -136,7 +136,7 @@
                                 <div class="col-md-7">
                                     <select class="form-control" name="estado">
                                         <option>Activo</option>
-                                        <option>Caducado</option>
+                                        <option>Vencido</option>
                                     </select>
                                 </div>
                             </div>      

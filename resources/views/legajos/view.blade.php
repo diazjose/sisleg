@@ -101,8 +101,8 @@
                                     </table>
                                 </div>
                                 @else
-                                <div class="mx-5">
-                                    <h4>No tiene autoridades cargadas...</h4>
+                                <div class="mx-5 text-center">
+                                    <h4 class="text-danger"><strong>No tiene autoridades cargadas...</strong></h4>
                                 </div>
                                 @endif
                                 <div class="col-md-4">
@@ -137,8 +137,8 @@
                                     </table>
                                 </div>
                                 @else
-                                <div class="mx-5">
-                                    <h4>No tiene expedientes cargados...</h4>
+                                <div class="mx-5 text-center">
+                                    <h4 class="text-danger"><strong>No tiene expedientes cargados...</strong></h4>
                                 </div>
                                 @endif                                     
                             </div>

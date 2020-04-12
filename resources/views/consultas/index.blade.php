@@ -62,12 +62,25 @@
                         </div>
                     
                         <div class="col-md-10">
-                            @if(count($cv)>0)
                             <div class="row">
-                                <div class="col-md-5 my-3">
-                                    <h5><strong>Listado de {{$tipo}}</strong></h5>
+                                <div class="col-md-8 my-3">
+                                    <h5>
+                                        <strong>
+                                            Listado de {{$tipo}} 
+                                            @if($juridiccion != 'todos')
+                                            - {{$juridiccion}} 
+                                            @endif 
+                                            @if($zona != 'todos')
+                                            - zona {{$zona}} 
+                                            @endif
+                                            @if($estado != 'todos')
+                                            - Mandato {{$estado}}
+                                            @endif
+                                        </strong>
+                                    </h5>
                                 </div>    
                             </div>
+                            @if(count($cv)>0)
                             <div class="table-responsive" id="resultado">
                                 <table class="table">
                                     <thead class="thead-light">
@@ -88,14 +101,19 @@
                                             <td>{{$centro->zona}}</td>
                                             <td>{{$centro->direccion}}</td>
                                             <td>{{$centro->resolucion}}</td>
-                                            @foreach($centro->cargoActivos as $pres)
-                                                @if($pres->cargo == 'PRESIDENTE')
-                                                <td>
-                                                    {{$pres->persona->name}} {{$pres->persona->surname}}
-                                                </td>
-                                                <td>{{date('d/m/Y', strtotime($pres->fecha_fin))}}</td>    
-                                                @endif
-                                            @endforeach
+                                            @if(count($centro->cargoActivos)>0)
+                                                @foreach($centro->cargoActivos as $pres)
+                                                    @if($pres->cargo == 'PRESIDENTE')
+                                                    <td>
+                                                        {{$pres->persona->name}} {{$pres->persona->surname}}
+                                                    </td>
+                                                    <td>{{date('d/m/Y', strtotime($pres->fecha_fin))}}</td>    
+                                                    @endif
+                                                @endforeach
+                                            @else
+                                            <td>no</td>
+                                            <td>no</td>
+                                            @endif
                                             <td>
                                                 <a href="{{route('view_leg', $centro->id)}}" class="btn btn-outline-primary" title="Ver Institucion" ><i class="far fa-eye"></i></a>
                                             </td>
@@ -112,12 +130,6 @@
                         </div>
                     </div>        
                 </div>
-            </div>
-            <div style="display: none">
-                <form action="" method="POST" id="form-search">
-                    @csrf
-                    <input type="text" name="buscar" value="" id="form_buscar" />
-                </form>
             </div>
         </div>
     </div>
