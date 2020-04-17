@@ -95,29 +95,80 @@
                                     </thead>
                                     <tbody id="tbody">
                                         @foreach($cv as $centro)
-                                        <tr>
-                                            <td>{{$centro->denominacion}}</td>
-                                            <td>{{$centro->juridiccion}}</td>
-                                            <td>{{$centro->zona}}</td>
-                                            <td>{{$centro->direccion}}</td>
-                                            <td>{{$centro->resolucion}}</td>
+                                        @if($estado != '' AND $estado == 'Activo')
                                             @if(count($centro->pres)>0)
                                                 @foreach($centro->pres as $pres)
-                                                    <!--@if($pres->cargo == 'PRESIDENTE')-->
-                                                    <td>
-                                                        {{$pres->persona->name}} {{$pres->persona->surname}}
-                                                    </td>
-                                                    <td>{{date('d/m/Y', strtotime($pres->fecha_fin))}}</td>    
-                                                    <!--@endif-->
+                                                    @if($pres->fecha_fin > date('Y-m-d'))
+                                                    <tr>
+                                                        <td>{{$centro->denominacion}}</td>
+                                                        <td>{{$centro->juridiccion}}</td>
+                                                        <td>{{$centro->zona}}</td>
+                                                        <td>{{$centro->direccion}}</td>
+                                                        <td>{{$centro->resolucion}}</td>
+                                                        <td>
+                                                            {{$pres->persona->name}} {{$pres->persona->surname}}
+                                                        </td>
+                                                        <td>
+                                                            {{date('d/m/Y', strtotime($pres->fecha_fin))}}
+                                                        </td>    
+                                                        <td>
+                                                            <a href="{{route('view_leg', $centro->id)}}" class="btn btn-outline-primary" title="Ver Institucion" ><i class="far fa-eye"></i></a>
+                                                        </td>
+                                                    </tr>
+                                                    @endif
                                                 @endforeach
-                                            @else
-                                            <td>no</td>
-                                            <td>no</td>
                                             @endif
-                                            <td>
-                                                <a href="{{route('view_leg', $centro->id)}}" class="btn btn-outline-primary" title="Ver Institucion" ><i class="far fa-eye"></i></a>
-                                            </td>
-                                        </tr>
+                                        @else
+                                            @if($estado != '' AND $estado == 'Vencido')
+                                                @if(count($centro->pres)>0)
+                                                    @foreach($centro->pres as $pres)
+                                                        @if($pres->fecha_fin < date('Y-m-d'))
+                                                        <tr>
+                                                            <td>{{$centro->denominacion}}</td>
+                                                            <td>{{$centro->juridiccion}}</td>
+                                                            <td>{{$centro->zona}}</td>
+                                                            <td>{{$centro->direccion}}</td>
+                                                            <td>{{$centro->resolucion}}</td>
+                                                            <td>
+                                                                {{$pres->persona->name}} {{$pres->persona->surname}}
+                                                            </td>
+                                                            <td>
+                                                                {{date('d/m/Y', strtotime($pres->fecha_fin))}}
+                                                            </td>    
+                                                            <td>
+                                                                <a href="{{route('view_leg', $centro->id)}}" class="btn btn-outline-primary" title="Ver Institucion" ><i class="far fa-eye"></i></a>
+                                                            </td>
+                                                        </tr>
+                                                        @endif
+                                                    @endforeach
+                                                @endif
+                                            @else
+                                            <tr>
+                                                <td>{{$centro->denominacion}}</td>
+                                                <td>{{$centro->juridiccion}}</td>
+                                                <td>{{$centro->zona}}</td>
+                                                <td>{{$centro->direccion}}</td>
+                                                <td>{{$centro->resolucion}}</td>
+                                                @if(count($centro->pres)>0)
+                                                    @foreach($centro->pres as $pres)
+                                                       <td>
+                                                            {{$pres->persona->name}} {{$pres->persona->surname}}
+                                                        </td>
+                                                        <td>
+                                                            {{date('d/m/Y', strtotime($pres->fecha_fin))}}
+                                                        </td>    
+                                                    @endforeach
+                                                @else
+                                                <td>no</td>
+                                                <td>no</td>
+                                                @endif
+                                                <td>
+                                                    <a href="{{route('view_leg', $centro->id)}}" class="btn btn-outline-primary" title="Ver Institucion" ><i class="far fa-eye"></i></a>
+                                                </td>
+                                            </tr>
+                                            @endif
+                                        @endif
+                                        
                                         @endforeach
                                     </tbody>
                                 </table>

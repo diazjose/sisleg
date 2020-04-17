@@ -35,10 +35,11 @@ header {
 }
 
 .bg-white {
+  /*
 	height: 50px;
-    background-color: #FFE7E2 !important;
+  */
+  background-color: #FFE7E2 !important;
 }
-
 #observacion{
   height: 40px;
 }
@@ -186,6 +187,10 @@ ul.social-network li {
 @media (max-width: 600px) {
   .bg-white {
     background-color: #BF1102 !important;
+  }
+
+  .nav-link{
+    color: #FDFEFE;
   }
 
   #logo {
