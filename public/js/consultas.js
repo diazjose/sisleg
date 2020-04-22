@@ -1,4 +1,26 @@
 window.addEventListener("load", function(){
+	
+	var tipo = $("#poti").text();
+	if($("#juri").text() != ''){
+		var juri = $("#juri").text();	
+	}else{
+		var juri = 'todos';
+	}
+	if($("#nazo").text() != ''){
+		var zona = $("#nazo").text();	
+	}else{
+		var zona = 'todos';
+	}
+	if($("#estado").text() != ''){
+		var mandato = $("#estado").text();	
+	}else{
+		var mandato = 'todos';
+	}
+	console.log(tipo+' '+juri+' '+zona+' '+mandato); 
+
+	var url = 'http://localhost/sisleg/public/reportes/'+tipo+'/'+juri+'/'+zona+'/'+mandato;
+	$("#pdf").attr('href',url);
+
 	$("#juridiccion").change(function(){
 		console.log($(this).val());
 		if($(this).val() != 'todos'){
@@ -32,14 +54,8 @@ window.addEventListener("load", function(){
 		console.log(i+' '+juri+' '+zona+' '+mandato);
 		
 		var url = 'http://localhost/sisleg/public/consultas/'+tipo+'/'+juri+'/'+zona+'/'+mandato;
-		console.log(url);
 		$(location).attr('href',url);
 	});
-/*
-	$("#juridiccion").change(function(){
-		alert($(this).val());
-	});
-*/
 });
 
 

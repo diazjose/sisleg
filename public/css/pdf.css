@@ -1,0 +1,62 @@
+body {
+	/*margin: 0px;
+	padding: 0px;*/
+}
+
+header {
+	height: 87px;
+	background-color: #BF1102; 
+}
+
+.container{
+    text-align:center
+    margin: 1px;
+  	padding: 1px;
+}
+
+.text-center{
+	text-align:center;
+}
+.left{
+    float: left;
+    border: 1px solid #FFFFFF;
+}
+
+.text-white{
+	color: #FFFFFF;
+}
+
+#title-header{
+	font-size: 23px;
+  	line-height: 48px;
+}
+
+#sub {
+	font-size: 17px;
+}
+
+.title{
+	text-align:center;
+}
+
+#logo{
+	width: 260px;
+}
+
+table{
+	width:100%;
+}
+
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+th, td {
+  padding: 5px;
+}
+th {
+  text-align: left;
+}
+td {
+	font-size: 12px;
+}

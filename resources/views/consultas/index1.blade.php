@@ -51,34 +51,38 @@
                                     <label for="mandato"><strong>Mandato</strong></label>
                                     <select id="mandato" class="form-control search" name="mandato">
                                         <option value="todos">Todos</option>
-                                        <option value="Activo">Activo</option>
-                                        <option value="Vencido">Vencido</option>
+                                        <option value="Activos">Activos</option>
+                                        <option value="Vencidos">Vencidos</option>
                                     </select>
                                 </div>
                                 <div class="form-group">
-                                    <a href="#" id="consultar" class="form-control my-2 btn btn-primary"><strong>Buscar</strong></a>
+                                    <a href="#" id="consultar" class="form-control my-2 btn btn-success"><strong>Buscar</strong></a>
                                 </div>
                             </form>
                         </div>
-                    
+                        
                         <div class="col-md-10">
                             <div class="row">
                                 <div class="col-md-8 my-3">
+                                    
                                     <h5>
                                         <strong>
-                                            Listado de {{$tipo}} 
+                                            Listado de <span id="poti">{{$tipo}}</span> 
                                             @if($juridiccion != '' AND $juridiccion != 'todos')
-                                            - {{$juridiccion}} 
+                                            - <span id="juri">{{$juridiccion}}</span> 
                                             @endif 
                                             @if($zona != '' AND $zona != 'todos')
-                                            - zona {{$zona}} 
+                                            - zona <span id="nazo">{{$zona}}</span> 
                                             @endif
                                             @if($estado != '' AND $estado != 'todos')
-                                            - Mandato {{$estado}}
+                                            - Mandatos <span id="estado">{{$estado}}</span>
                                             @endif
                                         </strong>
                                     </h5>
-                                </div>    
+                                </div> 
+                                <div class="col-md-4 my-2">
+                                    <a href="#" id="pdf" target="_black" class="btn btn-outline-dark"><strong>Exportar a PDF</strong></a>
+                                </div>   
                             </div>
                             @if(count($cv)>0)
                             <div class="table-responsive" id="resultado">
@@ -92,10 +96,10 @@
                                         <th>Presidente</th>
                                         <th>Mandato</th>
                                         <th>Acciones</th>
-                                    </thead>
+                                    </thead>    
                                     <tbody id="tbody">
                                         @foreach($cv as $centro)
-                                        @if($estado != '' AND $estado == 'Activo')
+                                        @if($estado != '' AND $estado == 'Activos')
                                             @if(count($centro->pres)>0)
                                                 @foreach($centro->pres as $pres)
                                                     @if($pres->fecha_fin > date('Y-m-d'))
@@ -119,7 +123,7 @@
                                                 @endforeach
                                             @endif
                                         @else
-                                            @if($estado != '' AND $estado == 'Vencido')
+                                            @if($estado != '' AND $estado == 'Vencidos')
                                                 @if(count($centro->pres)>0)
                                                     @foreach($centro->pres as $pres)
                                                         @if($pres->fecha_fin < date('Y-m-d'))

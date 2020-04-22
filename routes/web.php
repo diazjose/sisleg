@@ -60,4 +60,6 @@ Route::post('/personas/cargo/eliminar', 'PersonasController@destroy')->name('per
 Route::get('/consultas/{tipo}/{juri?}/{zona?}/{mandato?}', 'ConsultasController@index')->name('consultas.index');
 //Route::post('/consultas/{tipo}', 'ConsultasController@index')->name('consultas.index');
 
+/*REPORTES*/
+Route::get('/reportes/{tipo}/{juri?}/{zona?}/{mandato?}', 'PdfController@reporte')->name('prueba');
 

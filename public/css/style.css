@@ -7,7 +7,7 @@ header {
 }
 
 #logo{
-	width: 260px;
+	width: 20vw;
 }
 
 #title{
@@ -16,12 +16,12 @@ header {
 	font-family: 'Ubuntu', sans-serif;
 	font-family: 'Raleway', sans-serif;
 	*/
-	font-size: 45px;
+	font-size: 3vw;
 }
 
 #sub {
 	font-family: 'Merriweather', serif;
-	font-size: 30px;
+	font-size: 2vw;
 }
 
 .links > a {

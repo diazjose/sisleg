@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="shortcut icon" type="image/x-icon" href="{{ asset('images/logo.jpeg') }}" />
 
-        <title>Direccion de Personas Juridicas</title>
+        <title>DGPJ</title>
 
         <!-- Fonts -->
         
@@ -31,12 +31,12 @@
                     <div class="col-md-2 mx-5 d-flex justify-content-center  my-md-2">
                         <img class="align-self-center border border-white" src="{{ asset('images/logo_gobierno_horizontal.png') }}" id="logo">
                     </div>
-                    <div class="col mx-md-5">
+                    <div class="col mx-md-5 text-center">
                         <div class="d-flex justify-content-center"  id="title">
                             <span><strong>Direccion General de Personas Juridicas</strong></span>
                         </div>
                         <div class="d-flex justify-content-center" id="sub">
-                            <span>(Secretaria de Justicia)</span>
+                            <span>Secretaria de Justicia</span>
                         </div>
                     </div>
                 </div>
@@ -59,7 +59,7 @@
                         @guest                                                        
                             @else
                                 @switch(Auth::user()->role)
-                                    @case('Director' or 'Secretaria')
+                                    @case('Director')
                                         <li class="nav-item links">
                                             <a class="nav-link" href="{{ route('legajos_index') }}"><strong>{{ __('Legajos') }}</strong></a>
                                         </li>
@@ -93,7 +93,41 @@
                                             </div>
                                         </li>
                                         @break
-                                    @case('Mesa_de_entrada')
+                                    @case('Secretaria')
+                                        <li class="nav-item links">
+                                            <a class="nav-link" href="{{ route('legajos_index') }}"><strong>{{ __('Legajos') }}</strong></a>
+                                        </li>
+                                        <li class="nav-item links">
+                                            <a class="nav-link" href="{{ route('exp_index') }}"><strong>{{ __('Expedientes') }}</strong></a>
+                                        </li>                    
+                                        <li class="nav-item links">
+                                            <a class="nav-link" href="{{ route('users.index') }}">Usuarios</a>
+                                        </li>
+                                        <li class="nav-item dropdown links">
+                                            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                                <strong>Consultas</strong><span class="caret"></span>
+                                            </a>
+
+                                            <div class="dropdown-menu dropdown-menu-right links" aria-labelledby="navbarDropdown">
+                                                <a class="dropdown-item" href="{{route('consultas.index', 'CENTRO VECINAL')}}">
+                                                    Centro Vecinales
+                                                </a>
+                                                <a class="dropdown-item" href="{{route('consultas.index', 'FUNDACION')}}">
+                                                    Fundaciones
+                                                </a>
+                                                <a class="dropdown-item" href="{{route('consultas.index', 'CLUB')}}">
+                                                    Clubes
+                                                </a>
+                                                <a class="dropdown-item" href="{{route('consultas.index', 'SAPEM')}}">
+                                                    SAPEM
+                                                </a>
+                                                <a class="dropdown-item" href="{{route('consultas.index', 'SAS')}}">
+                                                    S.A.S.
+                                                </a>
+                                            </div>
+                                        </li>
+                                        @break    
+                                    @case('Mesa_Entrada')
                                         <li class="nav-item links">
                                             <a class="nav-link" href="{{ route('legajos_index') }}"><strong>{{ __('Legajos') }}</strong></a>
                                         </li>
@@ -144,10 +178,10 @@
         <main class="my-4">  
             <div class="container my-sm-5">
                 <div class="row my-sm-5 clearfix">
-                    <div class="col-md-4 responsive">
+                    <div class="col-md-4">
                         <img src="{{ asset('images/legajos2.jpeg') }}" class="rounded float-left" alt="Responsive image">
                     </div>
-                    <div class="col">
+                    <div class="col-md-8">
                         <p>
                             <strong>SISLEG version 1.0</strong>. 
                             Es un sistema Web de seguimiento electrónico de documentación, concebido para 
@@ -191,22 +225,21 @@
                             <div class="col-md-4 my-4 text-center">
                                 <h5 class="footer text-center"><strong>Autoridades</strong></h5>
                                 <p>
-                                    Director: Yacob Emanuel Saul.<br>
+                                    Director: Jacob Emanuel Saul.<br>
                                 </p>
                             </div>
                             <div class="col-md-4 my-md-4">
                                 <h5 class="footer text-center"><strong>Contacto</strong></h5>
                                 <p>
                                     <i class="fas fa-map-marker-alt">  </i> 
-                                    Calle 25 de Mayo esq. Pelagio B. Luna - Ex-Galeria Sucex 2°piso
+                                    Calle 25 de Mayo n° 74 - Ex-Galeria Sussex 2°piso
                                     5300 Ciudad de La Rioja
                                     <br>
                                     <i class="fas fa-phone"> </i> +54 0380 4453156  |  +54 0380 4453039 (Fax).
                                     <br>
                                     <i class="far fa-envelope"> </i>  dgpj.lr@gmail.com
                                 </p>
-                            </div>
-                            
+                            </div>                            
                         </div>
                     </div>
                 </footer>    

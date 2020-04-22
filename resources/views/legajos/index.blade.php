@@ -12,11 +12,13 @@
                         <div class="col-md-5 my-3">
                           <input id="buscar" type="text" class="form-control" style="text-transform:uppercase;" placeholder="N° de Legajo, Tipo o Entidad"><br>
                         </div>
-                        <div class="col-md-5"></div>
-                        <div class="col-md-2 my-3">
-                          <a href="{{route('new_legajo')}}" class="btn btn-success btn-sm-block">
-                            <i class="fas fa-folder-plus"></i> <strong>Nuevo Legajo</strong> 
-                          </a>
+                        <div class="col-md-4"></div>
+                        <div class="col-md-3 my-3">
+                          <h5>  
+                              <a href="{{route('new_legajo')}}" class="btn btn-success btn-sm-block">
+                                <i class="fas fa-folder-plus"></i> <strong>Nuevo Legajo</strong> 
+                              </a>
+                          </h5>    
                         </div>    
                     </div>
 

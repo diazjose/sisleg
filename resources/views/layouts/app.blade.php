@@ -9,7 +9,7 @@
     <link rel="shortcut icon" type="image/x-icon" href="{{ asset('images/logo.jpeg') }}" />
 
 
-    <title>Direccion de Persona Juridica</title>
+    <title>DGPJ</title>
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
@@ -58,7 +58,7 @@
                             @guest                                                        
                             @else
                                 @switch(Auth::user()->role)
-                                    @case('Director' or 'Secretaria')
+                                    @case('Director')
                                         <li class="nav-item links">
                                             <a class="nav-link" href="{{ route('legajos_index') }}"><strong>{{ __('Legajos') }}</strong></a>
                                         </li>
@@ -92,7 +92,41 @@
                                             </div>
                                         </li>
                                         @break
-                                    @case('Mesa_de_entrada')
+                                    @case('Secretaria')
+                                        <li class="nav-item links">
+                                            <a class="nav-link" href="{{ route('legajos_index') }}"><strong>{{ __('Legajos') }}</strong></a>
+                                        </li>
+                                        <li class="nav-item links">
+                                            <a class="nav-link" href="{{ route('exp_index') }}"><strong>{{ __('Expedientes') }}</strong></a>
+                                        </li>                    
+                                        <li class="nav-item links">
+                                            <a class="nav-link" href="{{ route('users.index') }}">Usuarios</a>
+                                        </li>
+                                        <li class="nav-item dropdown links">
+                                            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                                <strong>Consultas</strong><span class="caret"></span>
+                                            </a>
+
+                                            <div class="dropdown-menu dropdown-menu-right links" aria-labelledby="navbarDropdown">
+                                                <a class="dropdown-item" href="{{route('consultas.index', 'CENTRO VECINAL')}}">
+                                                    Centro Vecinales
+                                                </a>
+                                                <a class="dropdown-item" href="{{route('consultas.index', 'FUNDACION')}}">
+                                                    Fundaciones
+                                                </a>
+                                                <a class="dropdown-item" href="{{route('consultas.index', 'CLUB')}}">
+                                                    Clubes
+                                                </a>
+                                                <a class="dropdown-item" href="{{route('consultas.index', 'SAPEM')}}">
+                                                    SAPEM
+                                                </a>
+                                                <a class="dropdown-item" href="{{route('consultas.index', 'SAS')}}">
+                                                    S.A.S.
+                                                </a>
+                                            </div>
+                                        </li>
+                                        @break    
+                                    @case('Mesa_Entrada')
                                         <li class="nav-item links">
                                             <a class="nav-link" href="{{ route('legajos_index') }}"><strong>{{ __('Legajos') }}</strong></a>
                                         </li>

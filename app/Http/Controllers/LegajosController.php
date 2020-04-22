@@ -117,7 +117,7 @@ class LegajosController extends Controller
                     $html .= '<td class="denominacion">'.$legajo->denominacion.'</td>';
                     $html .= '<td class="juridiccion">'.$legajo->juridiccion.'</td>';
                     $html .= '<td class="resolucion">'.$legajo->resolucion.'</td>';
-                    $html .= '<td><a href="'.route('view_leg',[$legajo->id]).'" onclick="edit('.$legajo->id.')" class="btn btn-outline-primary"><strong>Ver</strong></a></td>';
+                    $html .= '<td><a href="'.route('view_leg',[$legajo->id]).'" onclick="edit('.$legajo->id.')" class="btn btn-outline-primary"><i class="far fa-eye"></i></a></td>';
                 $html .= '</tr>';    
             }    
         }

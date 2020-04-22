@@ -17,7 +17,7 @@ window.addEventListener("load", function(){
 	});
 	$("#buscar_area").on("keyup", function(){
 		var buscar = $(this).val();
-		console.log(buscar);
+		
 		var form = $("#form-search");
 		var url = form.attr('action');
 		$("#form_buscar").val(buscar);

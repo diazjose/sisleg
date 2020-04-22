@@ -74,7 +74,7 @@ class ExpedientesController extends Controller
 	                $html .= '<td>'.$exp->iniciador.'</td>';
 	                $html .= '<td>'.$exp->asunto.'</td>';
 	                $html .= '<td></td>';
-	                $html .= '<td><a href="'.route('exp_view',[$exp->id]).'" class="btn btn-outline-info"><strong>Ver</strong></a></td>';
+	                $html .= '<td><a href="'.route('exp_view',[$exp->id]).'" class="btn btn-outline-info"><i class="far fa-eye"></i></a></td>';
 	            $html .= '</tr>';    
 	        }	
         }
@@ -99,8 +99,7 @@ class ExpedientesController extends Controller
                         $html .= '<td>'.$exp->numero.'</td>';
                         $html .= '<td>'.$exp->iniciador.'</td>';
                         $html .= '<td>'.$exp->asunto.'</td>';
-                        $html .= '<td></td>';
-                        $html .= '<td><a href="'.route('exp_area_view',[$exp->id]).'" class="btn btn-outline-info"><strong>Ver</strong></a></td>';
+                        $html .= '<td><a href="'.route('exp_area_view',[$exp->id]).'" class="btn btn-outline-info"><i class="far fa-eye"></i></a></td>';
                     $html .= '</tr>';    
                 }else{
                     $html .= 'no hay expediente';                   
