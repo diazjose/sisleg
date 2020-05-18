@@ -49,6 +49,11 @@ Route::get('/expediente/{id}', 'ExpedientesController@exp_area')->name('exp_area
 Route::post('/expediente/estado', 'ExpedientesController@exp_status')->name('exp_status');
 
 /*PERSONAS*/
+Route::get('/personas', 'PersonasController@index')->name('preson_index');
+Route::post('/personas/find', 'PersonasController@find')->name('person_find');
+Route::get('/personas/view/{id}', 'PersonasController@view')->name('person_view');
+Route::post('/persosnas/editarPersona', 'PersonasController@editarPersona')->name('person_editarP');
+Route::get('/personas/editarPersona/{id}', 'PersonasController@editar')->name('person_editar');
 Route::post('/personas/create', 'PersonasController@create')->name('preson_create');
 Route::post('/personas/buscar', 'PersonasController@search')->name('person_search');
 Route::get('/personas/editar/{id}', 'PersonasController@edit')->name('person_edit');

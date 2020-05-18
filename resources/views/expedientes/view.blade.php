@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col">
             <div class="card">
-                <div class="card-header bg-secondary text-white"><h4><strong>Expediente N° {{$exp->numero}}</strong></h4></div>
+                <div class="card-header bg-secondary text-white"><h4><strong><i class="fas fa-folder"></i> Expediente N° {{$exp->numero}}</strong></h4></div>
 
                 <div class="card-body">
                     

@@ -5,17 +5,17 @@
     <div class="row justify-content-center">
         <div class="col">
             <div class="card">
-                <div class="card-header bg-secondary text-white"><h4><strong><i class="fas fa-folder"></i> Manupular Expedientes</strong></h4></div>
+                <div class="card-header bg-secondary text-white"><h4><strong><i class="fas fa-users"></i> Personas Físicas</strong></h4></div>
 
                 <div class="card-body">
-                    <div class="row">
+                     <div class="row">
                         <div class="col-md-5 my-3">
-                          <input id="buscar" type="text" class="form-control" style="text-transform:uppercase;" placeholder="N° de Expediente o N° de Formulario"><br>
+                          <input id="buscar" type="text" class="form-control" style="text-transform:uppercase;" placeholder="Buscar Persona por DNI o Apelldido"><br>
                         </div>
                         <div class="col-md-4"></div>
                         <div class="col-md-3 my-3">
                           <a href="{{route('exp_new')}}" class="btn btn-success btn-sm-block">
-                            <i class="fas fa-folder-plus"></i> <strong>Nuevo Expediente</strong> 
+                            <i class="fas fa-folder-plus"></i> <strong>Añadir Persona</strong> 
                           </a>
                         </div>    
                     </div>
@@ -23,10 +23,10 @@
                     <div class="table-responsive" id="resultado">
                         <table class="table">
                             <thead>
-                                <th>N° Expediente</th>
-                                <th>Iniciador</th>
-                                <th>Asunto</th>
-                                <th>Ubicacion.</th>
+                                <th>Apellido</th>
+                                <th>Nombre</th>
+                                <th>DNI</th>
+                                <th>Telefono.</th>
                                 <th>VER</th>
                             </thead>
                             <tbody id="tbody">
@@ -48,5 +48,5 @@
 @endsection
 
 @section('script')
-    <script src="{{ asset('js/expedientes.js') }}"></script>
+    <script src="{{ asset('js/personas.js') }}"></script>
 @endsection

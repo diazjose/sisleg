@@ -54,24 +54,27 @@
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
                         <li class="nav-item links">
-                            <a class="nav-link" href="{{ url('/') }}"><strong>{{ __('Principal') }}</strong></a>
+                            <a class="nav-link" href="{{ url('/') }}"><strong><i class="fas fa-home"></i> {{ __('Principal') }}</strong></a>
                         </li>
                         @guest                                                        
                             @else
                                 @switch(Auth::user()->role)
                                     @case('Director')
                                         <li class="nav-item links">
-                                            <a class="nav-link" href="{{ route('legajos_index') }}"><strong>{{ __('Legajos') }}</strong></a>
+                                            <a class="nav-link" href="{{ route('legajos_index') }}"><strong><i class="fas fa-folder-open"></i> {{ __('Legajos') }}</strong></a>
                                         </li>
                                         <li class="nav-item links">
-                                            <a class="nav-link" href="{{ route('exp_index') }}"><strong>{{ __('Expedientes') }}</strong></a>
+                                            <a class="nav-link" href="{{ route('exp_index') }}"><strong><i class="fas fa-folder"></i> {{ __('Expedientes') }}</strong></a>
                                         </li>                    
                                         <li class="nav-item links">
-                                            <a class="nav-link" href="{{ route('users.index') }}">Usuarios</a>
+                                            <a class="nav-link" href="{{ route('users.index') }}"><i class="fas fa-user"></i> Usuarios</a>
+                                        </li>
+                                        <li class="nav-item links">
+                                            <a class="nav-link" href="{{ route('preson_index') }}"><i class="fas fa-users"></i> Personas</a>
                                         </li>
                                         <li class="nav-item dropdown links">
                                             <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                                <strong>Consultas</strong><span class="caret"></span>
+                                                <strong><i class="fas fa-search"></i> Consultas</strong><span class="caret"></span>
                                             </a>
 
                                             <div class="dropdown-menu dropdown-menu-right links" aria-labelledby="navbarDropdown">
@@ -95,10 +98,10 @@
                                         @break
                                     @case('Secretaria')
                                         <li class="nav-item links">
-                                            <a class="nav-link" href="{{ route('legajos_index') }}"><strong>{{ __('Legajos') }}</strong></a>
+                                            <a class="nav-link" href="{{ route('legajos_index') }}"><strong><i class="fas fa-folder-open"></i> {{ __('Legajos') }}</strong></a>
                                         </li>
                                         <li class="nav-item links">
-                                            <a class="nav-link" href="{{ route('exp_index') }}"><strong>{{ __('Expedientes') }}</strong></a>
+                                            <a class="nav-link" href="{{ route('exp_index') }}"><strong><i class="fas fa-folder"></i>  {{ __('Expedientes') }}</strong></a>
                                         </li>                    
                                         <li class="nav-item links">
                                             <a class="nav-link" href="{{ route('users.index') }}">Usuarios</a>
@@ -129,15 +132,15 @@
                                         @break    
                                     @case('Mesa_Entrada')
                                         <li class="nav-item links">
-                                            <a class="nav-link" href="{{ route('legajos_index') }}"><strong>{{ __('Legajos') }}</strong></a>
+                                            <a class="nav-link" href="{{ route('legajos_index') }}"><strong><i class="fas fa-folder-open"></i> {{ __('Legajos') }}</strong></a>
                                         </li>
                                         <li class="nav-item links">
-                                            <a class="nav-link" href="{{ route('exp_index') }}"><strong>{{ __('Expedientes') }}</strong></a>
+                                            <a class="nav-link" href="{{ route('exp_index') }}"><strong><i class="fas fa-folder"></i> {{ __('Expedientes') }}</strong></a>
                                         </li>
                                         @break
                                     @default
                                         <li class="nav-item links">
-                                            <a class="nav-link" href="{{ route('exp_area', Auth::user()->role) }}"><strong>{{ __('Expedientes') }}</strong></a>
+                                            <a class="nav-link" href="{{ route('exp_area', Auth::user()->role) }}"><strong><i class="fas fa-folder"></i>  {{ __('Expedientes') }}</strong></a>
                                         </li>    
                                 @endswitch
                             @endguest                        
@@ -148,12 +151,12 @@
                         <!-- Authentication Links -->
                         @guest
                             <li class="nav-item links">
-                                <a class="nav-link" href="{{ route('login') }}"><strong>{{ __('Iniciar Sesión') }}</strong></a>
+                                <a class="nav-link" href="{{ route('login') }}"><strong><i class="fas fa-sign-in-alt"></i> {{ __('Iniciar Sesión') }}</strong></a>
                             </li>
                          @else
                             <li class="nav-item dropdown links">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    <strong>{{ Auth::user()->name }} {{ Auth::user()->surname }}</strong><span class="caret"></span>
+                                    <strong><i class="fas fa-user"></i> {{ Auth::user()->name }} {{ Auth::user()->surname }}</strong><span class="caret"></span>
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-right links" aria-labelledby="navbarDropdown">

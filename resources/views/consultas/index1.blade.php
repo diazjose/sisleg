@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col">
             <div class="card">
-                <div class="card-header bg-secondary text-white"><h4><strong>{{$tipo}}</strong></h4></div>
+                <div class="card-header bg-secondary text-white"><h4><strong><i class="fas fa-search"></i> {{$tipo}}</strong></h4></div>
 
                 <div class="card-body">                    
                     <div class="row">
@@ -56,7 +56,7 @@
                                     </select>
                                 </div>
                                 <div class="form-group">
-                                    <a href="#" id="consultar" class="form-control my-2 btn btn-success"><strong>Buscar</strong></a>
+                                    <a href="#" id="consultar" class="form-control my-2 btn btn-success"><strong><i class="fas fa-search"></i> Buscar</strong></a>
                                 </div>
                             </form>
                         </div>
@@ -81,7 +81,7 @@
                                     </h5>
                                 </div> 
                                 <div class="col-md-4 my-2">
-                                    <a href="#" id="pdf" target="_black" class="btn btn-outline-dark"><strong>Exportar a PDF</strong></a>
+                                    <a href="#" id="pdf" target="_black" class="btn btn-outline-dark"><strong><i class="fas fa-file-pdf"></i> Exportar a PDF</strong></a>
                                 </div>   
                             </div>
                             @if(count($cv)>0)
@@ -116,7 +116,7 @@
                                                             {{date('d/m/Y', strtotime($pres->fecha_fin))}}
                                                         </td>    
                                                         <td>
-                                                            <a href="{{route('view_leg', $centro->id)}}" class="btn btn-outline-primary" title="Ver Institucion" ><i class="far fa-eye"></i></a>
+                                                            <a href="{{route('view_leg', $centro->id)}}" class="btn btn-outline-primary" title="Ver Institucion" ><i class="fas fa-folder-open"></i></a>
                                                         </td>
                                                     </tr>
                                                     @endif
@@ -140,7 +140,7 @@
                                                                 {{date('d/m/Y', strtotime($pres->fecha_fin))}}
                                                             </td>    
                                                             <td>
-                                                                <a href="{{route('view_leg', $centro->id)}}" class="btn btn-outline-primary" title="Ver Institucion" ><i class="far fa-eye"></i></a>
+                                                                <a href="{{route('view_leg', $centro->id)}}" class="btn btn-outline-primary" title="Ver Institucion" ><i class="fas fa-folder-open"></i></a>
                                                             </td>
                                                         </tr>
                                                         @endif
@@ -167,7 +167,7 @@
                                                 <td>no</td>
                                                 @endif
                                                 <td>
-                                                    <a href="{{route('view_leg', $centro->id)}}" class="btn btn-outline-primary" title="Ver Institucion" ><i class="far fa-eye"></i></a>
+                                                    <a href="{{route('view_leg', $centro->id)}}" class="btn btn-outline-primary" title="Ver Institucion" ><i class="fas fa-folder-open"></i></a>
                                                 </td>
                                             </tr>
                                             @endif

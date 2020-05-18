@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col">
             <div class="card">
-                <div class="card-header bg-secondary text-white"><h4><strong>Legajo N° {{$legajo->numero}} - ({{$legajo->denominacion}})</strong></h4></div>
+                <div class="card-header bg-secondary text-white"><h4><strong><i class="fas fa-folder-open"></i> Legajo N° {{$legajo->numero}} - ({{$legajo->denominacion}})</strong></h4></div>
 
                 <div class="card-body row">                    
                     <div class="col-md-3">
