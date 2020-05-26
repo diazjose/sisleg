@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Barryvdh\DomPDF\Facade as PDF;
 use App\Legajo;
+use App\Turno;
 
 class PdfController extends Controller
 {
@@ -27,5 +28,12 @@ class PdfController extends Controller
     	$pdf = PDF::loadView('PDF/listadoPDF', compact(['cv', 'tipo', 'zona', 'juri', 'estado']));
     	return $pdf->stream();
     	//return $pdf->download('primer.pdf');
+    }
+    public function turno($id, $fecha){
+        $turno = Turno::find($id);
+
+        $pdf = PDF::loadView('PDF/turnoPDF', compact(['turno']));
+        return $pdf->stream();
+        //return $pdf->download('primer.pdf');
     }
 }

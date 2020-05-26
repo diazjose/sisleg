@@ -67,4 +67,14 @@ Route::get('/consultas/{tipo}/{juri?}/{zona?}/{mandato?}', 'ConsultasController@
 
 /*REPORTES*/
 Route::get('/reportes/{tipo}/{juri?}/{zona?}/{mandato?}', 'PdfController@reporte')->name('prueba');
+Route::get('/turno/download/{id}/{fecha}', 'PdfController@turno')->name('turno');
 
+
+/*TURNOS*/
+Route::get('/turno', 'TurnosController@index')->name('turno.index');
+Route::post('/turno/create', 'TurnosController@create')->name('turno.create');
+Route::get('/turno/buscar', 'TurnosController@buscar')->name('turno.search');
+Route::post('/turno/search', 'TurnosController@search')->name('turno.buscar');
+Route::post('/turno/searchTurno', 'TurnosController@searchTurno')->name('turno.searchTurno');
+Route::get('/turno/todos', 'TurnosController@view')->name('turno.view');
+Route::post('/turno/estado', 'TurnosController@status')->name('turno.status');
