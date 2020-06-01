@@ -1,16 +1,44 @@
 window.addEventListener("load", function(){
-	
+	autoVan();
+	setTimeout(autoViene, 5000);
+
 	setTimeout(refrescar, 120000);
 
+	$("#form-turno").keypress(function(e) {
+        if (e.which == 13) {
+            return false;
+        }
+    });
+	/*
 	$("#fecha").change(function(){
 		validFecha();
 	});
-
+	*/
 
 	$('#dni').keyup(function () { 
 	    this.value = this.value.replace(/[^0-9]/g,'');
 	    validDNI();
 	});
+
+	$("#lugar").change(function(){
+		var	valor = $(this).val(); 
+		if (valor != 1) {
+			if($(this).val() != 'Casa Central(Av. Rivadavia N° 890)') { 
+				$("#tipo .casa").each(function() {
+				    $(this).remove();
+				});
+			}else{
+				$("#tipo").append('<option class="casa">DNI - Pasaportes</option><option class="casa">Autenticaciones</option><option class="casa">Solicitud de Actas</option><option class="casa">Inscripcion Judicial</option><option class="casa">Union Convivencial</option>');
+			}
+			$("#tramite").show();
+		}
+	});
+
+	$("#tramite").change(function(){		
+  		$("#btn").removeClass('disabled',false);
+	});
+
+	/*
 
 	$("#btn").click(function(){
 
@@ -55,8 +83,27 @@ window.addEventListener("load", function(){
 	        $("#exampleModal").modal();
 		}    
 	});
-	    
+	 */   
 });
+
+function autoVan(){
+	$('div#box1').animate({
+	      left: '+=675px',
+	      //right: '+=500px;'
+	}, 5000);
+	$('div#box2').animate({
+	      left: '-=675px',
+	}, 5000);
+}
+function autoViene(){
+	$('div#box1').animate({
+	      left: '-=675px',
+	      //right: '+=500px;'
+	}, 4000);
+	$('div#box2').animate({
+	      left: '+=675px',
+	}, 4000);
+}
 
 function refrescar(){
     //Actualiza la página
@@ -123,8 +170,8 @@ function btnsearch(){
 				var info = date.split('-');
 	     		$("#turno-dni").text(data[0].dni);
 			    $("#turno-orden").text(data[0].orden);
-			    /*$("#turno-dia").text(info[2] + '/' + info[1] + '/' + info[0]);
-			    */$("#turno-hora").text(data[0].hora);
+			    $("#turno-dia").text(info[2] + '/' + info[1] + '/' + info[0]);
+			    $("#turno-hora").text(data[0].hora);
 			    $("#turno-tipo").text(data[0].tipo);
 			    $("#no-turno").hide();	
 			    $("#turno").show();	

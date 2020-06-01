@@ -69,8 +69,26 @@ Route::get('/consultas/{tipo}/{juri?}/{zona?}/{mandato?}', 'ConsultasController@
 Route::get('/reportes/{tipo}/{juri?}/{zona?}/{mandato?}', 'PdfController@reporte')->name('prueba');
 Route::get('/turno/download/{id}/{fecha}', 'PdfController@turno')->name('turno');
 
+/*OFICINAS*/
+Route::get('/oficinas', 'OficinasController@index')->name('oficina.index');
+Route::post('/oficinas/create', 'OficinasController@create')->name('oficina.create');
+Route::post('/oficina/eliminar', 'OficinasController@destroy')->name('oficina.delete');
+Route::post('/oficina/editar', 'OficinasController@update')->name('oficina.update');
+
+/*TRAMITES*/
+Route::get('/tramites', 'TramitesController@index')->name('tramite.index');
+Route::post('/tramite/create', 'TramitesController@create')->name('tramite.create');
+Route::post('/tramite/eliminar', 'TramitesController@destroy')->name('tramite.delete');
+Route::post('/tramite/editar', 'TramitesController@update')->name('tramite.update');
+
+/*CONFIG_OFICINAS*/
+Route::get('/oficina/{id}', 'ConfigController@index')->name('config.index');
+Route::post('/config/create', 'ConfigController@create')->name('config.create');
+Route::post('/config/eliminar', 'ConfigController@destroy')->name('config.delete');
+Route::post('/config/editar', 'ConfigController@update')->name('config.update');
 
 /*TURNOS*/
+Route::get('/RegistroCivil', 'TurnosController@registroCivil')->name('registroCivil');
 Route::get('/turno', 'TurnosController@index')->name('turno.index');
 Route::post('/turno/create', 'TurnosController@create')->name('turno.create');
 Route::get('/turno/buscar', 'TurnosController@buscar')->name('turno.search');

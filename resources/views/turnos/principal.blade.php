@@ -4,13 +4,13 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Registro Civil La Rioja</title>
+        <title>Registro Civil</title>
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css2?family=Patua+One&display=swap" rel="stylesheet"> 
         <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet"> 
-        
+
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
 
         <!-- Scripts -->
@@ -29,9 +29,14 @@
                     <img src="{{asset('images/logo_gobierno_horizontal.png')}}" id="title-img"  width="200px;" style="background-color: #FF0000;">
                     <h4 class="text-white text-center" style="background-color: #FF0000;" id="sub">Secretaría de Justicia</h4>
                 </a>
+                
                 <div class="text-center">
                     <h1 class="display-3 mx-md-3 text-white" id="title-head" style="font-family: 'Bebas Neue', cursive;"> Registro Civil</h1>
                 </div>
+                <!--
+                <div class="text-center">
+                    <h1 class="display-3 mx-md-3 text-white" id="title-head"> Registro Civil</h1>
+                </div> -->
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -84,7 +89,7 @@
                 </div>
             </div>
         </nav>
-        <div class="d-none d-sm-none d-md-block">
+                <div class="d-none d-sm-none d-md-block">
                     <div class="row">
                         <div class="col-md-6">
                             <div class="alert alert-danger" id="box1">
@@ -139,116 +144,112 @@
                         </div>  
                     </div>
                 </div>
+                
+                
 
-        <div class="container" style="background-color: #FFFFFF;">
-            <div class="row justify-content-center mx-3">
-                <div class="col-md-6 my-3" id="turno-solicitud">
-                    <div class="card" >
-                        <div class="card-header bg-primary">
-                            <h3 class="card-title"><strong class="text-white"><i class="far fa-calendar-alt"></i> Solicitar Turno</strong></h3>
-                        </div>
-                    <div class="card-body">
-                        <div class="alert alert-warning" role="alert">
-                            <strong>Complete todos los campos para habilitar el botón de Solicitud</strong>
-                        </div>
-                        <form id="form-turno">
-                            @csrf
-                            <div class="form-group">
-                                <input type="text" name="dni" class="form-control" id="dni" placeholder="Introduzca su DNI" size="10"  maxlength="8" pattern="[0-9]{8}" title="Debe poner DNI números" required />
-                                <small id="emailHelp" class="form-text text-muted">Ingrese DNI tecleando numero por numero sin puntos, ni comas, ni otros caracteres que nos sean numeros</small>
-                            </div>                            
-                            <div class="form-group">
-                                <select class="form-control" name="lugar" id="lugar">
-                                    <option selected disabled value="1">--Seleccionar Lugar--</option>
-                                    <option>Casa Central(Av. Rivadavia N° 890)</option>
-                                    <option>San Vicente(Barcelona N° 45)</option>
-                                    <option>Santa Justina(Saenz Peña N° 1563)</option>
-                                    <option disabled>Hospital de la Madre y el Niño</option>
-                                    <option disabled>Parque de la Ciudad</option>
-                                    <option disabled>Terminal de Omnibus</option>
-                                </select>
-                                <small id="emailHelp" class="form-text text-muted">Selecciona Oficina.</small>
+                <div class="container" style="background-color: #FFFFFF;">
+                    <div class="row">
+                        <div class="col-md-9 my-5">
+                            <div class="d-block d-sm-block d-md-none text-center">
+                                <img src="{{asset('images/dni.jpeg')}}" width="250px;">
                             </div>
-                            <div class="form-group" style="display: none;" id="tramite">
-                                <select class="form-control" name="tipo" id="tipo">
-                                    <option selected disabled value="1">--Seleccionar Tramite--</option>
-                                    <option class="todos">Inscripcion de Nacimiento</option>
-                                </select>
-                                <small id="emailHelp" class="form-text text-muted">Selecciona Tipo de Tramite.</small>
+                            <h1 class="display-3 text-center text-primary" style="font-family: 'Patua One', cursive;"><strong id="title">Bienvenido/a</strong></h1>
+                            <h4 class="text-center">
+                                A la Oficina Internet del Registro Civil de la Ciudad de La Rioja. Por este medio, Ud. podrá solicitar copias de actas de Nacimiento, Matrimonio y Defunción inscriptas en el Registro Civil de La Rioja Capital.
+                           </h4>
+                            <br><hr>
+                            <h4 class="text-center">
+                                Los acontecimientos extraordinarios de público conocimiento y el progresivo y continuo desmejoramiento de la situación sanitaria mundial, derivada de la Pandemia COVID-19 declarada por la OMS, y lo anunciado por el Presidente de la Nación en cuanto a la continuidad de las medidas de aislamiento social, preventivo y obligatorio. Es que la Dirección de Registro Civil, dependiente de la Secretaría de Justicia, informa que ha dispuesto un esquema especial de guardias.
+                            </h4>    
+                            <br><hr>
+                            <div class="alert alert-warning">
+                              <h4><strong>¡¡ Se atiende solo con turno !!</strong></h4>
+                            </div><hr>
+                            
+                            <h3>¿Como Solicitar Turno?</h3>
+                            <br>
+                            <ul class="list-group">
+                              <li class="list-group-item">
+                                <h5><strong>1- Completar el formulario de Solicitud de Turno</strong></h5>
+                              </li>
+                              <li class="list-group-item">
+                                <h5><strong>2- Descargar el comprobante de Solicitud</strong></h5>
+                              </li>
+                              <li class="list-group-item">
+                                <h5><strong>3- Concurrir con el dni del titular del turno a la oficina</strong></h5>
+                              </li>
+                            </ul>
+                            <hr>
+                            <div class="alert alert-primary">
+                              <h4>
+                                <strong>
+                                    Una vez procesada su solicitud, se le indicará día y hora que deberá presentarse SÓLO UNA PERSONA a la oficina del Registro Civil con el DNI en mano.
+                                </strong>
+                              </h4>
                             </div>
-                            <a href="#" id="btn" class="btn btn-primary disabled">Solicitar Turno</a>
-                        </form>
+                        </div>  
+                        <div class="col-md-3 my-md-5">
+                            <div class="d-none d-sm-none d-md-block">
+                                <img src="{{asset('images/dni.jpeg')}}" width="250px;">
+                            </div>
+                            <div class="card border border-primary my-3">
+                                <div class="card-header bg-primary">
+                                    <h3 class="text-white"><i class="far fa-calendar-alt"></i> Turnos Online</h3>
+                                </div>
+                                <div class="card-body">
+                                    <h5>Acceda al opcion Turno para obtener su turno</h5>
+                                    <br>
+                                    <a href="{{route('turno.index')}}" class="btn btn-outline-primary btn-block"><h4><strong>Solicitar Turno</strong></h4></a>
+                                </div>
+                            </div>  
+                            <hr>
+                            <h4>Requisitos para Trámites</h4>
+                            <div class="list-group">
+                                <a href="#" class="list-group-item list-group-item-action list-group-item-primary text-dark">
+                                    <i class="fas fa-plus"></i> Inscripcion de Nacimiento
+                                </a>
+                                <a href="#" class="list-group-item list-group-item-action list-group-item-primary text-dark">
+                                    <i class="fas fa-plus"></i> Renovacion de DNI
+                                </a>
+                                <a href="#" class="list-group-item list-group-item-action list-group-item-primary text-dark">
+                                   <i class="fas fa-plus"></i> Solicitud de Actas
+                                </a>
+                                <a href="#" class="list-group-item list-group-item-action list-group-item-primary text-dark">
+                                    <i class="fas fa-plus"></i> Inscripcion Judicial
+                                </a>
+                                <a href="#" class="list-group-item list-group-item-action list-group-item-primary text-dark"> 
+                                    <i class="fas fa-plus"></i> Union Convivencial
+                                </a>
+                                <a href="#" class="list-group-item list-group-item-action list-group-item-primary text-dark">
+                                    <i class="fas fa-plus"></i> Autenticaciones
+                                </a>
+                                <a href="#" class="list-group-item list-group-item-action list-group-item-primary text-dark">
+                                    <i class="fas fa-plus"></i> Primary item
+                                </a>
+                                <a href="#" class="list-group-item list-group-item-action list-group-item-primary text-dark">
+                                    <i class="fas fa-plus"></i> Dark item
+                                </a>
+                                <a href="#" class="list-group-item list-group-item-action list-group-item-primary text-dark">
+                                    <i class="fas fa-plus"></i> Light item
+                                </a>
+                            </div>
+                        </div>
+
                     </div>
-                </div>
-            </div>
 
-            <div class="col-md-4 my-3">
-               <div class="card">
-                  <div class="card-body">
                     
-                  </div>
-               </div>                 
-            </div>
-
-                              <div class="col-md-10  my-2" style="display: none;" id="turno">
-                                  <div class="alert alert-success" role="alert">
-                                      <strong><i class="fas fa-calendar-check"></i> Solicitud de turno confirmada</strong>
-                                  </div>
-                                  <div class="card">
-                                      <div class="card-body">
-                                          <h4 class="text-center"><strong><i class="fas fa-calendar-check"></i> Turno Emitido por Registro Civil</strong></h4>
-                                          <div  class="text-center">
-                                              <small><strong>LA RIOJA</strong></small>
-                                          </div>    
-                                          <hr>
-                                          <p class="mx-3">
-                                              <h5 class="row mx-3"><strong> Turno n°: </strong> <div class="mx-3" id="turno-dni"></div></h5>
-                                          </p>
-                                          <p class="mx-3">
-                                              <h5 class="row mx-3"><strong> Orden :</strong> <div class="mx-3" id="turno-orden"></div></h5>
-                                          </p>
-                                          <p class="mx-3">
-                                              <h5 class="row mx-3"><strong> Tramite: </strong> <div class="mx-3" id="turno-tipo"></div></h5>  
-                                          </p>
-                                          <p class="mx-3">
-                                              <h5 class="row mx-3"><strong> Dia: </strong> <div class="mx-3" id="turno-dia"></div></h5>
-                                          </p>
-                                          <p class="mx-3">
-                                              <h5 class="row mx-3"><strong> Hora: </strong> <div class="mx-3" id="turno-hora"></div></h5>  
-                                          </p>
-                                          <hr>
-                                          <small><strong>Presentarse con el dni del titular unos minutos antes de la hora del turno para anunciarse.</strong></small>
-                                          <hr>
-                                          <a href="#" class="btn btn-secondary" id="btn-descargar"><strong><i class="fas fa-download"></i> Descargar</strong></a>
-                                      </div>
-                                  </div>
-                              </div> 
-                              
-                              <div style="display: none;">
-                                  <form action="{{route('turno.searchTurno')}}" id="form-search" method="POST">
-                                      @csrf
-                                      <input type="text" name="turnDni" id="turnDni">
-                                      <input type="text" name="turnFecha" id="turnFecha">
-                                  </form>    
-                              </div>
-                          
-                          </div>
-
-                      </div>
-              </div>
-          </div>
-        </div>
-
+                </div>
+            <!--</div>-->
+        </div>   
          <div class="container-fluid">
             <footer class="text-white">
                 <div class="row">
                     <div class="col-md-5 text-center mt-5 mb-sm-3 border-sm-bottom borde-white">
                         <a class="navbar-brand" href="{{ url('/') }}">
                             <img src="{{asset('images/logo_gobierno_horizontal.png')}}" width="300px;" style="background-color: #FF0000;">
-                            <!--<strong class="mx-1 text-white" style="font-family: 'Bebas Neue', cursive;"> Registro Civil</strong>-->
+                            <h3 class="text-white text-center"style="background-color: #FF0000;">Secretaría de Justicia</h3>
                         </a>    
                     </div>
-
                     <div class="col-md-3 col-sm-12 text-center my-md-5 border-sm-bottom borde-sm-white" id="footer-div">
                         <h4 class="text-dark"><strong>Contacto</strong></h4>
                         <div class="my-1">
@@ -281,32 +282,6 @@
                 </div>
             </footer>
          </div>
-    
-    
-
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header bg-danger">
-        <h5 class="modal-title text-white" id="exampleModalLabel"><strong>Mensaje</strong></h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-            <h5 id="message"></h5>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-      </div>
-    </div>
-  </div>
-</div>
-
-    <script type="text/javascript" src="{{asset('js/turnos.js')}}"></script>
-           
-            
+         <script src="{{ asset('js/turnos.js') }}" defer></script>
     </body>
 </html>
-
-

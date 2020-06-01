@@ -72,7 +72,7 @@
                                             <a class="nav-link" href="{{ route('preson_index') }}"><i class="fas fa-users"></i> Personas</a>
                                         </li>
                                         <li class="nav-item links">
-                                            <a class="nav-link" href="{{ route('turno.view') }}"><i class="fas fa-users"></i> Ver Turnos</a>
+                                            <a class="nav-link" href="{{ route('turno.view') }}"><i class="far fa-calendar-alt"></i> Ver Turnos</a>
                                         </li>
                                         <li class="nav-item dropdown links">
                                             <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>

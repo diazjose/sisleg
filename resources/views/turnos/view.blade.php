@@ -12,11 +12,12 @@
                 <div class="card-body">                    
                   
                     <div class="row">
-                        <div class="col-md-4">
+                        <div class="col-md-8">
                             <table class="table">
                                 <thead>
                                     <th>Turno</th>
                                     <th>Orden</th>
+                                    <th>Tipo</th>
                                     <th>Hora</th>
                                     <th>Estado</th>
                                 </thead>
@@ -25,6 +26,7 @@
                                     <tr id="{{$turno->id}}">
                                         <td class="turno">{{$turno->dni}}</td>
                                         <td class="orden">{{$turno->orden}}</td>
+                                        <td>{{$turno->tipo}}</td>
                                         <td class="hora">{{$turno->hora}}</td>
                                         <td class="estado">
                                             @if($turno->estado == 'Atendido')

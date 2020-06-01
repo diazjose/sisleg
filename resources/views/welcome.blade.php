@@ -58,10 +58,10 @@
                         </li>
                         
                         <li class="nav-item links">
-                            <a class="nav-link" href="{{ route('turno.index') }}"><strong><i class="fas fa-home"></i> {{ __('Turnos') }}</strong></a>
+                            <a class="nav-link" href="{{ route('registroCivil') }}"><strong><i class="far fa-calendar-alt"></i> {{ __('Turnos') }}</strong></a>
                         </li>
                         <li class="nav-item links">
-                            <a class="nav-link" href="{{ route('turno.search') }}"><strong><i class="fas fa-home"></i> {{ __('Buscar Turnos') }}</strong></a>
+                            <a class="nav-link" href="{{ route('turno.search') }}"><strong><i class="far fa-calendar-check"></i> {{ __('Buscar Turnos') }}</strong></a>
                         </li>
                         @guest                                                        
                             @else

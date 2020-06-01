@@ -1,12 +1,12 @@
-@extends('layouts.app')
+@extends('layouts.app1')
 
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
+<div class="container my-5">
+    <div class="row justify-content-center my-5" >
         <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">
-                    <h4><strong>Turnos - {{date('d/m/Y')}}</strong></h4>
+            <div class="card border border-primary">
+                <div class="card-header bg-primary text-white">
+                    <h4><strong>Consultar Turno - {{date('d/m/Y')}}</strong></h4>
                  </div>
 
                 <div class="card-body justify-content-center">                    
@@ -29,13 +29,13 @@
                     
                         <div class="col-md-10 my-4" style="display: none;" id="turno">
                             <hr>
-                            <div class="card">
+                            <div class="card border border-success">
                                     <div class="card-body">
-                                        <h4 class="text-center"><strong><i class="fas fa-calendar-check"></i> Turno Emitido por DGPJ</strong></h4>
+                                        <h4 class="text-center"> <i class="fas fa-calendar-check text-success"></i><strong> Turno Emitido por Registro Civil</strong></h4>
                                         <div  class="text-center">
-                                            <small><strong>DIRECCION GENERAL DE PERSONA JURIDICA</strong></small>
+                                            <small><strong>La Rioja</strong></small>
                                         </div>    
-                                        <hr>
+                                        <hr class="border-success">
                                         <h5 class="row mx-3"><strong> Turno n°: </strong> <div class="mx-3" id="turno-dni"></div></h5>
                                         <h5 class="row mx-3"><strong> Orden :</strong> <div class="mx-3" id="turno-orden"></div></h5>
                                         <h5 class="row mx-3"><strong> Tramite: </strong> <div class="mx-3" id="turno-tipo"></div></h5>  

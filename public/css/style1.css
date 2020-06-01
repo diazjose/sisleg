@@ -1,0 +1,150 @@
+html, body {
+    background-color: #F4F1F1;
+    color: #636b6f;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 200;
+    height: 100vh;
+    margin: 0;
+}
+
+footer{
+	background-color: #0192fc;
+	height: 200px;
+	font-family: 'Patua One', cursive;
+	background-color: rgba(50, 132, 255, 0.8);
+	background: rgba(50, 132, 255, 0.8);
+	color: rgba(50, 132, 255, 0.8)
+}
+
+#title-head{
+   	margin-top: 10px;
+}
+
+.nav-link:hover{
+  background-color: #00497f !important; 
+  margin-top: 2px;
+}
+
+/*SOCİAL İCONS*/
+
+/* footer social icons */
+
+ul.social-network {
+  list-style: none;
+  display: inline;
+  margin-left: 0 !important;
+  padding: 0;
+}
+
+ul.social-network li {
+  display: inline;
+  margin: 0 5px;
+}
+
+
+/* footer social icons */
+
+.social-network a.icoFacebook:hover {
+  background-color: #3B5998;
+}
+
+.social-network a.icoLinkedin:hover {
+  background-color: #007bb7;
+}
+
+.social-network a.icoYoutube:hover {
+  background-color: #ff3535;
+}
+
+.social-network a.icoInstegram:hover {
+  background-color: #FFFBFB;
+}
+.social-network a.icoFacebook:hover i,
+.social-network a.icoYoutube:hover i,
+.social-network a.icoLinkedin:hover i {
+  color: #fff;
+}
+
+.social-network a.icoInstegram:hover i {
+  color: #FF5900;
+}
+
+.social-network a.socialIcon:hover,
+.socialHoverClass {
+  color: #44BCDD;
+}
+
+.social-circle li a {
+  display: inline-block;
+  position: relative;
+  margin: 0 auto 0 auto;
+  -moz-border-radius: 70%;
+  -webkit-border-radius: 70%;
+  border-radius: 70%;
+  text-align: center;
+  width: 50px;
+  height: 50px;
+  font-size: 30px;
+}
+
+.social-circle li i {
+  margin: 0;
+  line-height: 30px;
+  text-align: center;
+}
+
+.social-circle li a:hover i,
+.triggeredHover {
+  -moz-transform: rotate(360deg);
+  -webkit-transform: rotate(360deg);
+  -ms--transform: rotate(360deg);
+  transform: rotate(360deg);
+  -webkit-transition: all 0.2s;
+  -moz-transition: all 0.2s;
+  -o-transition: all 0.2s;
+  -ms-transition: all 0.2s;
+  transition: all 0.2s;
+}
+
+.social-circle i {
+  color: #595959;
+  -webkit-transition: all 0.8s;
+  -moz-transition: all 0.8s;
+  -o-transition: all 0.8s;
+  -ms-transition: all 0.8s;
+  transition: all 0.8s;
+}
+
+.social-network a {
+  background-color: #F9F9F9;
+}
+
+@media (max-width: 600px) {
+    #title {
+        font-size: 0.7em; 
+    }
+    #title-head{
+    	font-size: 1.8em;
+    	margin-top: 10px;
+    }
+    #title-img{
+    	width: 100px;
+    }
+
+    #footer-div{
+    	margin-right: 40px; 
+    }
+
+    #sub{
+      font-size: 0.6em;
+    }
+
+    #autoridad{
+      font-size: 1.2em; 
+    }
+
+    footer{
+        height: 420px;
+    }
+
+}  

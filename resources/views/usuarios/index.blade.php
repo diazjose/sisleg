@@ -66,7 +66,7 @@
                               
             <!-- Modal Header -->
             <div class="modal-header bg-secondary text-white">
-                <h4 class="modal-title"><strong>Editar Expediente</strong></h4>
+                <h4 class="modal-title"><strong>Actualizar Oficina</strong></h4>
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
             </div>
                                 
