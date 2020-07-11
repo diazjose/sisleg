@@ -48,7 +48,7 @@ class UsuariosController extends Controller
     	
 		$user->save();
 
-    	return redirect()->route('users.index')
+    	return redirect()->route('user.index')
                          ->with(['message' => 'Usuario cargado correctamente', 'status' => 'success']);
 
     }

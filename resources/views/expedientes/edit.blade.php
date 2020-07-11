@@ -13,7 +13,7 @@
                         
                         <input type="hidden" name="id" value="{{$exp->id}}">
                         <div class="form-group row">
-                            <label for="numero" class="col-md-3 col-form-label text-md-right">{{ __('N° Expediente') }}</label>
+                            <label for="numero" class="col-md-3 col-form-label text-md-right"><strong>{{ __('N° Expediente') }}</strong></label>
                             <div class="col-md-7">
                                 <input id="numero" type="text" class="form-control @error('numero') is-invalid @enderror" name="numero" value="{{$exp->numero}}" required autocomplete="numero" autofocus>
                                 @error('numero')
@@ -25,7 +25,7 @@
                         </div>
 
                         <div class="form-group row">
-                            <label for="asunto" class="col-md-3 col-form-label text-md-right">{{ __('Asunto') }}</label>        
+                            <label for="asunto" class="col-md-3 col-form-label text-md-right"><strong>{{ __('Asunto') }}</strong></label>        
                             <div class="col-md-7">
                                 <input id="asunto" type="text" class="form-control" name="asunto" value="{{$exp->asunto}}" required autocomplete="asunto">
                                 @error('asunto')
@@ -37,7 +37,7 @@
                         </div>
 
                         <div class="form-group row">
-                            <label for="iniciador" class="col-md-3 col-form-label text-md-right">{{ __('Iniciador') }}</label>        <div class="col-md-7">
+                            <label for="iniciador" class="col-md-3 col-form-label text-md-right"><strong>{{ __('Iniciador') }}</strong></label>        <div class="col-md-7">
                                 <input id="iniciador" type="text" class="form-control @error('iniciador') is-invalid @enderror" name="iniciador" value="{{$exp->iniciador}}" style="text-transform:uppercase;" required autocomplete="iniciador">            @error('direccion')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -46,7 +46,7 @@
                             </div>
                         </div>   
                         <div class="form-group row">
-                            <label for="archivado" class="col-md-3 col-form-label text-md-right">{{ __('Archivado') }}</label>        
+                            <label for="archivado" class="col-md-3 col-form-label text-md-right"><strong>{{ __('Archivado') }}</strong></label>        
                             <div class="col-md-7">
                                 <input id="archivado" type="text" class="form-control" name="archivado" value="{{$exp->archivado}}" required autocomplete="archivado">
                                 @error('archivado')
@@ -56,7 +56,7 @@
                                 @enderror
                             </div>
                         </div>    <div class="form-group row">
-                            <label for="fojas" class="col-md-3 col-form-label text-md-right">{{ __('Fojas') }}</label>        
+                            <label for="fojas" class="col-md-3 col-form-label text-md-right"><strong>{{ __('Fojas') }}</strong></label>        
                             <div class="col-md-7">
                                 <input id="fojas" type="number" class="form-control" name="fojas" value="{{$exp->fojas}}" required autocomplete="fojas">
                                 @error('fojas')
@@ -66,7 +66,7 @@
                                 @enderror
                             </div>
                         </div>    <div class="form-group row">
-                            <label for="formulario" class="col-md-3 col-form-label text-md-right">{{ __('N° Formulario') }}</label>        
+                            <label for="formulario" class="col-md-3 col-form-label text-md-right"><strong>{{ __('N° Formulario') }}</strong></label>        
                             <div class="col-md-7">
                                 <input id="formulario" type="text" class="form-control" name="formulario" value="{{$exp->formulario}}" required autocomplete="formulario">
                                 @error('formulario')
@@ -76,7 +76,7 @@
                                 @enderror
                             </div>
                         </div>    <div class="form-group row">
-                            <label for="observacion" class="col-md-3 col-form-label text-md-right">{{ __('Observacion') }}</label>        
+                            <label for="observacion" class="col-md-3 col-form-label text-md-right"><strong>{{ __('Observación') }}</strong></label>        
                             <div class="col-md-7">
                                 <textarea class="form-control" id="message-text" name="observacion" value="{{$exp->observacion}}" autocomplete="observacion">@if(isset($exp)){{ $exp->observacion }}@endif</textarea>
                                 @error('observacion')

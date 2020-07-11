@@ -29,17 +29,17 @@
                         </div>
                         <div class="row">
                             <div class="col-md-6 border">
-                                <label><strong><i class="fas fa-envelope"></i> Correo Electronico:</strong></label>
+                                <label><strong><i class="fas fa-envelope"></i> Correo Electrónico:</strong></label>
                                 <p class="text-secondary"><strong>{{ $persona->email }}</strong></p>
                             </div>
                             <div class="col-md-6 border">
-                                <label><strong><i class="fas fa-phone-volume"></i> Telefono:</strong></label>
+                                <label><strong><i class="fas fa-phone-volume"></i> Teléfono:</strong></label>
                                 <p class="text-secondary"><strong>{{ $persona->phone }}</strong></p>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-md-12 border">
-                                <label><strong> <i class="fas fa-map-marker-alt"></i> Direccion:</strong></label>
+                                <label><strong> <i class="fas fa-map-marker-alt"></i> Dirección:</strong></label>
                                 <p class="text-secondary"><strong>{{ $persona->address }}</strong></p>
                             </div>
                         </div>
@@ -65,7 +65,7 @@
                                         <td>{{$cargo->cargo}}</td>
                                         <td>{{date('d/m/Y', strtotime($cargo->fecha_inicio))}}</td>
                                         <td>{{date('d/m/Y', strtotime($cargo->fecha_fin))}}</td>
-                                        <td>{{$cargo->estado}}</td>
+                                        <td class="text-center"><span class="badge @if($cargo->estado == 'Activo') badge-primary @else badge-danger @endif">{{$cargo->estado}}</span></td>
                                     </tr>
                                     @endforeach
                                 @endif

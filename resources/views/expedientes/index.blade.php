@@ -26,7 +26,7 @@
                                 <th>N° Expediente</th>
                                 <th>Iniciador</th>
                                 <th>Asunto</th>
-                                <th>Ubicacion.</th>
+                                <th>Ubicación.</th>
                                 <th>VER</th>
                             </thead>
                             <tbody id="tbody">

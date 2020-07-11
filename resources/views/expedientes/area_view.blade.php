@@ -12,15 +12,15 @@
                     <h5><strong>Datos del Legajo</strong></h5><hr>
                     <div class="row mx-2">
                         <div class="form-group col-md-3">
-                            <label>N° Legajo</label>
+                            <label><strong>N° Legajo</strong></label>
                             <div class="form-control">@if($exp->expediente->legajo_id == 0) Ninguno @else {{$exp->expediente->legajo->numero}} @endif</div>
                         </div>                        
                         <div class="form-group col-md-3">
-                            <label>Tipo</label>
+                            <label><strong>Tipo</strong></label>
                             <div class="form-control">{{$exp->expediente->legajo->tipo}}</div>
                         </div>
                         <div class="form-group col-md-6">
-                            <label>Denominacion</label>
+                            <label><strong>Denominacion</strong></label>
                             <div class="form-control">{{$exp->expediente->legajo->denominacion}}</div>
                         </div>                        
                     </div>
@@ -29,37 +29,37 @@
                     <h5><strong>Datos de Expediente</strong></h5><hr>    
                     <div class="row mx-2">
                         <div class="form-group col-md-2">
-                            <label>N° Expediente</label>
+                            <label><strong>N° Expediente</strong></label>
                             <div class="form-control">{{$exp->expediente->numero}}</div>
                         </div>
                         <div class="form-group col-md-5">
-                            <label>Iniciador</label>
+                            <label><strong>Iniciador</strong></label>
                             <div class="form-control">{{$exp->expediente->iniciador}}</div>
                         </div>
                         <div class="form-group col-md-5">
-                            <label>Asunto</label>
+                            <label><strong>Asunto</strong></label>
                             <div class="form-control">{{$exp->expediente->asunto}}</div>
                         </div>
                     </div>
                     <div class="row mx-2">                                                
                         <div class="form-group col-md-3">
-                            <label>N° Formulario</label>
+                            <label><strong>N° Formulario</strong></label>
                             <div class="form-control">{{$exp->expediente->formulario}}</div>
                         </div>
                         <div class="form-group col-md-2">
-                            <label>Archivado</label>
+                            <label><strong>Archivado</strong></label>
                             <div class="form-control">{{$exp->expediente->archivado}}</div>
                         </div>                        
                         <div class="form-group col-md-2">
-                            <label>N° Fojas</label>
+                            <label><strong>N° Fojas</strong></label>
                             <div class="form-control">{{$exp->expediente->fojas}}</div>
                         </div>
                         <div class="form-group col-md-2">
-                            <label>Fecha de Entrada</label>
+                            <label><strong>Fecha de Entrada</strong></label>
                             <div class="form-control">{{$exp->expediente->created_at->format('d/m/Y')}}</div>
                         </div>
                         <div class="form-group col-md-2">
-                            <label>Fecha de Salida</label>
+                            <label><strong>Fecha de Salida</strong></label>
                             <?php if ($exp->fecha_fin): ?>                                
                             <div class="form-control">{{date('d/m/Y', strtotime($exp->expediente->fecha_fin))}}</div>
                             <?php else: ?>
@@ -69,7 +69,7 @@
                     </div>  
                     <div class="row mx-2">
                         <div class="form-group col-md-12">
-                            <label>Observacion del Expediente</label>
+                            <label><strong>Observacion del Expediente</strong></label>
                             <textarea class="form-control" disabled>{{$exp->expediente->observacion}}</textarea>
                         </div>
                     </div>

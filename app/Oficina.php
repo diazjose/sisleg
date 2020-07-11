@@ -15,4 +15,8 @@ class Oficina extends Model
     public function config(){
     	return $this->hasMany('App\Config'); 
     }
+
+    public function turnos(){
+    	return $this->hasMany('App\Oficina'); 
+    }
 }

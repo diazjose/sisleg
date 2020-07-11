@@ -18,6 +18,7 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/page', 'HomeController@pagina')->name('page');
 /*USUARIOS*/
 Route::get('/usuarios', 'UsuariosController@index')->name('users.index');
 Route::get('/usuarios/nuevo', 'UsuariosController@new')->name('users.new');
@@ -86,13 +87,15 @@ Route::get('/oficina/{id}', 'ConfigController@index')->name('config.index');
 Route::post('/config/create', 'ConfigController@create')->name('config.create');
 Route::post('/config/eliminar', 'ConfigController@destroy')->name('config.delete');
 Route::post('/config/editar', 'ConfigController@update')->name('config.update');
+Route::post('/config/buscar', 'ConfigController@search')->name('config.search');
 
 /*TURNOS*/
 Route::get('/RegistroCivil', 'TurnosController@registroCivil')->name('registroCivil');
 Route::get('/turno', 'TurnosController@index')->name('turno.index');
 Route::post('/turno/create', 'TurnosController@create')->name('turno.create');
+Route::post('/turno/created', 'TurnosController@created')->name('turno.created');
 Route::get('/turno/buscar', 'TurnosController@buscar')->name('turno.search');
 Route::post('/turno/search', 'TurnosController@search')->name('turno.buscar');
 Route::post('/turno/searchTurno', 'TurnosController@searchTurno')->name('turno.searchTurno');
-Route::get('/turno/todos', 'TurnosController@view')->name('turno.view');
+Route::get('/turno/todos/{fecha?}', 'TurnosController@view')->name('turno.view');
 Route::post('/turno/estado', 'TurnosController@status')->name('turno.status');

@@ -15,9 +15,13 @@
     <script src="{{ asset('js/app.js') }}" defer></script>
 
     <!-- Fonts -->
-    <link rel="dns-prefetch" href="//fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Merriweather|Ubuntu&display=swap" rel="stylesheet">
+
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+
+    <link href="https://fonts.googleapis.com/css2?family=Archivo+Narrow:wght@700&display=swap" rel="stylesheet">
+
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
@@ -29,19 +33,24 @@
             <div class="text-white">
                 <div class="row">
                     <div class="col-md-2 mx-5 d-flex justify-content-center  my-md-2">
+                        <!--
                         <img class="align-self-center border border-white" src="{{ asset('images/logo_gobierno_horizontal.png') }}" id="logo">
+                        -->
+                        <img class="align-self-center" src="{{ asset('images/secretaria_justicia.png') }}" id="logo">
                     </div>
                     <div class="col mx-md-5">
-                        <div class="d-flex justify-content-center text-center"  id="title">
-                            <span><strong>Direccion General de Personas Juridicas</strong></span>
+                        <div class="d-flex justify-content-center text-center">
+                            <h1 class="display-4" id="title">Dirección General de Personas Jurídicas</h1>    
                         </div>
+                        <!--
                         <div class="d-flex justify-content-center" id="sub">
                             <span>Secretaria de Justicia</span>
                         </div>
+                    -->
                     </div>
                 </div>
             </div>
-            <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+            <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm border-top border-white">
                 <div class="container text-white">
                     <a class="navbar-brand" href="{{ url('/') }}">
                     </a>
@@ -53,29 +62,31 @@
                         <!-- Left Side Of Navbar -->
                         <ul class="navbar-nav mr-auto">
                             <li class="nav-item links">
-                                <a class="nav-link" href="{{ url('/') }}"><strong> <i class="fas fa-home"></i>{{ __('Principal') }}</strong></a>
+                                <a class="nav-link text-white" href="{{ route('page') }}"><strong> <i class="fas fa-home"></i>{{ __('Pagina') }}</strong></a>
                             </li>
                             @guest                                                        
                             @else
                                 @switch(Auth::user()->role)
                                     @case('Director')
                                         <li class="nav-item links">
-                                            <a class="nav-link" href="{{ route('legajos_index') }}"><strong><i class="fas fa-folder-open"></i> {{ __('Legajos') }}</strong></a>
+                                            <a class="nav-link text-white" href="{{ route('legajos_index') }}"><strong><i class="fas fa-folder-open"></i> {{ __('Legajos') }}</strong></a>
                                         </li>
                                         <li class="nav-item links">
-                                            <a class="nav-link" href="{{ route('exp_index') }}"><strong><i class="fas fa-folder"></i> {{ __('Expedientes') }}</strong></a>
+                                            <a class="nav-link text-white" href="{{ route('exp_index') }}"><strong><i class="fas fa-folder"></i> {{ __('Expedientes') }}</strong></a>
                                         </li>                    
                                         <li class="nav-item links">
-                                            <a class="nav-link" href="{{ route('users.index') }}"><i class="fas fa-user"></i> Usuarios</a>
+                                            <a class="nav-link text-white" href="{{ route('users.index') }}"><i class="fas fa-user"></i> Usuarios</a>
                                         </li>
                                         <li class="nav-item links">
-                                            <a class="nav-link" href="{{ route('preson_index') }}"><i class="fas fa-users"></i> Personas</a>
+                                            <a class="nav-link text-white" href="{{ route('preson_index') }}"><i class="fas fa-users"></i> Personas</a>
                                         </li>
+                                        <!--
                                         <li class="nav-item links">
-                                            <a class="nav-link" href="{{ route('turno.view') }}"><i class="far fa-calendar-alt"></i> Ver Turnos</a>
+                                            <a class="nav-link text-white" href="{{ route('turno.view') }}"><i class="far fa-calendar-alt"></i> Ver Turnos</a>
                                         </li>
+                                    -->
                                         <li class="nav-item dropdown links">
-                                            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                            <a id="navbarDropdown" class="nav-link dropdown-toggle text-white" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                                 <strong><i class="fas fa-search"></i> Consultas</strong><span class="caret"></span>
                                             </a>
 
@@ -100,16 +111,16 @@
                                         @break
                                     @case('Secretaria')
                                         <li class="nav-item links">
-                                            <a class="nav-link" href="{{ route('legajos_index') }}"><strong><i class="fas fa-folder-open"></i> {{ __('Legajos') }}</strong></a>
+                                            <a class="nav-link text-white" href="{{ route('legajos_index') }}"><strong><i class="fas fa-folder-open"></i> {{ __('Legajos') }}</strong></a>
                                         </li>
                                         <li class="nav-item links">
-                                            <a class="nav-link" href="{{ route('exp_index') }}"><strong><i class="fas fa-folder"></i> {{ __('Expedientes') }}</strong></a>
+                                            <a class="nav-link text-white" href="{{ route('exp_index') }}"><strong><i class="fas fa-folder"></i> {{ __('Expedientes') }}</strong></a>
                                         </li>                    
                                         <li class="nav-item links">
-                                            <a class="nav-link" href="{{ route('users.index') }}"><i class="fas fa-user"></i> Usuarios</a>
+                                            <a class="nav-link text-white" href="{{ route('users.index') }}"><i class="fas fa-user"></i> Usuarios</a>
                                         </li>
                                         <li class="nav-item dropdown links">
-                                            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                            <a id="navbarDropdown" class="nav-link dropdown-toggle text-white" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                                 <strong>Consultas</strong><span class="caret"></span>
                                             </a>
 
@@ -134,15 +145,15 @@
                                         @break    
                                     @case('Mesa_Entrada')
                                         <li class="nav-item links">
-                                            <a class="nav-link" href="{{ route('legajos_index') }}"><strong><i class="fas fa-folder-open"></i> {{ __('Legajos') }}</strong></a>
+                                            <a class="nav-link text-white" href="{{ route('legajos_index') }}"><strong><i class="fas fa-folder-open"></i> {{ __('Legajos') }}</strong></a>
                                         </li>
                                         <li class="nav-item links">
-                                            <a class="nav-link" href="{{ route('exp_index') }}"><strong><i class="fas fa-folder"></i> {{ __('Expedientes') }}</strong></a>
+                                            <a class="nav-link text-white" href="{{ route('exp_index') }}"><strong><i class="fas fa-folder"></i> {{ __('Expedientes') }}</strong></a>
                                         </li>
                                         @break
                                     @default
                                         <li class="nav-item links">
-                                            <a class="nav-link" href="{{ route('exp_area', Auth::user()->role) }}"><strong><i class="fas fa-folder"></i> {{ __('Expedientes') }}</strong></a>
+                                            <a class="nav-link text-white" href="{{ route('exp_area', Auth::user()->role) }}"><strong><i class="fas fa-folder"></i> {{ __('Expedientes') }}</strong></a>
                                         </li>    
                                 @endswitch
                             @endguest
@@ -153,11 +164,11 @@
                             <!-- Authentication Links -->
                             @guest
                                 <li class="nav-item links">
-                                    <a class="nav-link" href="{{ route('login') }}"><strong><i class="fas fa-sign-in-alt"></i> {{ __('Iniciar Sesión') }}</strong></a>
+                                    <a class="nav-link text-white" href="{{ route('login') }}"><strong><i class="fas fa-sign-in-alt"></i> {{ __('Iniciar Sesión') }}</strong></a>
                                 </li>
                              @else
                                 <li class="nav-item dropdown links">
-                                    <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                    <a id="navbarDropdown" class="nav-link dropdown-toggle text-white" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                         <strong><i class="fas fa-user"></i> {{ Auth::user()->name }} {{ Auth::user()->surname }}</strong><span class="caret"></span>
                                     </a>
 

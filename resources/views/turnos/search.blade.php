@@ -23,10 +23,14 @@
                     </div>
                     
                     <div class="row justify-content-center">
-                        <div class="col-md-10 my-5" id="no-turno">
+                        <div class="col-md-10 text-center my-5" id="no-turno">
                               <h3><strong class="text-danger" id="message"></strong></h3>  
                         </div>
-                    
+                        <div class="col-md-10 my-4 text-center align-self-center" id="spinner" style="display: none;">
+                            <div class="spinner-border text-primary" role="status">
+                              <span class="sr-only">Loading...</span>
+                            </div>  
+                        </div> 
                         <div class="col-md-10 my-4" style="display: none;" id="turno">
                             <hr>
                             <div class="card border border-success">
@@ -37,8 +41,9 @@
                                         </div>    
                                         <hr class="border-success">
                                         <h5 class="row mx-3"><strong> Turno n°: </strong> <div class="mx-3" id="turno-dni"></div></h5>
-                                        <h5 class="row mx-3"><strong> Orden :</strong> <div class="mx-3" id="turno-orden"></div></h5>
-                                        <h5 class="row mx-3"><strong> Tramite: </strong> <div class="mx-3" id="turno-tipo"></div></h5>  
+                                        <h5 class="row mx-3"><strong> Oficina:</strong> <div class="mx-3" id="turno-oficina"></div></h5>
+                                        <h5 class="row mx-3"><strong> Tramite :</strong> <div class="mx-3" id="turno-tramite"></div></h5>
+                                        <h5 class="row mx-3"><strong> Orden :</strong> <div class="mx-3" id="turno-orden"></div></h5>  
                                         <h5 class="row mx-3"><strong> Dia: </strong> <div class="mx-3" id="turno-dia"></div></h5>
                                         <h5 class="row mx-3"><strong> Hora: </strong> <div class="mx-3" id="turno-hora"></div></h5>  
                                         <hr>

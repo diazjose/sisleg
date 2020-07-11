@@ -26,8 +26,11 @@
             <nav class="navbar navbar-expand-md navbar-light bg-primary" style="font-family: 'Patua One', cursive;">
                 <div class="container">
                     <a class="navbar-brand" href="{{ url('/RegistroCivil') }}">
+                        <!--
                         <img src="{{asset('images/logo_gobierno_horizontal.png')}}" id="title-img"  width="200px;" style="background-color: #FF0000;">
                         <h4 class="text-white text-center" style="background-color: #FF0000;" id="sub">Secretaría de Justicia</h4>
+                    -->
+                      <img src="{{asset('images/secretaria_justicia.png')}}" id="title-img"  width="250px;" style="background-color: #FF0000;">
                     </a>
                     <div class="text-center">
                         <h1 class="display-3 mx-md-3 text-white" id="title-head" style="font-family: 'Bebas Neue', cursive;"> Registro Civil</h1>
@@ -59,6 +62,11 @@
                             <li class="nav-item">
                                 <a class="nav-link text-white" href="{{ route('tramite.index') }}">
                                     <h5><i class="fas fa-folder-minus"></i> Tramites</h5>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-white" href="{{ route('turno.view') }}">
+                                    <h5><i class="far fa-calendar-alt"></i> Turnos</h5>
                                 </a>
                             </li>
                             <li class="nav-item">

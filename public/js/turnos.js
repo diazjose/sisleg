@@ -2,7 +2,7 @@ window.addEventListener("load", function(){
 	autoVan();
 	setTimeout(autoViene, 5000);
 
-	setTimeout(refrescar, 120000);
+	setTimeout(refrescar, 180000);
 
 	$("#form-turno").keypress(function(e) {
         if (e.which == 13) {
@@ -20,56 +20,73 @@ window.addEventListener("load", function(){
 	    validDNI();
 	});
 
-	$("#lugar").change(function(){
-		var	valor = $(this).val(); 
-		if (valor != 1) {
-			if($(this).val() != 'Casa Central(Av. Rivadavia N° 890)') { 
-				$("#tipo .casa").each(function() {
-				    $(this).remove();
-				});
-			}else{
-				$("#tipo").append('<option class="casa">DNI - Pasaportes</option><option class="casa">Autenticaciones</option><option class="casa">Solicitud de Actas</option><option class="casa">Inscripcion Judicial</option><option class="casa">Union Convivencial</option>');
-			}
-			$("#tramite").show();
-		}
+	$("#oficina").change(function(){
+		var buscar = $(this).val();
+		var form = $("#form-search");
+		var url = form.attr('action');
+		$("#id").val(buscar);
+		var data = form.serialize();	
+		$.ajax({          
+			url: url,
+			type: 'POST',
+			data : data,
+			success: function(data){
+				$("#tramite").html('');
+				$("#tramite").append(data);
+			}	
+		});
+
+		$("#tipo").show();
+		
 	});
 
 	$("#tramite").change(function(){		
   		$("#btn").removeClass('disabled',false);
 	});
 
-	/*
+	$("#fechaTurno").click(function(){
+		var fecha = $("#fecha").val();		
+		var url = 'http://localhost/sisleg/public/turno/todos/'+fecha;
+		$(location).attr('href',url);
+	});
 
 	$("#btn").click(function(){
-
+		
 		var vdni = $("#dni").val();
-		var vemail = $("#email").val();
-		var vfecha = $("#fecha").val();
-		validEmail();
-		var email = validEmail();
-		if (vdni != '' && vemail != '' && vfecha != '' && email != 0) {
-			validFecha();
+		var vtramite = $("#tramite").val();
 
-			if ($("#btn").hasClass("desabled") == false) {
+		if (vdni != '' && vtramite != '') {
+			$("#turno-solicitud").hide();
+			if ($("#btn").hasClass("disabled") == false) {
 				var form = $("#form-turno");
 				var data = form.serialize();
 				$.ajax({          
-			        url: 'turno/create',
+			        url: 'turno/created',
 			        type: 'POST',
 			        data : data,
+			        beforeSend: function(objeto){
+				        $('#spinner').show();
+				    },	
 			        success: function(data){
-			        	var date = data.fecha;
-						var info = date.split('-');
-	  					$("#turno-dni").text(data.dni);
-			        	$("#turno-orden").text(data.orden);
-			        	$("#turno-dia").text(info[2] + '/' + info[1] + '/' + info[0]);
-			        	$("#turno-hora").text(data.hora);
-			        	$("#turno-tipo").text(data.tipo);
-			        	$("#turno").show();
-			        	$("#btn").addClass('disabled');
-			        	$("#btn-descargar").attr('href','turno/download/'+data.id+'/'+data.orden);
-			        	$("#btn-descargar").attr('target','_block');
-			        	$("#turno-solicitud").hide();
+			        	//console.log(data);
+			        	setTimeout(function(){
+				          	$('#spinner').hide();
+				        	var date = data[0].fecha;
+							var info = date.split('-');
+							$("#alert").addClass('alert-'+data[4]);
+							$("#border-turno").addClass('border-'+data[4]);
+							$("#title-alert").text(data[3])
+		  					$("#turno-dni").text(data[0].dni);
+		  					$("#turno-oficina").text(data[1]);
+				        	$("#turno-orden").text(data[0].orden+'°');
+				        	$("#turno-dia").text(info[2] + '/' + info[1] + '/' + info[0]);
+				        	$("#turno-hora").text(data[0].hora);
+				        	$("#turno-tipo").text(data[2]);
+				        	$("#turno").show();
+				        	$("#btn").addClass('disabled');
+				        	$("#btn-descargar").attr('href','turno/download/'+data[0].id+'/'+data[0].orden);
+				        	$("#btn-descargar").attr('target','_block');
+				        }, 2000); 
 			        }
 			    });
 			}else{
@@ -81,9 +98,60 @@ window.addEventListener("load", function(){
 		}else{
 			$("#message").text('Debe completar todos los campos');
 	        $("#exampleModal").modal();
-		}    
+		}   
 	});
-	 */   
+/*
+	$("#btn").click(function(){
+		
+		var vdni = $("#dni").val();
+		var voficina = $("#oficina").val();
+		var vtramite = $("#tramite").val();
+
+		if (vdni != '' && voficina != '' && vtramite != '') {
+			$("#turno-solicitud").hide();
+			if ($("#btn").hasClass("disabled") == false) {
+				var form = $("#form-turno");
+				var data = form.serialize();
+				$.ajax({          
+			        url: 'turno/create',
+			        type: 'POST',
+			        data : data,
+			        beforeSend: function(objeto){
+				        $('#spinner').show();
+				    },	
+			        success: function(data){
+			        	setTimeout(function(){
+				          	$('#spinner').hide();
+				        	var date = data[0].fecha;
+							var info = date.split('-');
+							$("#alert").addClass('alert-'+data[4]);
+							$("#border-turno").addClass('border-'+data[4]);
+							$("#title-alert").text(data[3])
+		  					$("#turno-dni").text(data[0].dni);
+		  					$("#turno-oficina").text(data[1]);
+				        	$("#turno-orden").text(data[0].orden+'°');
+				        	$("#turno-dia").text(info[2] + '/' + info[1] + '/' + info[0]);
+				        	$("#turno-hora").text(data[0].hora);
+				        	$("#turno-tipo").text(data[2]);
+				        	$("#turno").show();
+				        	$("#btn").addClass('disabled');
+				        	$("#btn-descargar").attr('href','turno/download/'+data[0].id+'/'+data[0].orden);
+				        	$("#btn-descargar").attr('target','_block');
+				        }, 2000);  
+			        }
+			    });
+			}else{
+				var info = vfecha.split('-');
+				$("#btn").addClass('disabled');
+	        	$("#message").text('¡¡ Este DNI ya tiene un turno el dia '+info[2] + '/' + info[1] + '/' + info[0]+' !!');
+	        	$("#exampleModal").modal();
+			}    
+		}else{
+			$("#message").text('Debe completar todos los campos');
+	        $("#exampleModal").modal();
+		}   
+	});*/
+	 
 });
 
 function autoVan(){
@@ -110,36 +178,34 @@ function refrescar(){
     location.reload();
   }
 
-function validFecha(){
-		var dni = $("#dni").val();
-		var fecha = $("#fecha").val();
-		
-		var form = $("#form-search");
-		var url = form.attr('action');
-		$("#turnDni").val(dni);
-		$("#turnFecha").val(fecha);
-		var data = form.serialize();
 
+
+function validTurno(){
+		var dni = $("#dni").val();		
+		var form = $("#form-ValidTurno");
+		var url = form.attr('action');
+		$("#validDni").val(dni);
+		var data = form.serialize();
 		$.ajax({          
 	        url: url,
 	        type: 'POST',
 	        data : data,
 	        success: function(data){
-	        	if (data == 1) {
-	        		$("#btn").removeClass('disabled');	        		
-	        	}else{
+	        	//console.log(data);
+	        	return data;
+	        		/*
 	        		$("#btn").addClass('disabled');
 	        		$("#btn").attr('disabled',false);
 	        		$("#message").text(data);
 	        		$("#exampleModal").modal();
-	        	}
+	        		*/
 	        }
 	    });
 
 }
 function validDNI(){
 	if ($("#dni").val().length == 8) {
-		$("#email").attr('disabled', false);
+		$("#btn").attr('disabled', false);
 	}
 }
 
@@ -152,7 +218,8 @@ function validEmail(){
 }
 
 function btnsearch(){
-
+	$("#no-turno").hide();
+	$("#turno").hide();
 	var form = $("#form-turno");
 	var url = form.attr('action');
 	var data = form.serialize();
@@ -160,23 +227,37 @@ function btnsearch(){
 	    url: url,
 	    type: 'POST',
 	    data : data,
-	    success: function(data){
-	    	if (data == 0) {
-	     		$("#message").text('No tiene turno Hoy')
-	     		$("#turno").hide();
-	     		$("#no-turno").show();
-	     	}else{
-	     		var date = data[0].fecha;
-				var info = date.split('-');
-	     		$("#turno-dni").text(data[0].dni);
-			    $("#turno-orden").text(data[0].orden);
-			    $("#turno-dia").text(info[2] + '/' + info[1] + '/' + info[0]);
-			    $("#turno-hora").text(data[0].hora);
-			    $("#turno-tipo").text(data[0].tipo);
-			    $("#no-turno").hide();	
-			    $("#turno").show();	
-	     	}
-	     	$("#dni").val('');
+	    beforeSend: function(objeto){
+		       $('#spinner').show();
+		},	
+		success: function(data){
+		   	setTimeout(function(){
+		   		$('#spinner').hide();
+				if (data == 0) {
+		     		$("#message").text('No tiene turno Hoy')
+		     		$("#no-turno").show();
+		     	}else{
+		     		var date = data[0].fecha;
+					var info = date.split('-');
+					$("#turno-dni").text(data[0].dni);
+		  			$("#turno-oficina").text(data[0].oficina.denominacion);
+				    $("#turno-orden").text(data[0].orden+'°');
+				    $("#turno-dia").text(info[2] + '/' + info[1] + '/' + info[0]);
+				    $("#turno-hora").text(data[0].hora);
+				    $("#turno-tramite").text(data[0].tramite.denominacion);
+				    $("#turno").show();
+				    /*
+		     		var date = data[0].fecha;
+					var info = date.split('-');
+		     		$("#turno-dni").text(data[0].dni);
+				    $("#turno-orden").text(data[0].orden);
+				    $("#turno-dia").text(info[2] + '/' + info[1] + '/' + info[0]);
+				    $("#turno-hora").text(data[0].hora);
+				    $("#turno-tipo").text(data[0].tipo);
+				    ;*/	
+		     	}
+		     	$("#dni").val('');
+		    }, 2000);
 	    }
 	});	
 }

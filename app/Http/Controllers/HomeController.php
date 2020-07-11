@@ -25,4 +25,8 @@ class HomeController extends Controller
     {
         return view('principal');
     }
+
+    public function pagina(){
+        return view('page');   
+    }
 }

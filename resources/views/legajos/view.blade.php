@@ -29,36 +29,39 @@
                                 @endif
                                 <div class="row">
                                     <div class="form-group col-md-3">
-                                        <label>N° Legajo</label>
+                                        <label><strong>N° Legajo</strong></label>
                                         <div class="form-control">{{$legajo->numero}}</div>
                                     </div>
                                     <div class="form-group col-md-3">
-                                        <label>Tipo</label>
+                                        <label><strong>Tipo</strong></label>
                                         <div class="form-control">{{$legajo->tipo}}</div>
                                     </div>
                                     <div class="form-group col-md-6">
-                                        <label>Denominacion</label>
+                                        <label><strong>Denominación</strong></label>
                                         <div class="form-control">{{$legajo->denominacion}}</div>
                                     </div>                      
                                 </div>    
                                 <div class="row">
-                                    <div class="form-group col-md-6">
-                                        <label>Direccion</label>
+                                    <div class="form-group col-md-8">
+                                        <label><strong>Dirección</strong></label>
                                         <div class="form-control">{{$legajo->direccion}}</div>
                                     </div> 
-
-                                    <div class="form-group col-md-6">
-                                        <label>Juridiccion</label>
+                                    <div class="form-group col-md-4">
+                                        <label><strong>Zona</strong></label>
                                         <div class="form-control">{{$legajo->juridiccion}}</div>
-                                    </div>                        
+                                    </div>                                                             
                                 </div>
                                 <div class="row">
+                                    <div class="form-group col-md-6">
+                                        <label><strong>Jurisdicción</strong></label>
+                                        <div class="form-control">{{$legajo->juridiccion}}</div>
+                                    </div> 
                                     <div class="form-group col-md-3">
-                                        <label>N° Resolucion</label>
+                                        <label><strong>N° Resolución</strong></label>
                                         <div class="form-control">{{$legajo->resolucion}}</div>
                                     </div>
                                     <div class="form-group col-md-3">
-                                        <label>Inicio de Actividad</label>
+                                        <label><strong>Inicio de Actividad</strong></label>
                                         <div class="form-control">{{date('d/m/Y', strtotime($legajo->fecha_inicio))}}</div>
                                     </div>
                                 </div>                     

@@ -12,8 +12,8 @@
                         <div class="col-md-5 my-3">
                             <h5><strong>Listado de Usuarios</strong></h5>
                         </div>
-                        <div class="col-md-5"></div>
-                        <div class="col-md-2 my-3">
+                        <div class="col-md-4"></div>
+                        <div class="col-md-3 my-3">
                           <a href="{{route('users.new')}}" class="btn btn-success btn-sm-block">
                             <i class="fas fa-user-plus"></i> <strong>Usuario Nuevo</strong> 
                           </a>

@@ -23,9 +23,10 @@
 		    </div>    
 		    <hr>
 		    <h5 class="mx">Turno n°: <small style="">{{$turno->dni}}</small></h5>
+		   	<h5 class="mx">Oficina: <small>{{$turno->oficina->denominacion}}</small></h5>
+		   	<h5 class="mx">Tramite: <small>{{$turno->tramite->denominacion}}</small></h5>
 		   	<h5 class="mx">Orden: <small>{{$turno->orden}}</small></h5>
-		   	<h5 class="mx">Tramite: <small>{{$turno->tipo}}</small></h5>  
-		    <h5 class="mx">Dia: <small>{{ date('d/m/Y',strtotime($turno->fecha)) }}</small></h5>
+		   	<h5 class="mx">Dia: <small>{{ date('d/m/Y',strtotime($turno->fecha)) }}</small></h5>
 		    <h5 class="mx"> Hora: <small>{{$turno->hora}}</small></h5>  
 		    <hr>
 		    <p>Presentarse con el dni del titular unos minutos antes de la hora del turno para anunciarse.</p>

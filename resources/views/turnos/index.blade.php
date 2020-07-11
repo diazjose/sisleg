@@ -26,11 +26,14 @@
             <nav class="navbar navbar-expand-md navbar-light bg-primary" style="font-family: 'Patua One', cursive;">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/RegistroCivil') }}">
+                    <!--
                     <img src="{{asset('images/logo_gobierno_horizontal.png')}}" id="title-img"  width="200px;" style="background-color: #FF0000;">
                     <h4 class="text-white text-center" style="background-color: #FF0000;" id="sub">Secretaría de Justicia</h4>
+                    -->
+                    <img src="{{asset('images/secretaria_justicia.png')}}" id="title-img"  width="300px;" style="background-color: #FF0000;">
                 </a>
                 <div class="text-center">
-                    <h1 class="display-3 mx-md-3 text-white" id="title-head" style="font-family: 'Bebas Neue', cursive;"> Registro Civil</h1>
+                    <h1 class="display-3 text-white" id="title-head" style="font-family: 'Bebas Neue', cursive;"> Registro Civil</h1>
                 </div>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
@@ -85,9 +88,12 @@
             </div>
         </nav>
         <div class="d-none d-sm-none d-md-block">
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="alert alert-danger" id="box1">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="alert alert-danger text-center" id="box1">
+                        <div class="row text-center">
+                            <img src="{{asset('images/secretaria.jpg')}}" width="92px;">
+                            <div class="align-self-center">
                                 <h5 id="autoridad" class="text-center">
                                     <div class="mx-md-3">    
                                         <strong>Secretaría de Justicia</strong>     
@@ -95,11 +101,16 @@
                                     <div class="mx-md-3">
                                         Dra. Karina Becerra    
                                     </div>
-                                </h5>
-                            </div>  
+                                 </h5>
+                            </div>
                         </div>
-                        <div class="col-md-6">
-                            <div class="alert alert-danger" id="box2">
+                    </div>  
+                </div>
+                <div class="col-md-6">
+                    <div class="alert alert-danger" id="box2">
+                        <div class="row">    
+                            <img src="{{asset('images/lucas2.jpg')}}" width="100px;">
+                            <div class="align-self-center">
                                 <h5 id="autoridad" class="text-center">
                                     <div class="mx-md-3">    
                                         <strong>Director Registro Civil</strong>      
@@ -108,42 +119,68 @@
                                         Dr. Lucas Casas    
                                     </div>
                                 </h5>
-                            </div>  
-                        </div>
-                    </div>
+                            </div>
+                        </div>    
+                    </div>  
                 </div>
+            </div>
+        </div>
                 
                 <div class="d-block d-sm-block d-md-none my-2">
                     <div class="col-md-6">
                         <div class="alert alert-danger">
-                            <h5 id="autoridad" class="text-center">
-                                <div class="mx-md-3">    
-                                    <strong>Secretaría de Justicia</strong>     
+                            <div class="row text-center">
+                                <img src="{{asset('images/secretaria.jpg')}}" width="70px;">
+                                <div class="align-self-center">
+                                    <h5 id="autoridad" class="text-center mx-3">
+                                        <div class="mx-md-3">    
+                                            <strong>Secretaría de Justicia</strong>     
+                                        </div>
+                                        <div class="mx-md-3">
+                                            Dra. Karina Becerra    
+                                        </div>
+                                    </h5>
                                 </div>
-                                <div class="mx-md-3">
-                                    Dra Karina Becerra    
-                                </div>
-                            </h5>
+                            </div>
                         </div>  
                     </div>
                     <div class="col-md-6">
                         <div class="alert alert-danger">
-                            <h5 id="autoridad" class="text-center">
-                                <div class="mx-md-3">    
-                                    <strong>Director Registro Civil</strong>      
+                            <div class="row text-center">
+                                <img src="{{asset('images/lucas2.jpg')}}" width="75px;">
+                                <div class="align-self-center">
+                                    <h5 id="autoridad" class="text-center mx-3">
+                                        <div class="mx-md-3">    
+                                            <strong>Director Registro Civil</strong>      
+                                        </div>
+                                        <div class="mx-md-3">
+                                            Dr Lucas Casas    
+                                        </div>
+                                    </h5>
                                 </div>
-                                <div class="mx-md-3">
-                                    Dr Lucas Casas    
-                                </div>
-                            </h5>
+                            </div>
                         </div>  
                     </div>
                 </div>
 
         <div class="container" style="background-color: #FFFFFF;">
-            <div class="row justify-content-center mx-3">
+            <div class="row justify-content-center">
+                <div class="col-md-4 my-3">
+                   <div class="card">
+                      <div class="card-body">
+                          <div class="alert alert-primary  border border-primary" role="alert">
+                              <h3><strong>¡¡Aviso Importante!!</strong></h3>
+                              <hr>
+                              <h4>
+                                  Las oficinas de Santa Justina y San Vicente solo atiende para tramites de <strong>Inscripcion de Nacimiento, DNI y Pasaporte</strong> únicamente.
+                                
+                              </h4>
+                          </div>
+                      </div>
+                   </div>                 
+                </div>
                 <div class="col-md-6 my-3" id="turno-solicitud">
-                    <div class="card" >
+                    <div class="card border border-primary">
                         <div class="card-header bg-primary">
                             <h3 class="card-title"><strong class="text-white"><i class="far fa-calendar-alt"></i> Solicitar Turno</strong></h3>
                         </div>
@@ -158,87 +195,89 @@
                                 <small id="emailHelp" class="form-text text-muted">Ingrese DNI tecleando numero por numero sin puntos, ni comas, ni otros caracteres que nos sean numeros</small>
                             </div>                            
                             <div class="form-group">
-                                <select class="form-control" name="lugar" id="lugar">
-                                    <option selected disabled value="1">--Seleccionar Lugar--</option>
-                                    <option>Casa Central(Av. Rivadavia N° 890)</option>
-                                    <option>San Vicente(Barcelona N° 45)</option>
-                                    <option>Santa Justina(Saenz Peña N° 1563)</option>
-                                    <option disabled>Hospital de la Madre y el Niño</option>
-                                    <option disabled>Parque de la Ciudad</option>
-                                    <option disabled>Terminal de Omnibus</option>
+                                <select class="form-control" name="tramite" id="tramite">
+                                    <option selected disabled>--Seleccionar Tramite--</option>
+                                    @foreach($tramites as $tra)
+                                    <option value="{{$tra->id}}">{{$tra->denominacion}}</option>
+                                    @endforeach
                                 </select>
-                                <small id="emailHelp" class="form-text text-muted">Selecciona Oficina.</small>
+                                <small id="emailHelp" class="form-text text-muted">Selecciona Tramite.</small>
                             </div>
-                            <div class="form-group" style="display: none;" id="tramite">
-                                <select class="form-control" name="tipo" id="tipo">
-                                    <option selected disabled value="1">--Seleccionar Tramite--</option>
-                                    <option class="todos">Inscripcion de Nacimiento</option>
+                            <!--
+                            
+                            <div class="form-group" style="display: none;" id="tipo">
+                                <select class="form-control" name="tramite" id="tramite">
+                                    <option selected disabled>--Seleccionar Tramite--</option>
                                 </select>
                                 <small id="emailHelp" class="form-text text-muted">Selecciona Tipo de Tramite.</small>
                             </div>
-                            <a href="#" id="btn" class="btn btn-primary disabled">Solicitar Turno</a>
+                            -->
+                            <a href="#" id="btn" class="btn btn-primary">Solicitar Turnowqeqweqweqw</a>
                         </form>
                     </div>
                 </div>
             </div>
-
-            <div class="col-md-4 my-3">
-               <div class="card">
-                  <div class="card-body">
-                    
-                  </div>
-               </div>                 
+            <div class="col-md-6 text-center align-self-center" id="spinner" style="display: none;">
+                <div class="spinner-border text-primary" role="status">
+                  <span class="sr-only">Loading...</span>
+                </div>  
             </div>
-
-                              <div class="col-md-10  my-2" style="display: none;" id="turno">
-                                  <div class="alert alert-success" role="alert">
-                                      <strong><i class="fas fa-calendar-check"></i> Solicitud de turno confirmada</strong>
-                                  </div>
-                                  <div class="card">
-                                      <div class="card-body">
-                                          <h4 class="text-center"><strong><i class="fas fa-calendar-check"></i> Turno Emitido por Registro Civil</strong></h4>
-                                          <div  class="text-center">
-                                              <small><strong>LA RIOJA</strong></small>
-                                          </div>    
-                                          <hr>
-                                          <p class="mx-3">
-                                              <h5 class="row mx-3"><strong> Turno n°: </strong> <div class="mx-3" id="turno-dni"></div></h5>
-                                          </p>
-                                          <p class="mx-3">
-                                              <h5 class="row mx-3"><strong> Orden :</strong> <div class="mx-3" id="turno-orden"></div></h5>
-                                          </p>
-                                          <p class="mx-3">
-                                              <h5 class="row mx-3"><strong> Tramite: </strong> <div class="mx-3" id="turno-tipo"></div></h5>  
-                                          </p>
-                                          <p class="mx-3">
-                                              <h5 class="row mx-3"><strong> Dia: </strong> <div class="mx-3" id="turno-dia"></div></h5>
-                                          </p>
-                                          <p class="mx-3">
-                                              <h5 class="row mx-3"><strong> Hora: </strong> <div class="mx-3" id="turno-hora"></div></h5>  
-                                          </p>
-                                          <hr>
-                                          <small><strong>Presentarse con el dni del titular unos minutos antes de la hora del turno para anunciarse.</strong></small>
-                                          <hr>
-                                          <a href="#" class="btn btn-secondary" id="btn-descargar"><strong><i class="fas fa-download"></i> Descargar</strong></a>
-                                      </div>
-                                  </div>
-                              </div> 
-                              
-                              <div style="display: none;">
-                                  <form action="{{route('turno.searchTurno')}}" id="form-search" method="POST">
-                                      @csrf
-                                      <input type="text" name="turnDni" id="turnDni">
-                                      <input type="text" name="turnFecha" id="turnFecha">
-                                  </form>    
-                              </div>
-                          
-                          </div>
-
-                      </div>
-              </div>
+            <div class="col-md-6  my-2" style="display: none;" id="turno">
+                <div class="alert" id="alert" role="alert">
+                    <h4><i class="fas fa-calendar-check"></i> <strong id="title-alert"></strong></h4>
+                </div>
+                <div class="card border " id="border-turno">
+                    <div class="card-body">
+                        <h4 class="text-center"><strong><i class="fas fa-calendar-check"></i> Turno Emitido por Registro Civil</strong></h4>
+                        <div  class="text-center">
+                            <small><strong>LA RIOJA</strong></small>
+                        </div>    
+                        <hr>
+                        <p class="mx-3">
+                            <h5 class="row mx-3"><strong> Turno n°: </strong> <div class="mx-3" id="turno-dni"></div></h5>
+                        </p>
+                        <p class="mx-3">
+                            <h5 class="row mx-3"><strong> Oficina: </strong> <div class="mx-3" id="turno-oficina"></div></h5>
+                        </p>
+                        <p class="mx-3">
+                            <h5 class="row mx-3"><strong> Tramite: </strong> <div class="mx-3" id="turno-tipo"></div></h5>  
+                        </p>
+                        <p class="mx-3">
+                            <h5 class="row mx-3"><strong> Orden :</strong> <div class="mx-3" id="turno-orden"></div></h5>
+                        </p>
+                        <p class="mx-3">
+                            <h5 class="row mx-3"><strong> Dia: </strong> <div class="mx-3" id="turno-dia"></div></h5>
+                        </p>
+                        <p class="mx-3">
+                            <h5 class="row mx-3"><strong> Hora: </strong> <div class="mx-3" id="turno-hora"></div></h5>  
+                        </p>
+                        <hr>
+                        <small><strong>Presentarse con el dni del titular unos minutos antes de la hora del turno para anunciarse.</strong></small>
+                        <hr>
+                        <a href="#" class="btn btn-secondary" id="btn-descargar"><strong><i class="fas fa-download"></i> Descargar</strong></a>
+                    </div>
+                </div>
+            </div>  
+             
+            
+            <div style="display: none;">
+                <form action="{{route('config.search')}}" id="form-search" method="POST">
+                    @csrf
+                    <input type="hidden" name="id" id="id">
+                </form>    
+            </div>
+            <div style="display: none;">
+                <form action="{{route('turno.searchTurno')}}" id="form-ValidTurno" method="POST">
+                    @csrf
+                    <input type="hidden" name="dni" id="validDni">
+                </form>    
+            </div>            
+        </div>
+    </div>
+ </div>
           </div>
         </div>
-
+        <br>
          <div class="container-fluid">
             <footer class="text-white">
                 <div class="row">

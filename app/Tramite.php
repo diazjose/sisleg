@@ -16,4 +16,7 @@ class Tramite extends Model
     	return $this->hasMany('App\Config'); 
     }
     
+    public function turnos(){
+    	return $this->hasMany('App\Turno'); 
+    }
 }

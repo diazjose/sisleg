@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-10">
             <div class="card">
-                <div class="card-header"><strong>Nuevo Expediente</strong></div>
+                <div class="card-header bg-secondary text-white"><h4><strong><i class="fas fa-folder"></i> Nuevo Expediente</strong></h4></div>
 
                 <div class="card-body">
                     <form method="POST" action="{{ route('exp_create') }}">

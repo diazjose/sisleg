@@ -75,4 +75,18 @@ class ConfigController extends Controller
 
     }
 
+    public function search(Request $request){
+        $id = $request->input('id');
+
+        $config = Config::where('oficina_id', $id)->get();
+        
+        $html = '<option selected disabled>--Seleccionar Lugar--</option>';
+        foreach ($config as $con) {
+            $html .= '<option value="'.$con->tramite_id.'">'.$con->tramite->denominacion.'</option>';   
+        }
+
+        return response()->json($html); 
+
+    }
+
 }

@@ -16,8 +16,7 @@ window.addEventListener("load", function(){
 	}else{
 		var mandato = 'todos';
 	}
-	console.log(tipo+' '+juri+' '+zona+' '+mandato); 
-
+	
 	var url = 'http://localhost/sisleg/public/reportes/'+tipo+'/'+juri+'/'+zona+'/'+mandato;
 	$("#pdf").attr('href',url);
 

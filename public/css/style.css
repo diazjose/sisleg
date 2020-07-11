@@ -2,26 +2,42 @@ body {
 	background-color: #FFE7E2;
 }
 header {
+  /*
 	background-color: #BF1102;
-	
+	*/
+  background-color: #f01f33;
+  color: white;
+  margin-top:100px;
 }
+
 
 #logo{
 	width: 20vw;
 }
 
+#logo-footer{
+  width: 20vw;
+}
+
 #title{
-	font-family: 'Merriweather', serif;
-	/*
-	font-family: 'Ubuntu', sans-serif;
-	font-family: 'Raleway', sans-serif;
-	*/
-	font-size: 3vw;
+  font-family: 'Archivo Narrow', sans-serif;
+  
+  /*font-family: 'Merriweather', serif;*/
+
+	/*font-family: 'Ubuntu', sans-serif;*/
+
+	/*font-family: 'Raleway', sans-serif;*/
+	
+	font-size: 3.5vw;
 }
 
 #sub {
 	font-family: 'Merriweather', serif;
 	font-size: 2vw;
+}
+
+#ptocero {
+  width: 40vw;
 }
 
 .links > a {
@@ -37,11 +53,30 @@ header {
 .bg-white {
   /*
 	height: 50px;
-  */
-  background-color: #FFE7E2 !important;
+  
+  background-color: #FFE7E2 !important;*/
+  background-color: #f01f33 !important;
 }
 #observacion{
   height: 40px;
+}
+
+.boton:hover {
+  margin-top: 2px;
+  background-color: #ff5279;
+  border-radius: 15px;
+  border: solid 2px;
+  /*
+  border-color: #585454;
+  */
+  border-color: #ffffff;
+  cursor: pointer;
+  color: #585454;
+}
+.aut {
+  -webkit-box-shadow: 9px 7px 8px 3px rgba(252,141,141,1);
+  -moz-box-shadow: 9px 7px 8px 3px rgba(252,141,141,1);
+  box-shadow: 9px 7px 8px 3px rgba(252,141,141,1);
 }
 /*
 .caja a:hover { color: black; font-family: arial; text-decoration: none }
@@ -56,10 +91,14 @@ footer {
   background: #16222A;
   background: -webkit-linear-gradient(59deg, #3A6073, #16222A);
   background: linear-gradient(59deg, #3A6073, #16222A);
-  */
+  
   background-color: #BF1102;
+  */
+  background-color: #f01f33;
+  /*
   background: -webkit-linear-gradient(59deg, #DC8471, #BF1102);
   background: linear-gradient(59deg, #BF1102, #DC8471);
+  */
   color: white;
   margin-top:100px;
 }
@@ -103,6 +142,10 @@ ul.social-network li {
   margin: 0 5px;
 }
 
+li {
+  font-size: 2vw;
+}
+
 
 /* footer social icons */
 
@@ -122,6 +165,7 @@ ul.social-network li {
   background-color: #FFFBFB;
 }
 .social-network a.icoFacebook:hover i,
+.social-network a.icoYoutube:hover i,
 .social-network a.icoLinkedin:hover i {
   color: #fff;
 }
@@ -186,7 +230,7 @@ ul.social-network li {
 
 @media (max-width: 600px) {
   .bg-white {
-    background-color: #BF1102 !important;
+    background-color: #f01f33 !important;
   }
 
   .nav-link{
@@ -197,8 +241,12 @@ ul.social-network li {
     width: 180px;
   }
 
+  #logo-footer {
+    width: 280px;
+  }
+
   #title {
-    font-size: 1.1em;
+    font-size: 1.4em;
   }
 
   #sub {
@@ -209,5 +257,29 @@ ul.social-network li {
   }
   #flecha-derecha{
     display:none;
+  }
+
+  #ptocero {
+    width: 285px;
+  }
+
+  #fotosecre {
+    width: 70px;
+  }
+
+  #fotoy {
+    width: 75px;
+  }
+
+  .autoridad{
+    font-size: 1.3em;
+  }
+
+  h2 {
+    font-size: 1.6em;
+  }
+
+  h3 {
+    font-size: 1.5em;
   }
 }  

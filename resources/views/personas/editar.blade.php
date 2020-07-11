@@ -15,7 +15,7 @@
                         <input type="hidden" id="id_persona" name="id_persona" value="{{$persona->id}}">
                                     
                         <div class="form-group row">
-                            <label for="name" class="col-md-3 col-form-label text-md-right">{{ __('Nombre') }}</label>
+                            <label for="name" class="col-md-3 col-form-label text-md-right"><strong>{{ __('Nombre') }}</strong></label>
                             <div class="col-md-7">
                                 <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{$persona->name}}" style="text-transform:uppercase;" required autocomplete="name" autofocus>
                                 @error('name')
@@ -27,7 +27,7 @@
                         </div>
 
                         <div class="form-group row">
-                            <label for="surname" class="col-md-3 col-form-label text-md-right">{{ __('Apellidos') }}</label>
+                            <label for="surname" class="col-md-3 col-form-label text-md-right"><strong>{{ __('Apellidos') }}</strong></label>
                             <div class="col-md-7">
                                 <input id="surname" type="text" class="form-control @error('surname') is-invalid @enderror" name="surname" value="{{$persona->surname}}" style="text-transform:uppercase;" required autocomplete="surname">
                                 @error('surname')
@@ -39,7 +39,7 @@
                         </div>
 
                         <div class="form-group row">
-                            <label for="dni" class="col-md-3 col-form-label text-md-right">{{ __('DNI') }}</label>       
+                            <label for="dni" class="col-md-3 col-form-label text-md-right"><strong>{{ __('DNI') }}</strong></label>       
                             <div class="col-md-7">
                                 <input id="dni" type="text" class="form-control @error('dni') is-invalid @enderror" name="dni" value="{{$persona->dni}}" required autocomplete="dni">
                                 @error('dni')
@@ -50,7 +50,7 @@
                             </div>
                         </div>    
                         <div class="form-group row">
-                            <label for="email" class="col-md-3 col-form-label text-md-right">{{ __('Correo Electronico') }}</label>        
+                            <label for="email" class="col-md-3 col-form-label text-md-right"><strong>{{ __('Correo Electrónico') }}</strong></label>        
                             <div class="col-md-7">
                                 <input id="email" type="email" class="form-control" name="email" value="{{$persona->email}}" required autocomplete="email">
                                 @error('email')
@@ -61,7 +61,7 @@
                             </div>
                         </div>    
                         <div class="form-group row">
-                            <label for="address" class="col-md-3 col-form-label text-md-right">{{ __('Direccion') }}</label>        
+                            <label for="address" class="col-md-3 col-form-label text-md-right"><strong>{{ __('Dirección') }}</strong></label>        
                             <div class="col-md-7">
                                 <input id="address" type="text" class="form-control" name="address" value="{{$persona->address}}"  style="text-transform:uppercase;" required autocomplete="adress">
                                 @error('adress')
@@ -72,7 +72,7 @@
                             </div>
                         </div>    
                         <div class="form-group row">
-                            <label for="phone" class="col-md-3 col-form-label text-md-right">{{ __('Telefono') }}</label>        
+                            <label for="phone" class="col-md-3 col-form-label text-md-right"><strong>{{ __('Teléfono') }}</strong></label>        
                             <div class="col-md-7">
                                 <input id="phone" type="text" class="form-control" name="phone" value="{{$persona->phone}}" required autocomplete="phone">
                                 @error('phone')

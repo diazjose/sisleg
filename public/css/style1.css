@@ -124,11 +124,13 @@ ul.social-network li {
         font-size: 0.7em; 
     }
     #title-head{
-    	font-size: 1.8em;
+    	font-size: 1.5em;
     	margin-top: 10px;
+      margin-left: 0px;
+      margin-right: 0px;
     }
     #title-img{
-    	width: 100px;
+    	width: 130px;
     }
 
     #footer-div{

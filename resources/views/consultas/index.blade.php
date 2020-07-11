@@ -14,7 +14,7 @@
                             <form method="" action="">
                                 <input type="hidden" id="tipo" name="tipo" value="{{$tipo}}">
                                 <div class="form-group">
-                                    <label for="juridiccion"><strong>Juridiccion</strong></label>
+                                    <label for="juridiccion"><strong>Jurisdicción</strong></label>
                                     <select id="juridiccion" class="form-control search" name="juridiccion">
                                         <option value="todos">Todos</option>
                                         <option value="Arauco (Aimogasta)">Arauco (Aimogasta)</option>
@@ -84,11 +84,11 @@
                             <div class="table-responsive" id="resultado">
                                 <table class="table">
                                     <thead class="thead-light">
-                                        <th>Denominacion</th>
-                                        <th>Juridiccion</th>
+                                        <th>Denominación</th>
+                                        <th>Jurisdicción</th>
                                         <th>Zona</th>
-                                        <th>Direccion</th>
-                                        <th>Resolucion</th>
+                                        <th>Dirección</th>
+                                        <th>Resolución</th>
                                         <th>Presidente</th>
                                         <th>Mandato</th>
                                         <th>Acciones</th>

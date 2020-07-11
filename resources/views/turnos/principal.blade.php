@@ -26,12 +26,16 @@
             <nav class="navbar navbar-expand-md navbar-light bg-primary" style="font-family: 'Patua One', cursive;">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/RegistroCivil') }}">
+                    <!--
                     <img src="{{asset('images/logo_gobierno_horizontal.png')}}" id="title-img"  width="200px;" style="background-color: #FF0000;">
                     <h4 class="text-white text-center" style="background-color: #FF0000;" id="sub">Secretaría de Justicia</h4>
+                    -->
+                    <img src="{{asset('images/secretaria_justicia.png')}}" id="title-img"  width="300px;" style="background-color: #FF0000;">
+                    
                 </a>
-                
+                <h1 class="display-3 text-white" id="title-head" style="font-family: 'Bebas Neue', cursive;"> Registro Civil</h1>
                 <div class="text-center">
-                    <h1 class="display-3 mx-md-3 text-white" id="title-head" style="font-family: 'Bebas Neue', cursive;"> Registro Civil</h1>
+                    
                 </div>
                 <!--
                 <div class="text-center">
@@ -89,10 +93,13 @@
                 </div>
             </div>
         </nav>
-                <div class="d-none d-sm-none d-md-block">
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="alert alert-danger" id="box1">
+        <div class="d-none d-sm-none d-md-block">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="alert alert-danger text-center" id="box1">
+                        <div class="row text-center">
+                            <img src="{{asset('images/secretaria.jpg')}}" width="92px;">
+                            <div class="align-self-center">
                                 <h5 id="autoridad" class="text-center">
                                     <div class="mx-md-3">    
                                         <strong>Secretaría de Justicia</strong>     
@@ -100,11 +107,16 @@
                                     <div class="mx-md-3">
                                         Dra. Karina Becerra    
                                     </div>
-                                </h5>
-                            </div>  
+                                 </h5>
+                            </div>
                         </div>
-                        <div class="col-md-6">
-                            <div class="alert alert-danger" id="box2">
+                    </div>  
+                </div>
+                <div class="col-md-6">
+                    <div class="alert alert-danger" id="box2">
+                        <div class="row">    
+                            <img src="{{asset('images/lucas2.jpg')}}" width="100px;">
+                            <div class="align-self-center">
                                 <h5 id="autoridad" class="text-center">
                                     <div class="mx-md-3">    
                                         <strong>Director Registro Civil</strong>      
@@ -113,38 +125,49 @@
                                         Dr. Lucas Casas    
                                     </div>
                                 </h5>
-                            </div>  
-                        </div>
-                    </div>
+                            </div>
+                        </div>    
+                    </div>  
                 </div>
+            </div>
+        </div>
                 
                 <div class="d-block d-sm-block d-md-none my-2">
                     <div class="col-md-6">
                         <div class="alert alert-danger">
-                            <h5 id="autoridad" class="text-center">
-                                <div class="mx-md-3">    
-                                    <strong>Secretaría de Justicia</strong>     
+                            <div class="row text-center">
+                                <img src="{{asset('images/secretaria.jpg')}}" width="70px;">
+                                <div class="align-self-center">
+                                    <h5 id="autoridad" class="text-center mx-3">
+                                        <div class="mx-md-3">    
+                                            <strong>Secretaría de Justicia</strong>     
+                                        </div>
+                                        <div class="mx-md-3">
+                                            Dra. Karina Becerra    
+                                        </div>
+                                    </h5>
                                 </div>
-                                <div class="mx-md-3">
-                                    Dra Karina Becerra    
-                                </div>
-                            </h5>
+                            </div>
                         </div>  
                     </div>
                     <div class="col-md-6">
                         <div class="alert alert-danger">
-                            <h5 id="autoridad" class="text-center">
-                                <div class="mx-md-3">    
-                                    <strong>Director Registro Civil</strong>      
+                            <div class="row text-center">
+                                <img src="{{asset('images/lucas2.jpg')}}" width="75px;">
+                                <div class="align-self-center">
+                                    <h5 id="autoridad" class="text-center mx-3">
+                                        <div class="mx-md-3">    
+                                            <strong>Director Registro Civil</strong>      
+                                        </div>
+                                        <div class="mx-md-3">
+                                            Dr Lucas Casas    
+                                        </div>
+                                    </h5>
                                 </div>
-                                <div class="mx-md-3">
-                                    Dr Lucas Casas    
-                                </div>
-                            </h5>
+                            </div>
                         </div>  
                     </div>
-                </div>
-                
+                </div>        
                 
 
                 <div class="container" style="background-color: #FFFFFF;">

@@ -1,7 +1,7 @@
 @csrf
 
                         <div class="form-group row">
-                            <label for="numero" class="col-md-4 col-form-label text-md-right">{{ __('N° Legajo') }}</label>
+                            <label for="numero" class="col-md-4 col-form-label text-md-right"><strong>{{ __('N° Legajo') }}</strong></label>
 
                             <div class="col-md-6">
                                 <input id="numero" type="text" class="form-control @error('name') is-invalid @enderror" name="numero"  value="{{ old('numero') }}" required autocomplete="numero" autofocus>
@@ -15,7 +15,7 @@
                         </div>
 
                         <div class="form-group row">
-                            <label for="tipo" class="col-md-4 col-form-label text-md-right">{{ __('Tipo') }}</label>
+                            <label for="tipo" class="col-md-4 col-form-label text-md-right"><strong>{{ __('Tipo') }}</strong></label>
 
                             <div class="col-md-6">
                                 <select id="tipo" type="text" class="form-control @error('tipo') is-invalid @enderror" name="tipo" value="{{ old('tipo') }}" required autocomplete="tipo">
@@ -42,7 +42,7 @@
                         </div>
 
                         <div class="form-group row">
-                            <label for="denominacion" class="col-md-4 col-form-label text-md-right">{{ __('Denominacion') }}</label>
+                            <label for="denominacion" class="col-md-4 col-form-label text-md-right"><strong>{{ __('Denominación') }}</strong></label>
 
                             <div class="col-md-6">
                                 <input id="denominacion" type="text" class="form-control @error('denominacion') is-invalid @enderror" name="denominacion" value="{{ old('denominacion') }}" style="text-transform:uppercase;" required autocomplete="denominacion">
@@ -56,7 +56,7 @@
                         </div>
 
                         <div class="form-group row">
-                            <label for="juridiccion" class="col-md-4 col-form-label text-md-right">{{ __('Juridiccion') }}</label>
+                            <label for="juridiccion" class="col-md-4 col-form-label text-md-right"><strong>{{ __('Jurisdicción') }}</strong></label>
 
                             <div class="col-md-6">
                                 <select id="juridiccion" class="form-control" name="juridiccion" required>
@@ -84,7 +84,7 @@
                         </div>
 
                         <div class="form-group row">
-                            <label for="direccion" class="col-md-4 col-form-label text-md-right">{{ __('Direccion') }}</label>
+                            <label for="direccion" class="col-md-4 col-form-label text-md-right"><strong>{{ __('Dirección') }}</strong></label>
 
                             <div class="col-md-6">
                                 <input id="direccion" type="text" class="form-control @error('direccion') is-invalid @enderror" name="direccion" value="{{ old('direccion') }}" style="text-transform:uppercase;" required autocomplete="direccion">
@@ -98,7 +98,7 @@
                         </div>
 
                         <div class="form-group row">
-                            <label for="zona" class="col-md-4 col-form-label text-md-right">{{ __('Zona') }}</label>
+                            <label for="zona" class="col-md-4 col-form-label text-md-right"><strong>{{ __('Zona') }}</strong></label>
 
                             <div class="col-md-6">
                                 <select id="zona" class="form-control" name="zona" required>
@@ -112,7 +112,7 @@
                         </div>
 
                         <div class="form-group row">
-                            <label for="resolucion" class="col-md-4 col-form-label text-md-right">{{ __('Resolucion') }}</label>
+                            <label for="resolucion" class="col-md-4 col-form-label text-md-right"><strong>{{ __('Resolución') }}</strong></label>
 
                             <div class="col-md-6">
                                 <input id="resolucion" type="text" class="form-control" name="resolucion" value="{{ old('resolucion') }}" required autocomplete="resolucion">
@@ -125,7 +125,7 @@
                         </div>
 
                         <div class="form-group row">
-                            <label for="fecha_inicio" class="col-md-4 col-form-label text-md-right">{{ __('Fecha de Inicio') }}</label>
+                            <label for="fecha_inicio" class="col-md-4 col-form-label text-md-right"><strong>{{ __('Fecha de Inicio') }}</strong></label>
 
                             <div class="col-md-6">
                                 <input id="fecha_inicio" type="date" class="form-control" name="fecha_inicio" value="{{ old('fecha_inicio') }}" required autocomplete="fecha_inicio">

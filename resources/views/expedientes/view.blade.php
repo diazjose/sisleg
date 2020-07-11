@@ -18,15 +18,15 @@
                     <h5><strong>Datos del Legajo</strong></h5><hr>
                     <div class="row mx-2">
                         <div class="form-group col-md-3">
-                            <label>N° Legajo</label>
+                            <label><strong>N° Legajo</strong></label>
                             <div class="form-control">{{$exp->legajo->numero}}</div>
                         </div>                        
                         <div class="form-group col-md-3">
-                            <label>Tipo</label>
+                            <label><strong>Tipo</strong></label>
                             <div class="form-control">{{$exp->legajo->tipo}}</div>
                         </div>
                         <div class="form-group col-md-6">
-                            <label>Denominacion</label>
+                            <label><strong>Denominación</strong></label>
                             <div class="form-control">{{$exp->legajo->denominacion}}</div>
                         </div>                        
                     </div>
@@ -35,37 +35,37 @@
                     <h5><strong>Datos del Expediente</strong></h5><hr>                 
                     <div class="row mx-2">
                         <div class="form-group col-md-2">
-                            <label>N° Expediente</label>
+                            <label><strong>N° Expediente</strong></label>
                             <div class="form-control">{{$exp->numero}}</div>
                         </div>
                         <div class="form-group col-md-5">
-                            <label>Asunto</label>
+                            <label><strong>Asunto</strong></label>
                             <div class="form-control">{{$exp->asunto}}</div>
                         </div>
                         <div class="form-group col-md-5">
-                            <label>Iniciador</label>
+                            <label><strong>Iniciador</strong></label>
                             <div class="form-control">{{$exp->iniciador}}</div>
                         </div>                        
                     </div>    
                     <div class="row mx-2">                                                
                         <div class="form-group col-md-4">
-                            <label>N° Formulario</label>
+                            <label><strong>N° Formulario</strong></label>
                             <div class="form-control">{{$exp->formulario}}</div>
                         </div>
                         <div class="form-group col-md-2">
-                            <label>Archivado</label>
+                            <label><strong>Archivado</strong></label>
                             <div class="form-control">{{$exp->archivado}}</div>
                         </div>                        
                         <div class="form-group col-md-2">
-                            <label>N° Fojas</label>
+                            <label><strong>N° Fojas</strong></label>
                             <div class="form-control">{{$exp->fojas}}</div>
                         </div>
                         <div class="form-group col-md-2">
-                            <label>Fecha de Entrada</label>
+                            <label><strong>Fecha de Entrada</strong></label>
                             <div class="form-control">{{$exp->created_at->format('d/m/Y')}}</div>
                         </div>
                         <div class="form-group col-md-2">
-                            <label>Fecha de Salida</label>
+                            <label><strong>Fecha de Salida</strong></label>
                             <?php if ($exp->fecha_fin): ?>                                
                             <div class="form-control">{{date('d/m/Y', strtotime($exp->fecha_fin))}}</div>
                             <?php else: ?>
@@ -75,13 +75,13 @@
                     </div>  
                     <div class="row mx-2">                        
                         <div class="form-group col-md-3">
-                            <label>Resolución</label>
+                            <label><strong>Resolución</strong></label>
                             <div class="form-control">@if($exp->resolucion){{$exp->resolucion}} @else No Tiene @endif</div>
                         </div>
                     </div>
                     <div class="row mx-2">
                         <div class="form-group col-md-12">
-                            <label>Observacion</label>
+                            <label><strong>Observación</strong></label>
                             <textarea class="form-control" disabled>{{$exp->observacion}}</textarea>
                         </div>
                     </div>

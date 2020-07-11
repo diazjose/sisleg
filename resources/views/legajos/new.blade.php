@@ -3,9 +3,9 @@
 @section('content')
 <div class="container" id="contenedor">
     <div class="row justify-content-center">
-        <div class="col-md-8">
+        <div class="col-md-10">
             <div class="card">
-                <div class="card-header"><strong>Nuevo Legajo</strong></div>
+                <div class="card-header bg-secondary text-white"><h4><strong><i class="fas fa-folder-open"></i> Nuevo Legajo</strong></h4></div>
 
                 <div class="card-body">
                     @if(session('message'))
@@ -19,7 +19,7 @@
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
                                 <button type="submit" class="btn btn-primary">
-                                    {{ __('Crear Legajo') }}
+                                    {{ __('Guardar Legajo') }}
                                 </button>
                             </div>
                         </div>
