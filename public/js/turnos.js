@@ -9,12 +9,7 @@ window.addEventListener("load", function(){
             return false;
         }
     });
-	/*
-	$("#fecha").change(function(){
-		validFecha();
-	});
-	*/
-
+	
 	$('#dni').keyup(function () { 
 	    this.value = this.value.replace(/[^0-9]/g,'');
 	    validDNI();
@@ -46,7 +41,7 @@ window.addEventListener("load", function(){
 
 	$("#fechaTurno").click(function(){
 		var fecha = $("#fecha").val();		
-		var url = 'http://localhost/sisleg/public/turno/todos/'+fecha;
+		var url = 'http://localhost/sisgturn/public/turno/todos/'+fecha;
 		$(location).attr('href',url);
 	});
 
@@ -54,14 +49,15 @@ window.addEventListener("load", function(){
 		
 		var vdni = $("#dni").val();
 		var vtramite = $("#tramite").val();
+		var ente = $("#ente").val();
 
-		if (vdni != '' && vtramite != '') {
+		if (vdni != '' && vtramite != '' && ente != '') {
 			$("#turno-solicitud").hide();
 			if ($("#btn").hasClass("disabled") == false) {
 				var form = $("#form-turno");
 				var data = form.serialize();
 				$.ajax({          
-			        url: 'turno/created',
+			        url: 'turno/create',
 			        type: 'POST',
 			        data : data,
 			        beforeSend: function(objeto){
@@ -100,58 +96,6 @@ window.addEventListener("load", function(){
 	        $("#exampleModal").modal();
 		}   
 	});
-/*
-	$("#btn").click(function(){
-		
-		var vdni = $("#dni").val();
-		var voficina = $("#oficina").val();
-		var vtramite = $("#tramite").val();
-
-		if (vdni != '' && voficina != '' && vtramite != '') {
-			$("#turno-solicitud").hide();
-			if ($("#btn").hasClass("disabled") == false) {
-				var form = $("#form-turno");
-				var data = form.serialize();
-				$.ajax({          
-			        url: 'turno/create',
-			        type: 'POST',
-			        data : data,
-			        beforeSend: function(objeto){
-				        $('#spinner').show();
-				    },	
-			        success: function(data){
-			        	setTimeout(function(){
-				          	$('#spinner').hide();
-				        	var date = data[0].fecha;
-							var info = date.split('-');
-							$("#alert").addClass('alert-'+data[4]);
-							$("#border-turno").addClass('border-'+data[4]);
-							$("#title-alert").text(data[3])
-		  					$("#turno-dni").text(data[0].dni);
-		  					$("#turno-oficina").text(data[1]);
-				        	$("#turno-orden").text(data[0].orden+'°');
-				        	$("#turno-dia").text(info[2] + '/' + info[1] + '/' + info[0]);
-				        	$("#turno-hora").text(data[0].hora);
-				        	$("#turno-tipo").text(data[2]);
-				        	$("#turno").show();
-				        	$("#btn").addClass('disabled');
-				        	$("#btn-descargar").attr('href','turno/download/'+data[0].id+'/'+data[0].orden);
-				        	$("#btn-descargar").attr('target','_block');
-				        }, 2000);  
-			        }
-			    });
-			}else{
-				var info = vfecha.split('-');
-				$("#btn").addClass('disabled');
-	        	$("#message").text('¡¡ Este DNI ya tiene un turno el dia '+info[2] + '/' + info[1] + '/' + info[0]+' !!');
-	        	$("#exampleModal").modal();
-			}    
-		}else{
-			$("#message").text('Debe completar todos los campos');
-	        $("#exampleModal").modal();
-		}   
-	});*/
-	 
 });
 
 function autoVan(){
@@ -204,8 +148,21 @@ function validTurno(){
 
 }
 function validDNI(){
-	if ($("#dni").val().length == 8) {
-		$("#btn").attr('disabled', false);
+	var valid = $("#dni").val();
+	if (valid.length == 8) {
+		if (valid > 6000000 && valid < 40000000) {
+			$("#btn").removeClass('disabled');
+			$("#dni").removeClass('is-invalid');
+			$("#dnilHelp").show();
+		}else{
+			$("#btn").addClass('disabled');
+			$("#dni").addClass('is-invalid');
+			$("#dnilHelp").hide();
+			$("#mess").show();
+		}
+	}else{
+		$("#mess").hide();
+		$("#btn").addClass('disabled');
 	}
 }
 
@@ -278,3 +235,8 @@ function btnAtendido(id, status){
 	    }
 	});
 }
+
+function alpha(e) {
+  var k; document.all ? k = e.keyCode : k = e.which; 
+  return ((k > 64 && k < 91) || (k > 96 && k < 123) || k == 8 || k == 32 || (k >= 48 && k <= 57)); 
+} 

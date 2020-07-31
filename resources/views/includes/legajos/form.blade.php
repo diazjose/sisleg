@@ -112,6 +112,20 @@
                         </div>
 
                         <div class="form-group row">
+                            <label for="ubicacion" class="col-md-4 col-form-label text-md-right"><strong>{{ __('Ubicación') }}</strong></label>
+
+                            <div class="col-md-6">
+                                <input id="ubicacion" type="text" class="form-control @error('ubicacion') is-invalid @enderror" name="ubicacion" value="{{ old('ubicacion') }}" style="text-transform:uppercase;" autocomplete="ubicacion">
+
+                                @error('ubicacion')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
                             <label for="resolucion" class="col-md-4 col-form-label text-md-right"><strong>{{ __('Resolución') }}</strong></label>
 
                             <div class="col-md-6">

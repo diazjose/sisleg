@@ -118,38 +118,36 @@ class TurnosController extends Controller
                 
         $validate = $this->validate($request, [
            'dni' => ['required', 'string','max:8'],
-           'oficina' => ['required', 'int', 'max:255'],
+           'ente' => ['required', 'string', 'max:255'],
            'tramite' => ['required', 'int', 'max:255'],
         ]);
         $dni = $request->input('dni');
+        $ente = $request->input('ente');
+        $tramite = $request->input('tramite');
         $date = date('Y-m-d');
         $turno = Turno::where('dni',$dni)->where('fecha','>', $date)->where('estado', 'Espera')->first();
         
         if ($turno) {
             $info[0] = $turno;
-            $info[1] = $turno->oficina->denominacion;
             $info[2] = $turno->tramite->denominacion;
             $info[3] = 'Usted ya tiene un turno';
-            $info[4] = 'dark';
+            $info[4] = 'danger';
         }else{
-            $oficina = $request->input('oficina');
-            $tramite = $request->input('tramite');
-            $tur = Turno::where('oficina_id',$oficina)->where('tramite_id',$tramite)->orderBy('id','desc')->first();
-            $conf = Config::where('oficina_id',$oficina)->where('tramite_id', $tramite)->first();
+            $tur = Turno::where('tramite_id',$tramite)->orderBy('id','desc')->first();
             
             $turno = new Turno;
-            $turno->oficina_id = $oficina;
             $turno->tramite_id = $tramite;
-            $turno->dni = $request->input('dni');
+            $turno->dni = $dni;
+            $turno->ente = $ente;
             $turno->estado = 'Espera';
 
             if ($tur) {
                 $horat = strtotime($tur->hora);
-                $horac = strtotime($conf->hora_fin);
-                $hora = strtotime("+$conf->min_turno minute", strtotime($tur->hora));
+                $horac = strtotime('12:30');
+                $hora = strtotime("+30 minute", strtotime($tur->hora));
                 if ($horat < $horac AND $hora < $horac) {
                     $turno->fecha = $tur->fecha;
-                    $hora = strtotime("+$conf->min_turno minute", strtotime($tur->hora));
+                    $hora = strtotime("+30 minute", strtotime($tur->hora));
                     $hora = date('H:i', $hora);
                     $turno->hora = $hora;
                     $turno->orden = $tur->orden + 1;
@@ -161,7 +159,7 @@ class TurnosController extends Controller
                     $fecha = date('Y-m-d', strtotime($date));
                     $turno->fecha = $fecha;
                     $turno->orden = 1;
-                    $turno->hora = $conf->hora_inicio;
+                    $turno->hora = '08:00:00';
                 }
 
             }else{
@@ -173,14 +171,13 @@ class TurnosController extends Controller
                 $fecha = date('Y-m-d', strtotime($date));
                 $turno->fecha = $fecha;
                 $turno->orden = 1;
-                $turno->hora = $conf->hora_inicio;
+                $turno->hora = '08:00:00';
             }
+            $turno->save();
             $info[0] = $turno;
-            $info[1] = $turno->oficina->denominacion;
             $info[2] = $turno->tramite->denominacion;
             $info[3] = 'Solicitud de turno confirmada';
-            $info[4] = 'success';
-            $turno->save();    
+            $info[4] = 'success';                
         }
 
         return response()->json($info);
@@ -307,5 +304,13 @@ updated_at datetime,
 CONSTRAINT pk_turnos PRIMARY KEY(id),
 CONSTRAINT fk_turnos_oficina FOREIGN KEY(oficina_id) REFERENCES oficinas(id),    
 CONSTRAINT fk_turnos_tramite FOREIGN KEY(tramite_id) REFERENCES tramites(id)
+)ENGINE=InnoDB;
+
+create table tramites(
+id int(255) auto_increment not null,
+dni denominacion(100),
+created_at datetime,
+updated_at datetime,
+CONSTRAINT pk_tramites PRIMARY KEY(id)
 )ENGINE=InnoDB;
 */

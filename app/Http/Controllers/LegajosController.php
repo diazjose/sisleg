@@ -25,7 +25,7 @@ class LegajosController extends Controller
 
     public function view($id){
         $legajo = Legajo::find($id);
-        return view('legajos.view', ['legajo' => $legajo]);
+        return view('legajos.view1', ['legajo' => $legajo]);
     }
 
     public function create(Request $request){
@@ -51,6 +51,9 @@ class LegajosController extends Controller
     	$legajo->denominacion = strtoupper($request->input('denominacion'));
     	$legajo->juridiccion = $request->input('juridiccion');
     	$legajo->direccion = strtoupper($request->input('direccion'));
+        if (!empty($request->input('ubicacion'))) {
+            $legajo->ubicacion = $request->input('ubicacion'); 
+        }        
         $legajo->zona = $request->input('zona');
     	$legajo->resolucion = $request->input('resolucion');
     	$legajo->fecha_inicio = $request->input('fecha_inicio');
@@ -86,6 +89,10 @@ class LegajosController extends Controller
         $legajo->denominacion = strtoupper($request->input('denominacion'));
         $legajo->juridiccion = $request->input('juridiccion');
         $legajo->direccion = strtoupper($request->input('direccion'));
+        $legajo->zona = $request->input('zona');
+        if (!empty($request->input('ubicacion'))) {
+            $legajo->ubicacion = $request->input('ubicacion'); 
+        }
         $legajo->resolucion = $request->input('resolucion');
         $legajo->fecha_inicio = $request->input('fecha_inicio');
         $legajo->update();

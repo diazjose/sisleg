@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col">
             <div class="card">
-                <div class="card-header bg-secondary text-white"><h4><strong><i class="fas fa-folder-open"></i> Legajo N° {{$legajo->numero}} - ({{$legajo->denominacion}})</strong></h4></div>
+                <div class="card-header grey text-white title"><h4><strong><i class="fas fa-folder-open"></i> Legajo N° {{$legajo->numero}} - ({{$legajo->denominacion}})</strong></h4></div>
 
                 <div class="card-body row">                    
                     <div class="col-md-3">
@@ -21,7 +21,7 @@
                     <div class="col-md-9">
                         <div class="tab-content" id="v-pills-tabContent">
                             <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
-                                <h5><strong>Datos del Legajo</strong></h5><hr>
+                                <h5 class="title"><strong>Datos del Legajo</strong></h5><hr>
                                 @if(session('message'))
                                 <div class="alert alert-{{ session('status') }}">
                                     <strong>{{ session('message') }}</strong>
@@ -48,7 +48,7 @@
                                     </div> 
                                     <div class="form-group col-md-4">
                                         <label><strong>Zona</strong></label>
-                                        <div class="form-control">{{$legajo->juridiccion}}</div>
+                                        <div class="form-control">{{$legajo->zona}}</div>
                                     </div>                                                             
                                 </div>
                                 <div class="row">
@@ -66,7 +66,7 @@
                                     </div>
                                 </div>                     
                                 <div class="col-md-4">
-                                    <button type="button" class="btn btn-outline-primary my-2" onclick="edit('{{$legajo->numero}}', '{{$legajo->tipo}}', '{{$legajo->denominacion}}', '{{$legajo->juridiccion}}', '{{$legajo->direccion}}', '{{$legajo->resolucion}}', '{{$legajo->fecha_inicio}}')" data-toggle="modal" data-target="#editModal">
+                                    <button type="button" class="btn btn-outline-primary my-2" onclick="edit('{{$legajo->numero}}', '{{$legajo->tipo}}', '{{$legajo->denominacion}}', '{{$legajo->zona}}', '{{$legajo->juridiccion}}', '{{$legajo->direccion}}', '{{$legajo->ubicacion}}', '{{$legajo->resolucion}}', '{{$legajo->fecha_inicio}}')" data-toggle="modal" data-target="#editModal">
                                         Editar Legajo
                                     </button>
                                 </div>                       
@@ -74,7 +74,7 @@
                                  
                             </div>
                             <div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">
-                                <h5><strong>Datos de Autotidades</strong></h5><hr>
+                                <h5 class="title"><strong>Datos de Autotidades</strong></h5><hr>
                                 @if(count($legajo->cargos) > 0 )
                                 <div class="table-responsive mx-2">
                                     <table class="table">
@@ -115,7 +115,7 @@
                                 </div>     
                             </div>
                             <div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">
-                                <h5><strong>Datos de Expedientes</strong></h5><hr>
+                                <h5 class="title"><strong>Datos de Expedientes</strong></h5><hr>
                                 @if(count($legajo->expedientes) > 0 )
                                 <div class="table-responsive mx-2">
                                     <table class="table">
@@ -133,7 +133,7 @@
                                                 <td>{{$exp->asunto}}</td>
                                                 <td>{{$exp->iniciador}}</td>
                                                 <td>{{date('d/m/Y', strtotime($exp->created_at))}}</td>
-                                                <td><a href="{{route('exp_view', $exp->id)}}" class="btn btn-outline-info">VER</a></td>
+                                                <td><a href="{{route('exp_view', $exp->id)}}" class="btn btn-outline-info"><strong>VER</strong></a></td>
                                             </tr>
                                         @endforeach
                                         </tbody>
@@ -148,6 +148,14 @@
                             <div class="tab-pane fade" id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-settings-tab">...</div>
                         </div>
                         
+                        <br>
+                        <h5 class="title"><strong><i class="fas fa-map-marker-alt">  </i> Ubicación</strong></h5><hr>
+                        <input type="hidden" id="umap" value="{{$legajo->ubicacion}}">
+                        @if($legajo->ubicacion != '')
+                        <div class="row text-center border border-dark" id="mapa"></div>        
+                        @else
+                        <h3 class="text-center text-danger"><strong>No tiene cargada la Ubicación...</strong></h3>
+                        @endif
                     </div>
                 </div>  
                 <br>
@@ -168,7 +176,7 @@
         <div class="modal-content">
                               
             <!-- Modal Header -->
-            <div class="modal-header bg-secondary text-white">
+            <div class="modal-header grey text-white">
                 <h4 class="modal-title"><strong>Cargar Cargo</strong></h4>
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
             </div>
@@ -232,7 +240,7 @@
                         </div>
                     </div>    
                     <div class="form-group row">
-                        <label for="email" class="col-md-3 col-form-label text-md-right">{{ __('Correo Electronico') }}</label>        
+                        <label for="email" class="col-md-3 col-form-label text-md-right">{{ __('Correo Electrónico') }}</label>        
                         <div class="col-md-7">
                             <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required autocomplete="email">
                             @error('email')
@@ -243,7 +251,7 @@
                         </div>
                     </div>    
                     <div class="form-group row">
-                        <label for="address" class="col-md-3 col-form-label text-md-right">{{ __('Direccion') }}</label>        
+                        <label for="address" class="col-md-3 col-form-label text-md-right">{{ __('Dirección') }}</label>        
                         <div class="col-md-7">
                             <input id="address" type="text" class="form-control" name="address" value="{{ old('address') }}"  style="text-transform:uppercase;" required autocomplete="adress">
                             @error('adress')
@@ -254,7 +262,7 @@
                         </div>
                     </div>    
                     <div class="form-group row">
-                        <label for="phone" class="col-md-3 col-form-label text-md-right">{{ __('Telefono') }}</label>        
+                        <label for="phone" class="col-md-3 col-form-label text-md-right">{{ __('Teléfono') }}</label>        
                         <div class="col-md-7">
                             <input id="phone" type="text" class="form-control" name="phone" value="{{ old('phone') }}" required autocomplete="phone">
                             @error('phone')
@@ -292,7 +300,7 @@
                         </div>
                     </div>    
                     <div class="form-group row">
-                        <label for="fecha_fin" class="col-md-3 col-form-label text-md-right">{{ __('Fecha de Finalizacion') }}</label>        
+                        <label for="fecha_fin" class="col-md-3 col-form-label text-md-right">{{ __('Fecha de Finalización') }}</label>        
                         <div class="col-md-7">
                             <input type="date" class="form-control" id="fecha_fin" name="fecha_fin" value="{{ old('fecha_fin') }}" required autocomplete="fecha_fin">
                             @error('fecha_fin')
@@ -328,7 +336,7 @@
         <div class="modal-content">
                               
             <!-- Modal Header -->
-            <div class="modal-header bg-secondary text-white">
+            <div class="modal-header grey text-white">
                 <h4 class="modal-title"><strong>Actualizar Legajo</strong></h4>
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
             </div>
@@ -357,7 +365,7 @@
   <div class="modal-dialog modal-md">
     <div class="modal-content">
       <div class="modal-header">
-        <h4 class="modal-title" id="myModalLabel">¿Estas seguro de realizar esta accion?</strong>?</h4>
+        <h4 class="modal-title" id="myModalLabel">¿Estas seguro de realizar esta acción?</strong>?</h4>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
       </div>
       <div class="modal-footer">

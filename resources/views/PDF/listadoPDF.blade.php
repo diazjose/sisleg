@@ -14,15 +14,17 @@
 		<header>
 			<div class="container">
 	            <div class="left">
-	                <img src="{{ asset('images/logo_gobierno_horizontal.png') }}" id="logo">
+	                <img src="{{ asset('images/secretaria_justicia.png') }}" id="logo">
 	            </div>
 	            <div class="text-center">
 	       	 	    <div class="text-white" id="title-header">
-	                        <span><strong>Direccion General de Personas Juridicas</strong></span>
+	                        <span><strong>Dirección General de Personas Jurídicas</strong></span>
 	                    </div>
+                        <!--
 		                <div class="text-white" id="sub">
 		                    <span>Secretaria de Justicia</span>
 		                </div>
+                    -->
 	                </div>
 	        </div>
         </header>
@@ -44,11 +46,11 @@
         <table>
 		    <thead class="thead-light">
                 <tr>
-	                <th>Denominacion</th>
-	                <th>Juridiccion</th>
+	                <th>Denominación</th>
+	                <th>Jurisdicción</th>
 	                <th>Zona</th>
-	                <th>Direccion</th>
-	                <th>Resolucion</th>
+	                <th>Dirección</th>
+	                <th>Resolución</th>
 	                <th>Presidente</th>
 	                <th>Mandato</th>
                 </tr>

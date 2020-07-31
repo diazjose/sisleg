@@ -47,7 +47,7 @@ class ExpedientesController extends Controller
 		
 		$exp->save();
         
-    	return redirect()->route('exp_new')
+    	return redirect()->route('exp_view', [$exp->id])
                          ->with(['message' => 'Expediente cargado correctamente', 'status' => 'success']);
 
     }
@@ -69,11 +69,16 @@ class ExpedientesController extends Controller
 	        
 	        $html = '';
 	        foreach ($exps as $exp) {
-	            $html.= '<tr id="$Legajo->id">'; 
+	            $html.= '<tr>'; 
 	                $html .= '<td>'.$exp->numero.'</td>';
 	                $html .= '<td>'.$exp->iniciador.'</td>';
 	                $html .= '<td>'.$exp->asunto.'</td>';
-	                $html .= '<td></td>';
+                    $seg = Seguimiento::where('expediente_id', $exp->id)->orderBy('id', 'DESC')->first();
+	                if ($seg) {
+                        $html .= '<td>'.$seg->lugar.'</td>';
+                    }else{
+                        $html .= '<td>MESA DE ENTRADA</td>';
+                    }
 	                $html .= '<td><a href="'.route('exp_view',[$exp->id]).'" class="btn btn-outline-info"><i class="far fa-eye"></i></a></td>';
 	            $html .= '</tr>';    
 	        }	
@@ -99,8 +104,8 @@ class ExpedientesController extends Controller
                         $html .= '<td>'.$exp->numero.'</td>';
                         $html .= '<td>'.$exp->iniciador.'</td>';
                         $html .= '<td>'.$exp->asunto.'</td>';
-                        $html .= '<td><a href="'.route('exp_view',[$exp->id]).'" class="btn btn-outline-info"><i class="far fa-eye"></i></a></td>';
-                    $html .= '</tr>';    
+                        $html .= '<td><a href="'.route('exp_area_view',[$exp->id]).'" class="btn btn-outline-info"><strong>Ver</strong></a></td>';
+                    $html .= '</tr>';
                 }else{
                     $html .= 'no hay expediente';                   
                 }   
@@ -181,5 +186,64 @@ class ExpedientesController extends Controller
         $exp->update();
         return view('expedientes.area_view', ['exp' => $exp]);
     }
+
+    /*------------------PAGE-------------------*/
+
+    public function seguimiento(){
+        return view('seguimiento.index');   
+    }
+
+    public function buscar(Request $request){
+        $buscar = $request->input('buscar');
+        if ($buscar == '') {
+            $html = '';
+        }else{
+            $exp = Expediente::where('numero',$buscar)
+                                ->orWhere('formulario',$buscar)
+                                ->first();
+            if ($exp) {
+                $html = '';
+                $html .= '<table class="table table-bordered text-center">';
+                    $html .= '<thead>';
+                        $html .= '<th>Lugar</th>';
+                        $html .= '<th>Fecha de Ingreso</th>';
+                        $html .= '<th>Fecha de salida</th>';
+                        $html .= '<th>Estado</th>';
+                        $html .= '</thead>';
+                    $html .= '<tbody id="tbody">';
+                        foreach ($exp->lugar as $lugar) {
+                            $html.= '<tr>'; 
+                                $html .= '<td>'.$lugar->lugar.'</td>';
+                                $html .= '<td>'.date('d/m/Y', strtotime($lugar->created_at)).'</td>';
+                                if ($lugar->estado == 'success') {
+                                    $html .= '<td>'.date('d/m/Y', strtotime($lugar->updated_at)).'</td>';    
+                                }else{
+                                    $html .= '<td>En Revisión...</td>';
+                                }
+                                switch ($lugar->estado) {
+                                    case 'success':
+                                        $html .= '<td class="text-success"><h4><i class="fas fa-check"></i></h4></td>';
+                                        break;
+                                    case 'warning':
+                                        $html .= '<td><h4 class="text-center"><div class="spinner-grow text-warning" role="status"><span class="sr-only">Loading...</span></div></h4></td>';
+                                        break;
+                                    case 'danger':
+                                        $html .= '<td class="text-danger"><h4><i class="fas fa-times"></i></h4></td>';       
+                                        break;
+                                }
+                            $html .= '</tr>';
+                            
+                        }
+                    $html .= '</tbody>';
+                $html .= '</table>';    
+            }else{
+                $html = '<h3 class="text-danger">¡¡ No existe nungun expediente con el N° '.$buscar.' !! <i class="far fa-sad-tear"></i></h3>';                   
+            }
+        }
+            
+        return response()->json($html); 
+    }
+
+    
 }
 

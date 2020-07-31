@@ -18,12 +18,11 @@
 	<body>
 		<div style="margin: 1rem;padding: 1rem;border: 2px solid #ccc;/*text-align: center;*/ ">
 			<div style="text-align: center">
-				<h3 style="margin-bottom: 5px;"><strong>Turno Emitido por Registro Civil</strong></h3>
-		    	<h5 style="margin-top: 5px;">La Rioja</h5>
+				<h3 style="margin-bottom: 5px;"><strong>Turno Emitido por La Dirección General de Personas Jurídicas</strong></h3>
+		    	<h5 style="margin-top: 5px;">Gobierno de La Rioja</h5>
 		    </div>    
 		    <hr>
 		    <h5 class="mx">Turno n°: <small style="">{{$turno->dni}}</small></h5>
-		   	<h5 class="mx">Oficina: <small>{{$turno->oficina->denominacion}}</small></h5>
 		   	<h5 class="mx">Tramite: <small>{{$turno->tramite->denominacion}}</small></h5>
 		   	<h5 class="mx">Orden: <small>{{$turno->orden}}</small></h5>
 		   	<h5 class="mx">Dia: <small>{{ date('d/m/Y',strtotime($turno->fecha)) }}</small></h5>

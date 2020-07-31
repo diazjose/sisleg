@@ -5,11 +5,11 @@
     <div class="row justify-content-center">
         <div class="col">
             <div class="card">
-                <div class="card-header bg-secondary text-white"><h4><strong><i class="fas fa-folder"></i> Expediente N° {{$exp->expediente->numero}}</strong></h4></div>
+                <div class="card-header grey text-white title"><h4><strong><i class="fas fa-folder"></i> Expediente N° {{$exp->expediente->numero}}</strong></h4></div>
 
                 <div class="card-body">                
                     @if($exp->expediente->legajo_id != 0)
-                    <h5><strong>Datos del Legajo</strong></h5><hr>
+                    <h5 class="title"><strong>Datos del Legajo</strong></h5><hr>
                     <div class="row mx-2">
                         <div class="form-group col-md-3">
                             <label><strong>N° Legajo</strong></label>
@@ -26,7 +26,7 @@
                     </div>
                     <hr>
                     @endif
-                    <h5><strong>Datos de Expediente</strong></h5><hr>    
+                    <h5 class="title"><strong>Datos de Expediente</strong></h5><hr>    
                     <div class="row mx-2">
                         <div class="form-group col-md-2">
                             <label><strong>N° Expediente</strong></label>
@@ -75,7 +75,7 @@
                     </div>
                     
                     <hr> 
-                    <h5><strong>Seguimiento del Expediente</strong></h5><hr>                    
+                    <h5 class="title"><strong>Seguimiento del Expediente</strong></h5><hr>                    
                     <hr>
 
                     <div class="mx-5 text-center d-flex justify-content-center">
@@ -133,7 +133,7 @@
 <div class="modal fade" id="siguienteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
-      <div class="modal-header bg-secondary text-white">
+      <div class="modal-header grey text-white">
         <h5 class="modal-title" id="exampleModalCenterTitle"><strong>Actualizar Expediente</strong></h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>

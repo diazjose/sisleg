@@ -41,6 +41,9 @@ ul.social-network li {
   margin: 0 5px;
 }
 
+#link {
+  color: 
+}
 
 /* footer social icons */
 
@@ -147,6 +150,10 @@ ul.social-network li {
 
     footer{
         height: 420px;
+    }
+
+    #h5 {
+      font-size: 0.5em;
     }
 
 }  

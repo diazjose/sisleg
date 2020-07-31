@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col">
             <div class="card">
-                <div class="card-header bg-secondary text-white"><h4><strong>{{$tipo}}</strong></h4></div>
+                <div class="card-header grey text-white title"><h4><strong>{{$tipo}}</strong></h4></div>
 
                 <div class="card-body">                    
                     <div class="row">

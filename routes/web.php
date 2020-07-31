@@ -48,6 +48,10 @@ Route::post('/expedientes/seguir', 'ExpedientesController@tracing')->name('seg_c
 Route::get('/expedientes/{area}', 'ExpedientesController@area')->name('exp_area');
 Route::get('/expediente/{id}', 'ExpedientesController@exp_area')->name('exp_area_view');
 Route::post('/expediente/estado', 'ExpedientesController@exp_status')->name('exp_status');
+/*PAGE*/
+Route::get('/seguimiento/expedientes', 'ExpedientesController@seguimiento')->name('exp_tracing');
+Route::post('/expedientes/search', 'ExpedientesController@buscar')->name('exp_buscar');
+
 
 /*PERSONAS*/
 Route::get('/personas', 'PersonasController@index')->name('preson_index');

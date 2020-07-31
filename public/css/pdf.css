@@ -5,7 +5,7 @@ body {
 
 header {
 	height: 87px;
-	background-color: #BF1102; 
+	background-color: #f01f33; 
 }
 
 .container{
@@ -19,7 +19,9 @@ header {
 }
 .left{
     float: left;
+    /*
     border: 1px solid #FFFFFF;
+	*/
 }
 
 .text-white{
@@ -28,7 +30,7 @@ header {
 
 #title-header{
 	font-size: 23px;
-  	line-height: 48px;
+  	line-height: 58px;
 }
 
 #sub {
@@ -41,6 +43,8 @@ header {
 
 #logo{
 	width: 260px;
+	height: 84px;
+	border-right: 3px solid #FFFFFF;
 }
 
 table{

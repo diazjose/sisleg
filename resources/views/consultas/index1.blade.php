@@ -5,12 +5,12 @@
     <div class="row justify-content-center">
         <div class="col">
             <div class="card">
-                <div class="card-header bg-secondary text-white"><h4><strong><i class="fas fa-search"></i> {{$tipo}}</strong></h4></div>
+                <div class="card-header grey text-white title"><h4><strong><i class="fas fa-search"></i> {{$tipo}}</strong></h4></div>
 
                 <div class="card-body">                    
                     <div class="row">
                         <div class="col-md-2 border-right">
-                            <h5><strong>Realizar Búsqued</strong></h5>
+                            <h5 class="title"><strong>Realizar Búsqued</strong></h5>
                             <form method="" action="">
                                 <input type="hidden" id="tipo" name="tipo" value="{{$tipo}}">
                                 <div class="form-group">
@@ -65,7 +65,7 @@
                             <div class="row">
                                 <div class="col-md-8 my-3">
                                     
-                                    <h5>
+                                    <h5 class="title">
                                         <strong>
                                             Listado de <span id="poti">{{$tipo}}</span> 
                                             @if($juridiccion != '' AND $juridiccion != 'todos')

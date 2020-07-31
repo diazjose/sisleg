@@ -29,7 +29,7 @@
 
         <div class="container-fluid" id="app">
             
-            <header class="my-1">
+            <header class="my-1 container-fluid">
                 <div class="text-white">
                     <div class="row">
                         <div class="col-md-2 mx-5 d-flex justify-content-center my-md-2">
@@ -68,12 +68,12 @@
                                 
                                 <li class="nav-item links">
                                     <h5>
-                                        <a class="nav-link text-white boton" href="#"><strong><i class="far fa-calendar-alt"></i> {{ __('Turnos') }}</strong></a>
+                                        <a class="nav-link text-white boton" href="{{route('turno.index')}}"><strong><i class="far fa-calendar-alt"></i> {{ __('Turnos') }}</strong></a>
                                     </h5>    
                                 </li>
                                 <li class="nav-item links">
                                     <h5>
-                                        <a class="nav-link text-white boton" href="#"><strong><i class="far fa-calendar-check"></i> {{ __('Buscar Turnos') }}</strong></a>
+                                        <a class="nav-link text-white boton" href="{{route('exp_tracing')}}"><strong><i class="fas fa-route"></i> {{ __('Seguir Expediente') }}</strong></a>
                                     </h5>
                                 </li>
                             </ul>
@@ -123,13 +123,13 @@
                                 <br>
                                 <i class="fas fa-phone"> </i> +54 0380 4453156  |  +54 0380 4453039 (Fax).
                                 <br>
-                                <i class="far fa-envelope"> </i>  dgpj.lr@gmail.com
+                                <i class="far fa-envelope"> </i>  dgdepersonasjuridicas@gmail.com
                             </p>
                         </div>                            
                     </div>
                 </div>
             </footer>
         </div>                    
-            
+        @yield('script')    
     </body>
 </html>

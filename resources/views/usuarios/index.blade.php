@@ -5,12 +5,12 @@
     <div class="row justify-content-center">
         <div class="col">
             <div class="card">
-                <div class="card-header bg-secondary text-white"><h4><strong><i class="fas fa-user"></i> Usuarios</strong></h4></div>
+                <div class="card-header grey text-white title"><h4><strong><i class="fas fa-user"></i> Usuarios</strong></h4></div>
 
                 <div class="card-body">
                     <div class="row">
                         <div class="col-md-5 my-3">
-                            <h5><strong>Listado de Usuarios</strong></h5>
+                            <h5 class="title"><strong>Listado de Usuarios</strong></h5>
                         </div>
                         <div class="col-md-4"></div>
                         <div class="col-md-3 my-3">
@@ -65,8 +65,8 @@
         <div class="modal-content">
                               
             <!-- Modal Header -->
-            <div class="modal-header bg-secondary text-white">
-                <h4 class="modal-title"><strong>Actualizar Oficina</strong></h4>
+            <div class="modal-header grey text-white">
+                <h4 class="modal-title"><strong>Actualizar Usuario</strong></h4>
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
             </div>
                                 

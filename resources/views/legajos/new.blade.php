@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-10">
             <div class="card">
-                <div class="card-header bg-secondary text-white"><h4><strong><i class="fas fa-folder-open"></i> Nuevo Legajo</strong></h4></div>
+                <div class="card-header grey text-white title"><h4><strong><i class="fas fa-folder-open"></i> Nuevo Legajo</strong></h4></div>
 
                 <div class="card-body">
                     @if(session('message'))

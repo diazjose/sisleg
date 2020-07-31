@@ -1,5 +1,9 @@
 window.addEventListener("load", function(){
 	
+	
+	$('#example').DataTable();
+	
+
 	var tipo = $("#poti").text();
 	if($("#juri").text() != ''){
 		var juri = $("#juri").text();	

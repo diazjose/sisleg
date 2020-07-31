@@ -48,20 +48,24 @@ window.addEventListener("load", function(){
 		$("#cargoModal").modal('show');
 		$(this).addClass('active')
 	});
+
+	var mapa = $("#umap").val();
+	$("#mapa").append(mapa);
 })
 
-function edit(num,tipo,denominacion,juri,dir,resolucion,fecha){
+function edit(num,tipo,denominacion,zona,juri,dir,ubicacion,resolucion,fecha){
 	$("#numero").val(num);
 	$('#tipo option[value="'+ tipo +'"]').attr("selected",true);
 	$("#denominacion").val(denominacion);
 	$('#juridiccion option[value="'+ juri +'"]').attr("selected",true);
 	$("#direccion").val(dir);
+	$('#zona option[value="'+ zona +'"]').attr("selected",true);
+	$("#ubicacion").val(ubicacion);
 	$("#resolucion").val(resolucion);
 	$("#fecha_inicio").val(fecha);
 }
 
 function Borrar(id,leg,name,surname){
-	console.log(id+' '+name+' '+surname);
 	
 	$("#nombre").text(name+' '+surname);
 	$("#cargo_id").val(id);

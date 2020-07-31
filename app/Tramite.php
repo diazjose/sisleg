@@ -11,11 +11,11 @@ class Tramite extends Model
     protected $fillable = [
         'denominacion',
     ];
-
+/*
     public function config(){
     	return $this->hasMany('App\Config'); 
     }
-    
+  */  
     public function turnos(){
     	return $this->hasMany('App\Turno'); 
     }

@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col">
             <div class="card">
-                <div class="card-header bg-secondary text-white"><h4><strong>Actualizar Persona</strong></h4></div>
+                <div class="card-header grey text-white title"><h4><strong>Actualizar Persona</strong></h4></div>
                 <form method="POST" action="{{route('person_update')}}">
                         @csrf
                         <input type="hidden" name="legajo" value="{{$cargo->legajo_id}}">
@@ -16,7 +16,7 @@
                     <div class="col-md-7">                    
                         
                             <div class="form-group col-md-4 mx-2">
-                                <h5><strong>Datos Personales</strong></h5>
+                                <h5 class="title"><strong>Datos Personales</strong></h5>
                             </div>
                             <hr>                   
                             <div class="form-group row">
@@ -90,7 +90,7 @@
                         </div>
                         <div class="col-md-5">
                             <div class="form-group mx-2">
-                                <h5><strong>Datos de Cargo</strong></h5>
+                                <h5 class="title"><strong>Datos de Cargo</strong></h5>
                             </div> 
                             <hr>   
                             <div class="form-group row">

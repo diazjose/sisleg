@@ -5,8 +5,8 @@
         <div class="modal-content">
                               
             <!-- Modal Header -->
-            <div class="modal-header bg-secondary text-white">
-                <h4 class="modal-title"><strong>Editar Expediente</strong></h4>
+            <div class="modal-header grey text-white">
+                <h4 class="modal-title title"><strong>Editar Expediente</strong></h4>
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
             </div>
                                 
@@ -24,8 +24,8 @@
 <div class="modal fade" id="siguienteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
-      <div class="modal-header bg-secondary text-white">
-        <h5 class="modal-title" id="exampleModalCenterTitle"><strong>Paso Siguiente</strong></h5>
+      <div class="modal-header grey text-white">
+        <h5 class="modal-title title" id="exampleModalCenterTitle"><strong>Paso Siguiente</strong></h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -45,9 +45,9 @@
                         <option value="CONTABLE">Dpto. Contable</option>
                         <option value="LEGALES">Legales</option>
                         <option value="CIVILES">Dpto. Civiles</option>
-                        <option>Despacho</option>
-                        <option>Legales</option>
-                        <option>Archivo del Gobierno</option>
+                        <option value="DESPACHO">Despacho</option>
+                        <option value="LEGALES">Legales</option>
+                        <option value="ARCHIVO DEL GOBIERNO">Archivo del Gobierno</option>
                     </select>
                 </div>
                 <!--
@@ -72,7 +72,7 @@
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content" id="mod-seg">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalCenterTitle"><strong id="lugar"></strong></h5>
+        <h5 class="modal-title title" id="exampleModalCenterTitle"><strong id="lugar"></strong></h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -85,14 +85,20 @@
                 <p id="ini"></p>
             </div>
             <div class="form-group col-6">
-                <label><strong>Ultima Revision</strong></label>
+                <label><strong>Ultima Revisión</strong></label>
                 <p id="fin"></p>
             </div>
-          </div>  
-            <div class="form-group mx-4 col-8">
-                <label><strong>Observacion</strong></label>
+          </div> 
+          <div class="row"> 
+            <div class="form-group col-4 text-center">
+                <label class="text-center"><strong>Observación</strong></label>
+                <p id="status"></p>
+            </div>
+            <div class="form-group col-8">
+                <label><strong>Observación</strong></label>
                 <p id="obs"></p>
             </div>
+          </div>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>

@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col">
             <div class="card">
-                <div class="card-header bg-secondary text-white"><h4><strong><i class="fas fa-folder"></i> Expediente N° {{$exp->numero}}</strong></h4></div>
+                <div class="card-header grey text-white title"><h4><strong><i class="fas fa-folder"></i> Expediente N° {{$exp->numero}}</strong></h4></div>
 
                 <div class="card-body">
                     
@@ -15,7 +15,7 @@
                     </div>  
                     @endif  
                     @if($exp->legajo_id != 0)
-                    <h5><strong>Datos del Legajo</strong></h5><hr>
+                    <h5 class="title"><strong>Datos del Legajo</strong></h5><hr>
                     <div class="row mx-2">
                         <div class="form-group col-md-3">
                             <label><strong>N° Legajo</strong></label>
@@ -32,7 +32,7 @@
                     </div>
                     <hr>
                     @endif
-                    <h5><strong>Datos del Expediente</strong></h5><hr>                 
+                    <h5 class="title"><strong>Datos del Expediente</strong></h5><hr>                 
                     <div class="row mx-2">
                         <div class="form-group col-md-2">
                             <label><strong>N° Expediente</strong></label>
@@ -91,7 +91,7 @@
                         </a>                          
                     </div>
                     <hr> 
-                    <h5><strong>Seguimiento del Expediente</strong></h5><hr>                    
+                    <h5 class="title"><strong>Seguimiento del Expediente</strong></h5><hr>                    
                     
                     <div class="card-group">
                       @if(count($exp->lugar) > 0)
@@ -107,7 +107,7 @@
                             <?php if (count($exp->lugar)<4): ?>
                             <div class="col-md-3">                                
                             <?php endif ?>
-                            <a href="#" style="text-decoration:none;color:white;" onclick="abrirSeg('{{$lugar->lugar}}','{{$lugar->estado}}','{{$lugar->created_at->format('d/m/Y')}}','{{$lugar->updated_at->format('d/m/Y')}}','{{$lugar->id}}')" data-toggle="modal" data-target="#lugarModal">
+                            <a href="#" style="text-decoration:none;color:white;" onclick="abrirSeg('{{$lugar->lugar}}','{{$lugar->estado}}','{{$lugar->observacion}}','{{$lugar->created_at->format('d/m/Y')}}','{{$lugar->updated_at->format('d/m/Y')}}','{{$lugar->id}}')" data-toggle="modal" data-target="#lugarModal">
                                 <input type="hidden" value="{{$lugar->observacion}}" id="lugar{{$lugar->id}}">
                                 <div class="card bg-{{$lugar->estado}} caja">
                                 <div class="card-body text-center">

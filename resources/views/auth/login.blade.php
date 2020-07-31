@@ -42,14 +42,14 @@
             <div class="login-main-text">
                <h2>PJadmin v 1.0 <br> </h2>
                <h3>Sistema de Seguimiento de Legajos</h3>
-               <p>Iniciar Sección para acceder.</p>
+               <p>Iniciar Sesión para acceder.</p>
             </div>
          </div>
          <div class="col-md-7 my-3">
             <div class="centrar">
                <div class="col-md-6 col-sm-12">
                   <div class="login-form">
-                     <h2 style="font-family: 'Archivo Narrow', sans-serif;">Iniciar Sección</h2>
+                     <h2 style="font-family: 'Archivo Narrow', sans-serif;">Iniciar Sesión</h2>
                      <form method="POST" action="{{ route('login') }}">
                         @csrf
                         <div class="form-group">
@@ -70,7 +70,7 @@
                            </span>
                            @enderror
                         </div>
-                        <button type="submit" class="btn btn-black">Ingresar</button>
+                        <button type="submit" class="btn btn-black"><i class="fas fa-sign-in-alt"></i> Ingresar</button>
                      </form>
                   </div>
                </div>
@@ -84,4 +84,4 @@
 
 
 
-   
+        
