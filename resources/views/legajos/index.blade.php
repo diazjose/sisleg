@@ -4,7 +4,7 @@
 <div class="container" id="contenedor">
     <div class="row justify-content-center">
         <div class="col">
-            <div class="card">
+            <div class="card border-secondary">
                 <div class="card-header grey text-white title"><h4><strong> <i class="fas fa-folder-open"></i> Manipular Legajos</strong></h4></div>
 
                 <div class="card-body">
@@ -21,7 +21,7 @@
                           </h5>    
                         </div>    
                     </div>
-
+                    <hr class="border-red">
                     <div class="table-responsive" id="resultado">
                         <table class="table">
                             <thead>

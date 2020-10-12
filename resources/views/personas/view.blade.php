@@ -4,51 +4,53 @@
 <div class="container" id="contenedor">
     <div class="row justify-content-center">
         <div class="col">
-            <div class="card">
+            <div class="card border-secondary">
                 <div class="card-header grey text-white title">
                     <h4><strong><i class="fas fa-user"></i> {{ $persona->name }} {{ $persona->surname }}</strong></h4>
                 </div>
 
                 <div class="card-body row">                    
-                    <div class="col-md-5">
-                        <h5><strong><i class="fas fa-address-card"></i> Datos Personales</strong></h5><hr>    
-                        @if(session('message'))
-                        <div class="alert alert-{{ session('status') }}">
-                            <strong>{{ session('message') }}</strong>
-                        </div>  
-                        @endif
-                        <div class="row">
-                            <div class="col-md-6 border">
-                                <label><strong><i class="fas fa-user"></i> Nombre y Apellidos:</strong></label>
-                                <p class="text-secondary"><strong>{{ $persona->name }} {{ $persona->surname }}</strong></p>
+                    <div class="col-md-5 border-right border-danger">
+                        <div class="mx-2">
+                            <h5 class="title"><strong><i class="fas fa-address-card"></i> Datos Personales</strong></h5><hr class="border-red">    
+                            @if(session('message'))
+                            <div class="alert alert-{{ session('status') }}">
+                                <strong>{{ session('message') }}</strong>
+                            </div>  
+                            @endif
+                            <div class="row">
+                                <div class="col-md-6 border">
+                                    <label><strong><i class="fas fa-user"></i> Nombre y Apellidos:</strong></label>
+                                    <p class="text-secondary"><strong>{{ $persona->name }} {{ $persona->surname }}</strong></p>
+                                </div>
+                                <div class="col-md-6 border">
+                                    <label><strong><i class="fas fa-id-card"></i> DNI:</strong></label>
+                                    <p class="text-secondary"><strong>{{ $persona->dni }}</strong></p>
+                                </div>
                             </div>
-                            <div class="col-md-6 border">
-                                <label><strong><i class="fas fa-id-card"></i> DNI:</strong></label>
-                                <p class="text-secondary"><strong>{{ $persona->dni }}</strong></p>
+                            <div class="row">
+                                <div class="col-md-6 border">
+                                    <label><strong><i class="fas fa-envelope"></i> Correo Electrónico:</strong></label>
+                                    <p class="text-secondary"><strong>{{ $persona->email }}</strong></p>
+                                </div>
+                                <div class="col-md-6 border">
+                                    <label><strong><i class="fas fa-phone-volume"></i> Teléfono:</strong></label>
+                                    <p class="text-secondary"><strong>{{ $persona->phone }}</strong></p>
+                                </div>
                             </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-6 border">
-                                <label><strong><i class="fas fa-envelope"></i> Correo Electrónico:</strong></label>
-                                <p class="text-secondary"><strong>{{ $persona->email }}</strong></p>
+                            <div class="row">
+                                <div class="col-md-12 border">
+                                    <label><strong> <i class="fas fa-map-marker-alt"></i> Dirección:</strong></label>
+                                    <p class="text-secondary"><strong>{{ $persona->address }}</strong></p>
+                                </div>
                             </div>
-                            <div class="col-md-6 border">
-                                <label><strong><i class="fas fa-phone-volume"></i> Teléfono:</strong></label>
-                                <p class="text-secondary"><strong>{{ $persona->phone }}</strong></p>
+                            <div class="row my-2">
+                                <a href="{{route('person_editar', [$persona->id])}}" class="btn btn-success btn-block title"><strong><i class="fas fa-user-edit"></i>  Editar Persona</strong></a>
                             </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-12 border">
-                                <label><strong> <i class="fas fa-map-marker-alt"></i> Dirección:</strong></label>
-                                <p class="text-secondary"><strong>{{ $persona->address }}</strong></p>
-                            </div>
-                        </div>
-                        <div class="row my-2">
-                            <a href="{{route('person_editar', [$persona->id])}}" class="btn btn-success btn-block"><strong><i class="fas fa-user-edit"></i>  Editar Persona</strong></a>
                         </div>
                     </div>
                     <div class="col-md-7">
-                        <h5  class="title"><strong><i class="fas fa-sitemap"></i> Datos Autaridades</strong></h5><hr>    
+                        <h5  class="title"><strong><i class="fas fa-sitemap"></i> Datos Autaridades</strong></h5><hr class="border-red">    
                         <table class="table">
                             <thead class="thead-light">
                                 <th>Entidad</th>

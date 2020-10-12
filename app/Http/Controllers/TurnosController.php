@@ -258,6 +258,7 @@ class TurnosController extends Controller
 
 /*
 
+
 create table oficinas(
 id int(255) auto_increment not null,
 denominacion varchar(255),

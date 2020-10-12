@@ -1,6 +1,22 @@
+/*
+@font-face {
+    font-family: Antenna-regular;
+    font-style: normal;
+    src: url('../font-gob/antenna/ANTENNACOND-REGULAR.TTF') 
+}
+
+@font-face {
+    font-family: Gotham-bold;
+    font-style: normal;
+    src: url('../font-gob/Gotham-Font/Gotham-Bold.otf') 
+}
+*/
 body {
-	/*margin: 0px;
-	padding: 0px;*/
+  /*
+  background-color: #FFE7E2;
+  */
+  background-color: #FFFFFF;
+  font-family: Antenna-regular;
 }
 
 header {
@@ -38,7 +54,8 @@ header {
 }
 
 .title{
-	text-align:center;
+  font-family: Gotham-bold;
+  text-align:center;
 }
 
 #logo{

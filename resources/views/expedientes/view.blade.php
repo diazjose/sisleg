@@ -4,7 +4,7 @@
 <div class="container" id="contenedor">
     <div class="row justify-content-center">
         <div class="col">
-            <div class="card">
+            <div class="card border-secondary">
                 <div class="card-header grey text-white title"><h4><strong><i class="fas fa-folder"></i> Expediente N° {{$exp->numero}}</strong></h4></div>
 
                 <div class="card-body">
@@ -15,7 +15,7 @@
                     </div>  
                     @endif  
                     @if($exp->legajo_id != 0)
-                    <h5 class="title"><strong>Datos del Legajo</strong></h5><hr>
+                    <h5 class="title"><strong>Datos del Legajo</strong></h5><hr class="border-red">
                     <div class="row mx-2">
                         <div class="form-group col-md-3">
                             <label><strong>N° Legajo</strong></label>
@@ -30,9 +30,9 @@
                             <div class="form-control">{{$exp->legajo->denominacion}}</div>
                         </div>                        
                     </div>
-                    <hr>
+                    <hr class="border-red">
                     @endif
-                    <h5 class="title"><strong>Datos del Expediente</strong></h5><hr>                 
+                    <h5 class="title"><strong>Datos del Expediente</strong></h5><hr class="border-red">                 
                     <div class="row mx-2">
                         <div class="form-group col-md-2">
                             <label><strong>N° Expediente</strong></label>
@@ -90,8 +90,8 @@
                             Editar Expediente
                         </a>                          
                     </div>
-                    <hr> 
-                    <h5 class="title"><strong>Seguimiento del Expediente</strong></h5><hr>                    
+                    <hr class="border-red"> 
+                    <h5 class="title"><strong>Seguimiento del Expediente</strong></h5><hr class="border-red">                    
                     
                     <div class="card-group">
                       @if(count($exp->lugar) > 0)
@@ -143,7 +143,7 @@
                         @endif
                          
                     </div>                
-                    <hr>
+                    <hr class="border-red">
                     <div class="container">
                         <div class="col-md-2">
                             <a href="#" class="btn btn-outline-primary" data-toggle="modal" data-target="#siguienteModal">Siguiente Paso</a>

@@ -4,7 +4,7 @@
 <div class="container" id="contenedor">
     <div class="row justify-content-center">
         <div class="col">
-            <div class="card">
+            <div class="card border-secondary">
                 <div class="card-header grey text-white title"><h4><strong>Actualizar Persona</strong></h4></div>
                 <form method="POST" action="{{route('person_update')}}">
                         @csrf

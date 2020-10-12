@@ -56,17 +56,20 @@ body {
 header {
   /*
   background-color: #BF1102;
-  margin-top:5px;
   */
   background-color: #ea1b36;
   color: white;
-  
+  /*margin-top:5px;*/
   margin-right: 10px;
   margin-left: 10px; 
 }
 
 #title-img{
   width: 35vw;
+}
+
+#img-sec{
+  width: 25vw; 
 }
 
 #logo{
@@ -93,8 +96,13 @@ header {
   font-size: 3.5vw;
 }
 
+#title-head{
+  font-family: 'Bebas Neue', cursive;
+  font-size: 4vw; 
+}
+
 .title-head{
-  font-size: 5vw; 
+  font-size: 5.5vw; 
 }
 
 .title{
@@ -103,6 +111,11 @@ header {
 
 .text-secondary{
   color: #808080 !important;
+}
+
+.color-red{
+  background-color: #ea1b36;
+  color: white;
 }
 
 .login-form{
@@ -144,6 +157,11 @@ header {
   background-color: #FFE7E2 !important;*/
   background-color: #ea1b36 !important;
 }
+
+.text-grey{
+  color: #808080;
+}
+
 #observacion{
   height: 40px;
 }
@@ -151,6 +169,23 @@ header {
 .btn-black{
     background-color: #000 !important;
     color: #fff;
+}
+
+.btn-red {
+  background-color: #ea1b36;
+  color: white;
+  border-radius: 15px
+}
+
+.btn-red:hover {
+  background-color: #ffffff;
+  border: solid 2px #ea1b36; 
+  color: #040404;
+}
+
+.border-red{
+  border: solid 2px #ea1b36;
+  border-radius: 12px;
 }
 
 .boton:hover {
@@ -165,6 +200,11 @@ header {
   border-color: #ffffff;
   cursor: pointer;
   color: #585454;
+}
+
+.grey-turno{
+  background-color: #efeded;
+  border-radius: 12px;
 }
 .aut {
   -webkit-box-shadow: 9px 7px 8px 3px rgba(252,141,141,1);
@@ -260,11 +300,11 @@ li {
 /* footer social icons */
 
 .social-network a.icoFacebook:hover {
-  background-color: #3B5998;
+  /*background-color: #3B5998;*/
 }
 
 .social-network a.icoLinkedin:hover {
-  background-color: #007bb7;
+  /*background-color: #007bb7;*/
 }
 
 .social-network a.icoYoutube:hover {
@@ -277,11 +317,14 @@ li {
 .social-network a.icoFacebook:hover i,
 .social-network a.icoYoutube:hover i,
 .social-network a.icoLinkedin:hover i {
-  color: #fff;
+  /*color: #fff;*/
+  color: #ea1b36;
 }
 
 .social-network a.icoInstegram:hover i {
-  color: #FF5900;
+  
+  /*color: #FF5900;*/
+  color: #ea1b36;
 }
 
 .social-network a.socialIcon:hover,
@@ -297,14 +340,14 @@ li {
   -webkit-border-radius: 50%;
   border-radius: 50%;
   text-align: center;
-  width: 30px;
-  height: 30px;
+  width: 40px;
+  height: 40px;
   font-size: 15px;
 }
 
 .social-circle li i {
   margin: 0;
-  line-height: 30px;
+  line-height: 40px;
   text-align: center;
 }
 
@@ -338,6 +381,10 @@ li {
   display:none;
 }
 
+.h5{
+    font-size: 0.7em; 
+  }
+
 iframe {
     width: 100%;
     height: 400px;
@@ -359,8 +406,16 @@ iframe {
     font-size: 1em;
   }
 
+  .h5 {
+    font-size: 0.7em;
+  }
+
   #fotosecre {
     width: 70px;
+  }
+
+  .title-head{
+    font-size: 4.4em; 
   }
 
   #fotoy {
@@ -390,6 +445,16 @@ iframe {
 
   h5{
     font-size: 0.9em;
+  }
+  .h5 {
+    font-size: 0.7em;
+  }
+
+  #title-head{
+    font-size: 2.1em; 
+  }
+  .title-head{
+    font-size: 3.8em; 
   }
 
   #fotosecre {
@@ -422,7 +487,15 @@ iframe {
   }
 
   h5{
+    font-size: 1em;
+  }
+
+  #title-head{
     font-size: 0.9em;
+  }
+
+  .title-head{
+    font-size: 3.5em; 
   }
 
   .autoridad{
@@ -444,11 +517,19 @@ iframe {
   }
 
   h5{
-    font-size: 1.8em;
+    font-size: 1em;
   }
 
   h6{
     font-size: 1em;
+  }
+
+  #title-head{
+    font-size: 2.1em; 
+  }
+
+  .title-head{
+    font-size: 3.8em; 
   }
 
   .autoridad{
@@ -488,8 +569,16 @@ iframe {
     font-size: 1.4em;
   }
 
+  #img-sec{
+    width: 90vw;
+  }
+
+  #title-head{
+    font-size: 2.1em; 
+  }
+
   .title-head{
-    font-size: 3.5em; 
+    font-size: 3.4em; 
   }
 
   #sub {
@@ -531,7 +620,7 @@ iframe {
   }
 
   h5{
-    font-size: 1.8em;
+    font-size: 1em;
   }
 
   h6{
@@ -539,7 +628,7 @@ iframe {
   }
 
   .h5{
-    font-size: 1.1em; 
+    font-size: 1.8em; 
   }
   .card-body h5{
     font-size: 1.5em;

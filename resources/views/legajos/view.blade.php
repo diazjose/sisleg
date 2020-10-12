@@ -21,7 +21,7 @@
                     <div class="col-md-9">
                         <div class="tab-content" id="v-pills-tabContent">
                             <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
-                                <h5 class="title"><strong>Datos del Legajo</strong></h5><hr>
+                                <h5 class="title"><strong>Datos del Legajo</strong></h5><hr class="border-red">
                                 @if(session('message'))
                                 <div class="alert alert-{{ session('status') }}">
                                     <strong>{{ session('message') }}</strong>
@@ -70,11 +70,11 @@
                                         Editar Legajo
                                     </button>
                                 </div>                       
-                                <hr>                       
+                                <hr class="border-red">                       
                                  
                             </div>
                             <div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">
-                                <h5 class="title"><strong>Datos de Autotidades</strong></h5><hr>
+                                <h5 class="title"><strong>Datos de Autotidades</strong></h5><hr class="border-red">
                                 @if(count($legajo->cargos) > 0 )
                                 <div class="table-responsive mx-2">
                                     <table class="table">
@@ -115,7 +115,7 @@
                                 </div>     
                             </div>
                             <div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">
-                                <h5 class="title"><strong>Datos de Expedientes</strong></h5><hr>
+                                <h5 class="title"><strong>Datos de Expedientes</strong></h5><hr class="border-red">
                                 @if(count($legajo->expedientes) > 0 )
                                 <div class="table-responsive mx-2">
                                     <table class="table">
@@ -149,7 +149,7 @@
                         </div>
                         
                         <br>
-                        <h5 class="title"><strong><i class="fas fa-map-marker-alt">  </i> Ubicación</strong></h5><hr>
+                        <h5 class="title"><strong><i class="fas fa-map-marker-alt">  </i> Ubicación</strong></h5><hr class="border-red">
                         <input type="hidden" id="umap" value="{{$legajo->ubicacion}}">
                         @if($legajo->ubicacion != '')
                         <div class="row text-center border border-dark" id="mapa"></div>        
@@ -177,7 +177,7 @@
                               
             <!-- Modal Header -->
             <div class="modal-header grey text-white">
-                <h4 class="modal-title"><strong>Cargar Cargo</strong></h4>
+                <h4 class="modal-title title"><strong>Cargar Cargo</strong></h4>
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
             </div>
                                 
@@ -337,7 +337,7 @@
                               
             <!-- Modal Header -->
             <div class="modal-header grey text-white">
-                <h4 class="modal-title"><strong>Actualizar Legajo</strong></h4>
+                <h4 class="modal-title title"><strong>Actualizar Legajo</strong></h4>
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
             </div>
                                 
@@ -365,7 +365,7 @@
   <div class="modal-dialog modal-md">
     <div class="modal-content">
       <div class="modal-header">
-        <h4 class="modal-title" id="myModalLabel">¿Estas seguro de realizar esta acción?</strong>?</h4>
+        <h4 class="modal-title title" id="myModalLabel">¿Estas seguro de realizar esta acción?</strong>?</h4>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
       </div>
       <div class="modal-footer">
@@ -379,7 +379,7 @@
   <div class="modal-dialog modal-md">
     <div class="modal-content">
       <div class="modal-header">
-        <h4 class="modal-title" id="myModalLabel">¿Desea eliminar a <strong><span id="nombre"></span></strong> de su Cargo?</strong>?</h4>
+        <h4 class="modal-title title" id="myModalLabel">¿Desea eliminar a <strong><span id="nombre"></span></strong> de su Cargo?</strong>?</h4>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
       </div>
       <form method="POST" action="{{route('person_delete')}}">

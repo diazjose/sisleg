@@ -4,12 +4,12 @@
 <div class="container" id="contenedor">
     <div class="row justify-content-center">
         <div class="col">
-            <div class="card">
+            <div class="card border-secondary">
                 <div class="card-header grey text-white title"><h4><strong><i class="fas fa-folder"></i> Expediente N° {{$exp->expediente->numero}}</strong></h4></div>
 
                 <div class="card-body">                
                     @if($exp->expediente->legajo_id != 0)
-                    <h5 class="title"><strong>Datos del Legajo</strong></h5><hr>
+                    <h5 class="title"><strong>Datos del Legajo</strong></h5><hr class="border-red">
                     <div class="row mx-2">
                         <div class="form-group col-md-3">
                             <label><strong>N° Legajo</strong></label>
@@ -24,9 +24,9 @@
                             <div class="form-control">{{$exp->expediente->legajo->denominacion}}</div>
                         </div>                        
                     </div>
-                    <hr>
+                    <hr class="border-red">
                     @endif
-                    <h5 class="title"><strong>Datos de Expediente</strong></h5><hr>    
+                    <h5 class="title"><strong>Datos de Expediente</strong></h5><hr class="border-red">    
                     <div class="row mx-2">
                         <div class="form-group col-md-2">
                             <label><strong>N° Expediente</strong></label>
@@ -74,10 +74,8 @@
                         </div>
                     </div>
                     
-                    <hr> 
-                    <h5 class="title"><strong>Seguimiento del Expediente</strong></h5><hr>                    
-                    <hr>
-
+                    <hr class="border-red"> 
+                    <h5 class="title"><strong>Seguimiento del Expediente</strong></h5><hr class="border-red">                    
                     <div class="mx-5 text-center d-flex justify-content-center">
                         <div class="card text-white bg-{{$exp->estado}} mb-3" style="max-width: 38rem;">
                             @switch($exp->estado)
@@ -89,7 +87,7 @@
                                             <div class="spinner-grow" role="status">
                                                 <span class="sr-only">Loading...</span>
                                             </div>
-                                            <hr>
+                                            <hr class="border-red">
                                           <h5 class="card-title @if($exp->estado) text-dark @endif">{{$exp->observacion}}</h5>
                                         </div>    
                                         @break
@@ -99,7 +97,7 @@
                                         </div>
                                         <div class="card-body">
                                             <h4><i class="fas fa-check-circle"></i></h4>
-                                            <hr>
+                                            <hr class="border-red">
                                           <h5 class="card-title @if($exp->estado) text-dark @endif">{{$exp->observacion}}</h5>
                                         </div>
                                         @break
@@ -109,7 +107,7 @@
                                         </div>
                                         <div class="card-body">
                                             <h4><i class="fas fa-hand-paper"></i></a></h4>
-                                            <hr>
+                                            <hr class="border-red">
                                           <h5 class="card-title @if($exp->estado) text-dark @endif">{{$exp->observacion}}</h5>
                                         </div>
                                         @break
@@ -134,7 +132,7 @@
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
       <div class="modal-header grey text-white">
-        <h5 class="modal-title" id="exampleModalCenterTitle"><strong>Actualizar Expediente</strong></h5>
+        <h5 class="modal-title title" id="exampleModalCenterTitle"><strong>Actualizar Expediente</strong></h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>

@@ -29,7 +29,7 @@ class ConsultasController extends Controller
                 $cv = Legajo::where('tipo',$tipo)->get();
             }
         }
-        return view('consultas.index', ['cv' => $cv, 'tipo' => $tipo, 'zona' => $zona, 'juridiccion' => $juri, 'estado' => $mandato]);
+        return view('consultas.index1', ['cv' => $cv, 'tipo' => $tipo, 'zona' => $zona, 'juridiccion' => $juri, 'estado' => $mandato]);
     }    
 
     public function search(Request $request){

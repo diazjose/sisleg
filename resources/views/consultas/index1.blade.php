@@ -4,13 +4,14 @@
 <div class="container-fluid" id="contenedor">
     <div class="row justify-content-center">
         <div class="col">
-            <div class="card">
+            <div class="card border-secondary">
                 <div class="card-header grey text-white title"><h4><strong><i class="fas fa-search"></i> {{$tipo}}</strong></h4></div>
 
                 <div class="card-body">                    
                     <div class="row">
-                        <div class="col-md-2 border-right">
-                            <h5 class="title"><strong>Realizar Búsqued</strong></h5>
+                        <div class="col-md-2 border-right border-danger">
+                            <h5 class="my-1"><strong class="title">Realizar Búsqueda</strong></h5>
+                            <hr class="border-red my-4">
                             <form method="" action="">
                                 <input type="hidden" id="tipo" name="tipo" value="{{$tipo}}">
                                 <div class="form-group">
@@ -56,17 +57,18 @@
                                     </select>
                                 </div>
                                 <div class="form-group">
-                                    <a href="#" id="consultar" class="form-control my-2 btn btn-success"><strong><i class="fas fa-search"></i> Buscar</strong></a>
+                                    <a href="#" id="consultar" class="form-control my-2 btn btn-success title"><strong><i class="fas fa-search"></i> Buscar</strong></a>
                                 </div>
                             </form>
+                            <hr class="border-red">
                         </div>
                         
                         <div class="col-md-10">
                             <div class="row">
-                                <div class="col-md-8 my-3">
+                                <div class="col-md-8 my-1">
                                     
-                                    <h5 class="title">
-                                        <strong>
+                                    <h5>
+                                        <strong class="title">
                                             Listado de <span id="poti">{{$tipo}}</span> 
                                             @if($juridiccion != '' AND $juridiccion != 'todos')
                                             - <span id="juri">{{$juridiccion}}</span> 
@@ -80,24 +82,27 @@
                                         </strong>
                                     </h5>
                                 </div> 
-                                <div class="col-md-4 my-2">
-                                    <a href="#" id="pdf" target="_black" class="btn btn-outline-dark"><strong><i class="fas fa-file-pdf"></i> Exportar a PDF</strong></a>
+                                <div class="col-md-4">
+                                    <a href="#" id="pdf" target="_black" class="btn btn-outline-dark title"><strong><i class="fas fa-file-pdf"></i> Exportar a PDF</strong></a>
                                 </div>   
                             </div>
+                            <hr class="border-red"><br>
                             @if(count($cv)>0)
                             <div class="table-responsive" id="resultado">
-                                <table class="table">
-                                    <thead class="thead-light">
-                                        <th>Denominación</th>
-                                        <th>Jurisdicción</th>
-                                        <th>Zona</th>
-                                        <th>Dirección</th>
-                                        <th>Resolución</th>
-                                        <th>Presidente</th>
-                                        <th>Mandato</th>
-                                        <th>Acciones</th>
-                                    </thead>    
-                                    <tbody id="tbody">
+                                <table id="dataTable" class="table table-striped table-bordered" style="width:100%">
+                                    <thead>
+                                        <tr>
+                                            <th>Denominación</th>
+                                            <th>Jurisdicción</th>
+                                            <th>Zona</th>
+                                            <th>Dirección</th>
+                                            <th>Resolución</th>
+                                            <th>Presidente</th>
+                                            <th>Mandato</th>
+                                            <th>Acciones</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
                                         @foreach($cv as $centro)
                                         @if($estado != '' AND $estado == 'Activos')
                                             @if(count($centro->pres)>0)
@@ -175,6 +180,18 @@
                                         
                                         @endforeach
                                     </tbody>
+                                    <tfoot>
+                                        <tr>
+                                            <th>Denominación</th>
+                                            <th>Jurisdicción</th>
+                                            <th>Zona</th>
+                                            <th>Dirección</th>
+                                            <th>Resolución</th>
+                                            <th>Presidente</th>
+                                            <th>Mandato</th>
+                                            <th>Acciones</th>
+                                        </tr>
+                                    </tfoot>
                                 </table>
                             </div>
                             @else

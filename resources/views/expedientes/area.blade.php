@@ -4,8 +4,8 @@
 <div class="container" id="contenedor">
     <div class="row justify-content-center">
         <div class="col">
-            <div class="card">
-                <div class="card-header grey text-white title"><h4><strong><i class="fas fa-folder"></i> Manupular Expedientes</strong></h4></div>
+            <div class="card border-secondary">
+                <div class="card-header grey text-white title"><h4><strong><i class="fas fa-folder"></i> Manipular Expedientes</strong></h4></div>
 
                 <div class="card-body">
                     <div class="row">                        
@@ -14,7 +14,7 @@
                           <input id="buscar_area" type="text" class="form-control" style="text-transform:uppercase;" placeholder="N° de Expediente"><br>
                         </div>
                     </div>
-
+                    <hr class="border-red">
                     <div class="table-responsive" id="resultado">
                         <table class="table">
                             <thead>

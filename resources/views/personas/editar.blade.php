@@ -4,7 +4,7 @@
 <div class="container" id="contenedor">
     <div class="row justify-content-center">
         <div class="col-md-7">
-            <div class="card">
+            <div class="card border-secondary">
                 <div class="card-header grey text-white title">
                     <h4><strong><i class="fas fa-user-edit"></i> Actualizar Persona</strong></h4>
                 </div>

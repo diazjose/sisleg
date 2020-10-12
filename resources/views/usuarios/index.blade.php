@@ -4,7 +4,7 @@
 <div class="container" id="contenedor">
     <div class="row justify-content-center">
         <div class="col">
-            <div class="card">
+            <div class="card border-secondary">
                 <div class="card-header grey text-white title"><h4><strong><i class="fas fa-user"></i> Usuarios</strong></h4></div>
 
                 <div class="card-body">
@@ -24,6 +24,7 @@
                         <strong>{{ session('message') }}</strong>   
                     </div>  
                     @endif 
+                    <hr class="border-red">
                     <div class="table-responsive" id="resultado">
                         <table class="table">
                             <thead class="thead-light">
@@ -66,7 +67,7 @@
                               
             <!-- Modal Header -->
             <div class="modal-header grey text-white">
-                <h4 class="modal-title"><strong>Actualizar Usuario</strong></h4>
+                <h4 class="modal-title title"><strong>Actualizar Usuario</strong></h4>
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
             </div>
                                 
@@ -159,7 +160,7 @@
   <div class="modal-dialog modal-md">
     <div class="modal-content">
       <div class="modal-header">
-        <h4 class="modal-title" id="myModalLabel">¿Estas seguro de realizar esta accion?</strong>?</h4>
+        <h4 class="modal-title title" id="myModalLabel">¿Estas seguro de realizar esta accion?</strong>?</h4>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
       </div>
       <div class="modal-footer">
@@ -173,7 +174,7 @@
   <div class="modal-dialog modal-md">
     <div class="modal-content">
       <div class="modal-header">
-        <h4 class="modal-title" id="myModalLabel">¿Desea eliminar a <strong><span id="nombre"></span></strong>?</strong>?</h4>
+        <h4 class="modal-title title" id="myModalLabel">¿Desea eliminar a <strong><span id="nombre"></span></strong>?</strong>?</h4>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
       </div>
       <form method="POST" action="{{route('users.delete')}}">

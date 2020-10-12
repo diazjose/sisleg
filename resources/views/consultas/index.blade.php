@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+
 <div class="container-fluid" id="contenedor">
     <div class="row justify-content-center">
         <div class="col">
@@ -82,18 +83,20 @@
                             </div>
                             @if(count($cv)>0)
                             <div class="table-responsive" id="resultado">
-                                <table class="table">
-                                    <thead class="thead-light">
-                                        <th>Denominación</th>
-                                        <th>Jurisdicción</th>
-                                        <th>Zona</th>
-                                        <th>Dirección</th>
-                                        <th>Resolución</th>
-                                        <th>Presidente</th>
-                                        <th>Mandato</th>
-                                        <th>Acciones</th>
+                                <table id="dataTable" class="table table-striped table-bordered" style="width:100%">
+                                    <thead>
+                                        <tr>
+                                            <th>Denominación</th>
+                                            <th>Jurisdicción</th>
+                                            <th>Zona</th>
+                                            <th>Dirección</th>
+                                            <th>Resolución</th>
+                                            <th>Presidente</th>
+                                            <th>Mandato</th>
+                                            <th>Acciones</th>
+                                        </tr>
                                     </thead>
-                                    <tbody id="tbody">
+                                    <tbody>
                                         @foreach($cv as $centro)
                                         <tr>
                                             <td>{{$centro->denominacion}}</td>
@@ -120,6 +123,18 @@
                                         </tr>
                                         @endforeach
                                     </tbody>
+                                    <tfoot>
+                                        <tr>
+                                            <th>Denominación</th>
+                                            <th>Jurisdicción</th>
+                                            <th>Zona</th>
+                                            <th>Dirección</th>
+                                            <th>Resolución</th>
+                                            <th>Presidente</th>
+                                            <th>Mandato</th>
+                                            <th>Acciones</th>
+                                        </tr>
+                                    </tfoot>
                                 </table>
                             </div>
                             @else
@@ -136,5 +151,5 @@
 </div>
 @endsection
 @section('script')
-    <script src="{{ asset('js/consultas.js') }}"></script>
+    <script src="{{ asset('js/consultas.js') }}"></script>    
 @endsection

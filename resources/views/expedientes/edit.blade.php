@@ -4,7 +4,7 @@
 <div class="container" id="contenedor">
     <div class="row justify-content-center">
         <div class="col">
-            <div class="card">
+            <div class="card border-secondary">
                 <div class="card-header grey text-white title"><h4><strong>Actualizar Expediente</strong></h4></div>
 
                 <div class="card-body">                    
@@ -86,7 +86,7 @@
                                 @enderror
                             </div>
                         </div>    
-                    <hr>    
+                    <hr class="border-red">    
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-3">
                                 <button type="submit" class="btn btn-primary">

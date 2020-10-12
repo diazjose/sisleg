@@ -12,7 +12,9 @@
 	
 	<body>
 		<header>
-			<div class="container">
+            <img src="{{ asset('images/logo_gob/HEADER -SÓLIDO.png') }}" width="100%">
+			<!--
+            <div class="container">
 	            <div class="left">
 	                <img src="{{ asset('images/secretaria_justicia.png') }}" id="logo">
 	            </div>
@@ -25,8 +27,10 @@
 		                    <span>Secretaria de Justicia</span>
 		                </div>
                     -->
-	                </div>
+	                <!--
+                    </div>
 	        </div>
+            -->
         </header>
         <br>
         <div class="title">
