@@ -19,6 +19,7 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/page', 'HomeController@pagina')->name('page');
+
 /*USUARIOS*/
 Route::get('/usuarios', 'UsuariosController@index')->name('users.index');
 Route::get('/usuarios/nuevo', 'UsuariosController@new')->name('users.new');
@@ -48,6 +49,7 @@ Route::post('/expedientes/seguir', 'ExpedientesController@tracing')->name('seg_c
 Route::get('/expedientes/{area}', 'ExpedientesController@area')->name('exp_area');
 Route::get('/expediente/{id}', 'ExpedientesController@exp_area')->name('exp_area_view');
 Route::post('/expediente/estado', 'ExpedientesController@exp_status')->name('exp_status');
+
 /*PAGE*/
 Route::get('/seguimiento/expedientes', 'ExpedientesController@seguimiento')->name('exp_tracing');
 Route::post('/expedientes/search', 'ExpedientesController@buscar')->name('exp_buscar');
@@ -72,7 +74,9 @@ Route::get('/consultas/{tipo}/{juri?}/{zona?}/{mandato?}', 'ConsultasController@
 
 /*REPORTES*/
 Route::get('/reportes/{tipo}/{juri?}/{zona?}/{mandato?}', 'PdfController@reporte')->name('prueba');
-Route::get('/turno/download/{id}/{fecha}', 'PdfController@turno')->name('turno');
+Route::get('/legajos/legajoPDF/{legajo}', 'PdfController@legajo')->name('pdf.legajo');
+
+//Route::get('/turno/download/{id}/{fecha}', 'PdfController@turno')->name('turno');
 
 /*OFICINAS*/
 Route::get('/oficinas', 'OficinasController@index')->name('oficina.index');
@@ -103,3 +107,12 @@ Route::post('/turno/search', 'TurnosController@search')->name('turno.buscar');
 Route::post('/turno/searchTurno', 'TurnosController@searchTurno')->name('turno.searchTurno');
 Route::get('/turno/todos/{fecha?}', 'TurnosController@view')->name('turno.view');
 Route::post('/turno/estado', 'TurnosController@status')->name('turno.status');
+
+/*ASAMBLEAS*/
+Route::post('/asamblea/create', 'AsambleasController@create')->name('asamblea.create');
+Route::post('/asamblea/update', 'AsambleasController@update')->name('asamblea.update');
+
+/*COLABORACION*/
+Route::post('/colaboracion/create', 'ColaboracionController@create')->name('col.create');
+Route::post('/colaboracion/update', 'ColaboracionController@update')->name('col.update');
+

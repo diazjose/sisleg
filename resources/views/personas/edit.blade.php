@@ -4,12 +4,13 @@
 <div class="container" id="contenedor">
     <div class="row justify-content-center">
         <div class="col">
+            <input type="hidden" id="mtip" value="{{$cargo->tipo}}">
             <div class="card border-secondary">
                 <div class="card-header grey text-white title"><h4><strong>Actualizar Persona</strong></h4></div>
                 <form method="POST" action="{{route('person_update')}}">
                         @csrf
                         <input type="hidden" name="legajo" value="{{$cargo->legajo_id}}">
-                        <input type="hidden" name="cargo_id" value="{{$cargo->id}}">
+                        <input type="hidden" name="cargo_id" value="{{$cargo->id}}">                        
                         <input type="hidden" id="id_persona" name="id_persona" value="{{$cargo->persona->id}}">
                         
                 <div class="card-body row">
@@ -110,6 +111,16 @@
                             </div>
                             <hr>
                             <div class="form-group row">
+                                <label for="mtipo" class="col-md-4 col-form-label text-md-right">{{ __('Tipo') }}</label>
+                                <div class="col-md-7">
+                                    <select id="mtipo" class="form-control @error('role') is-invalid @enderror" name="tipo"  required autocomplete="role" autofocus>
+                                        <option selected disabled value="">-- Elegir Opción --</option>
+                                        <option value="Permanente">Permanente</option>
+                                        <option value="Provisorio">Provisorio</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group row">
                                 <label for="fecha_inicio" class="col-md-4 col-form-label text-md-right"><strong>{{ __('Inicio') }}</strong></label>        
                                 <div class="col-md-7">
                                     <input type="date" class="form-control" id="fecha_ini" name="fecha_inicio" value="{{$cargo->fecha_inicio}}" required autocomplete="fecha_inicio">
@@ -123,7 +134,7 @@
                             <div class="form-group row">
                                 <label for="fecha_fin" class="col-md-4 col-form-label text-md-right"><strong>{{ __('Finalización') }}</strong></label>        
                                 <div class="col-md-7">
-                                    <input type="date" class="form-control" id="fecha_fin" name="fecha_fin" value="{{$cargo->fecha_fin}}" required autocomplete="fecha_fin">
+                                    <input type="date" class="form-control" id="fecha_fin" name="fecha_fin" value="{{$cargo->fecha_fin}}" autocomplete="fecha_fin">
                                     @error('fecha_fin')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
@@ -162,5 +173,5 @@
 @endsection
 
 @section('script')
-    <script src="{{ asset('js/legajos.js') }}"></script>
+    <script src="{{ asset('js/personas.js') }}"></script>
 @endsection

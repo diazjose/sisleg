@@ -37,6 +37,7 @@
                 <div class="form-group mx-2">
                     <label>Enviar a:</label>
                     <select class="form-control" name="lugar">
+                      <!--
                         <option value="DIRECTOR">Director</option>
                         <option value="MESA">Mesa</option>
                         <option value="SECCION">Sección</option>
@@ -48,6 +49,19 @@
                         <option value="DESPACHO">Despacho</option>
                         <option value="LEGALES">Legales</option>
                         <option value="ARCHIVO DEL GOBIERNO">Archivo del Gobierno</option>
+                      -->
+                        <option value="Director">Director</option>
+                        <option value="Mesa_Entrada">Mesa de Entrada</option>
+                        <option value="Sección">Sección</option>
+                        <option value="Dpto._SA">Dpto. SA</option>
+                        <option value="Dpto._Asesoría">Dpto. Asesoría</option>
+                        <option value="Dpto._Contable">Dpto. Contable</option>
+                        <option value="Legales">Legales</option>
+                        <option value="Dpto._Civiles">Dpto. Civiles</option>
+                        <option value="Despacho">Despacho</option>
+                        <option value="LEGALES">Legales</option>
+                        <option value="Archivo del Gobierno">Archivo del Gobierno</option>
+
                     </select>
                 </div>
                 <!--

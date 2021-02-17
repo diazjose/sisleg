@@ -25,7 +25,7 @@ class LegajosController extends Controller
 
     public function view($id){
         $legajo = Legajo::find($id);
-        return view('legajos.view1', ['legajo' => $legajo]);
+        return view('legajos.view', ['legajo' => $legajo]);
     }
 
     public function create(Request $request){
@@ -53,10 +53,15 @@ class LegajosController extends Controller
     	$legajo->direccion = strtoupper($request->input('direccion'));
         if (!empty($request->input('ubicacion'))) {
             $legajo->ubicacion = $request->input('ubicacion'); 
+        }else{
+            $legajo->ubicacion = "";
         }        
         $legajo->zona = $request->input('zona');
     	$legajo->resolucion = $request->input('resolucion');
     	$legajo->fecha_inicio = $request->input('fecha_inicio');
+        if (!empty($request->input('punto_cero'))) {
+            $legajo->punto_cero = $request->input('punto_cero'); 
+        }
 
     	$legajo->save();
 
@@ -95,10 +100,14 @@ class LegajosController extends Controller
         }
         $legajo->resolucion = $request->input('resolucion');
         $legajo->fecha_inicio = $request->input('fecha_inicio');
+        if (!empty($request->input('punto_cero'))) {
+            $legajo->punto_cero = $request->input('punto_cero'); 
+        }
         $legajo->update();
+        
         return view('legajos.view', ['legajo' => $legajo]);
         /*
-        return redirect()->route('', ['legajo' => $legajo])
+         ('', ['legajo' => $legajo])
                          ->with(['message' => 'Legajo Actualizado correctamente', 'status' => 'success']);
     */
     }
@@ -132,3 +141,118 @@ class LegajosController extends Controller
         return response()->json($html); 
     }
 }
+
+/* 
+------ DATABASE ------
+
+create table users(
+id int(255) auto_increment not null,
+name varchar(255),
+surname varchar(255),
+email varchar(255),
+password varchar(255),
+role varchar(255),
+created_at datetime,
+updated_at datetime,
+remember_token varchar(255),
+CONSTRAINT pk_users PRIMARY KEY(id)    
+)ENGINE=InnoDB;
+
+create table legajos(
+id int(255) auto_increment not null,
+numero varchar(255),
+denominacion varchar(255),
+juridiccion varchar(255),
+direccion text,
+zona varchar(50),
+resolucion varchar(255),
+fecha_inicio date,
+created_at datetime,
+updated_at datetime,
+CONSTRAINT pk_legajos PRIMARY KEY(id)    
+)ENGINE=InnoDB;
+
+create table asambleas(
+id int(255) auto_increment not null,
+legajo_id int(255),
+fecha date,
+documentacion varchar(10),
+observacion text,
+created_at datetime,
+updated_at datetime,
+CONSTRAINT pk_asambleas PRIMARY KEY(id),    
+CONSTRAINT fk_asambleas_legajo FOREIGN KEY(legajo_id) REFERENCES legajos(id)
+)ENGINE=InnoDB;
+
+
+
+create table expedientes(
+id int(255) auto_increment not null,
+legajo_id int(255),
+numero varchar(255),
+denominacion varchar(255),
+iniciador varchar(255),
+asunto varchar(255),
+observacion text,
+archivado varchar(10),
+fojas int(100),
+fecha_fin date,
+resolucion varchar(255),
+formulario varchar(255),
+created_at datetime,
+updated_at datetime,
+CONSTRAINT pk_expedientes PRIMARY KEY(id)    
+)ENGINE=InnoDB;
+
+create table persons(
+id int(255) auto_increment not null,
+name varchar(255),
+surname varchar(255),
+dni varchar(12),
+email varchar(255),
+address text,
+phone varchar(100),
+image varchar(255),
+created_at datetime,
+updated_at datetime,
+CONSTRAINT pk_persons PRIMARY KEY(id)    
+)ENGINE=InnoDB;
+
+create table cargos(
+id int(255) auto_increment not null,
+legajo_id int(255),
+person_id int(255),
+cargo varchar(100),
+fecha_inicio date,
+fecha_fin date,
+created_at datetime,
+updated_at datetime,
+CONSTRAINT pk_cargos PRIMARY KEY(id),
+CONSTRAINT fk_cargos_legajo FOREIGN KEY(legajo_id) REFERENCES legajos(id),    
+CONSTRAINT fk_cargos_person FOREIGN KEY(person_id) REFERENCES persons(id)
+)ENGINE=InnoDB;
+
+create table seguimiento(
+id int(255) auto_increment not null,
+expediente_id int(255),
+lugar varchar(100),
+observacion text,
+estado varchar(20),
+created_at datetime,
+updated_at datetime,
+CONSTRAINT pk_seguimiento PRIMARY KEY(id),
+CONSTRAINT fk_seguimiento_expediente FOREIGN KEY(expediente_id) REFERENCES expedientes(id)
+)ENGINE=InnoDB;
+
+create table colaboracion(
+id int(255) auto_increment not null,
+legajo_id int(255),
+observacion text,
+fecha date,
+created_at datetime,
+updated_at datetime,
+CONSTRAINT pk_colaboracion PRIMARY KEY(id),
+CONSTRAINT fk_colaboracion_legajo FOREIGN KEY(legajo_id) REFERENCES legajos(id)
+)ENGINE=InnoDB;
+
+*/

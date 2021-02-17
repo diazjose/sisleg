@@ -27,6 +27,14 @@ class Legajo extends Model
     public function pres(){
         return $this->hasMany('App\Cargo')->where('estado','Activo')->where('cargo','PRESIDENTE');   
     }
+
+    public function asamblea(){
+        return $this->hasMany('App\Asamblea')->orderBy('fecha','DESC');   
+    }
+
+    public function colaboraciones(){
+        return $this->hasMany('App\Colaboracion')->orderBy('fecha','DESC');   
+    }
 }
 
 

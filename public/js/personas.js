@@ -18,6 +18,8 @@ window.addEventListener("load", function(){
 	    });
 	});
 
+	var tipo = $("#mtip").val();
+	$('#mtipo option[value="'+ tipo +'"]').attr("selected",true);
 });
 
 

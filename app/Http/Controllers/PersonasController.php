@@ -53,9 +53,15 @@ class PersonasController extends Controller
         $cargo->legajo_id = $request->input('legajo');
     	$cargo->person_id = $id;
     	$cargo->cargo = strtoupper($request->input('cargo'));
+        $cargo->tipo = $request->input('tipo');
     	$cargo->fecha_inicio = $request->input('fecha_inicio');
-    	$cargo->fecha_fin = $request->input('fecha_fin');
-        $cargo->estado = 'Activo';
+        if ($request->input('tipo') == 'Provisorio') {
+            $cargo->fecha_fin = $request->input('fecha_fin');
+        }else{
+            $fecha_fin = date("Y-m-d",strtotime($request->input('fecha_inicio')."+ 90 year"));
+            $cargo->fecha_fin = $fecha_fin;
+        }
+    	$cargo->estado = 'Activo';
 
     	$cargo->save();
 
@@ -125,8 +131,14 @@ class PersonasController extends Controller
         $cargo_id = $request->input('cargo_id');
         $cargo = Cargo::find($cargo_id);
         $cargo->cargo = strtoupper($request->input('cargo'));
+        $cargo->tipo = $request->input('tipo');
         $cargo->fecha_inicio = $request->input('fecha_inicio');
-        $cargo->fecha_fin = $request->input('fecha_fin');
+        if ($request->input('tipo') == 'Provisorio') {
+            $cargo->fecha_fin = $request->input('fecha_fin');
+        }else{
+            $fecha_fin = date("Y-m-d",strtotime($request->input('fecha_inicio')."+ 90 year"));
+            $cargo->fecha_fin = $fecha_fin;
+        }
         $cargo->estado = $request->input('estado');
         $cargo->update();
 

@@ -4,140 +4,151 @@
 <div class="container" id="contenedor">
     <div class="row justify-content-center">
         <div class="col">
-            <div class="card border-secondary">
+            <div class="card">
                 <div class="card-header grey text-white title"><h4><strong><i class="fas fa-folder-open"></i> Legajo N° {{$legajo->numero}} - ({{$legajo->denominacion}})</strong></h4></div>
 
-                <div class="card-body">                    
-                    <div class="mx-md-5">
-                        <h5 class="title"><strong>Datos del Legajo</strong></h5><hr class="border-red">
-                        @if(session('message'))
-                        <div class="alert alert-{{ session('status') }}">
-                            <strong>{{ session('message') }}</strong>
-                        </div>  
-                        @endif
-                        <div class="row">
-                            <div class="form-group col-md-3">
-                                <label><strong>N° Legajo</strong></label>
-                                <div class="form-control">{{$legajo->numero}}</div>
+                <div class="card-body row">                    
+                    <div class="col-md-3">
+                        <div class="border p-1">
+                            <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+                              <a class="nav-link active" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true">Datos General</a>
+                              <a class="nav-link" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="false">Datos de Autoridades</a>
+                              <a class="nav-link" id="v-pills-messages-tab" data-toggle="pill" href="#v-pills-messages" role="tab" aria-controls="v-pills-messages" aria-selected="false">Datos de Expedientes</a>
+                              <a class="nav-link" id="v-pills-settings-tab" href="{{route('exp_new', $legajo->id)}}" role="tab" aria-controls="v-pills-settings" aria-selected="false">Agregar Expediente</a>
                             </div>
-                            <div class="form-group col-md-3">
-                                <label><strong>Tipo</strong></label>
-                                <div class="form-control">{{$legajo->tipo}}</div>
-                            </div>
-                            <div class="form-group col-md-6">
-                                <label><strong>Denominación</strong></label>
-                                <div class="form-control">{{$legajo->denominacion}}</div>
-                            </div>                      
-                        </div>    
-                        <div class="row">
-                            <div class="form-group col-md-8">
-                                <label><strong>Dirección</strong></label>
-                                <div class="form-control">{{$legajo->direccion}}</div>
-                            </div> 
-                            <div class="form-group col-md-4">
-                                <label><strong>Zona</strong></label>
-                                <div class="form-control">{{$legajo->zona}}</div>
-                            </div>                                                             
                         </div>
-                        <div class="row">
-                            <div class="form-group col-md-6">
-                                <label><strong>Jurisdicción</strong></label>
-                                <div class="form-control">{{$legajo->juridiccion}}</div>
-                            </div> 
-                            <div class="form-group col-md-3">
-                                <label><strong>N° Resolución</strong></label>
-                                <div class="form-control">{{$legajo->resolucion}}</div>
-                            </div>
-                            <div class="form-group col-md-3">
-                                <label><strong>Inicio de Actividad</strong></label>
-                                <div class="form-control">{{date('d/m/Y', strtotime($legajo->fecha_inicio))}}</div>
-                            </div>
-                        </div>                     
-                        <div class="col-md-4">
-                            <button type="button" class="btn btn-outline-primary my-2" onclick="edit('{{$legajo->numero}}', '{{$legajo->tipo}}', '{{$legajo->denominacion}}', '{{$legajo->zona}}', '{{$legajo->juridiccion}}', '{{$legajo->direccion}}', '{{$legajo->ubicacion}}', '{{$legajo->resolucion}}', '{{$legajo->fecha_inicio}}')" data-toggle="modal" data-target="#editModal">
-                                    Editar Legajo
-                            </button>
-                        </div>                       
-                        <hr class="border-red">                       
+                    </div>
+                    <div class="col-md-9">
+                        <div class="tab-content" id="v-pills-tabContent">
+                            <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
+                                <h5 class="title"><strong>Datos del Legajo</strong></h5><hr class="border-red">
+                                @if(session('message'))
+                                <div class="alert alert-{{ session('status') }}">
+                                    <strong>{{ session('message') }}</strong>
+                                </div>  
+                                @endif
+                                <div class="row">
+                                    <div class="form-group col-md-3">
+                                        <label><strong>N° Legajo</strong></label>
+                                        <div class="form-control">{{$legajo->numero}}</div>
+                                    </div>
+                                    <div class="form-group col-md-3">
+                                        <label><strong>Tipo</strong></label>
+                                        <div class="form-control">{{$legajo->tipo}}</div>
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label><strong>Denominación</strong></label>
+                                        <div class="form-control">{{$legajo->denominacion}}</div>
+                                    </div>                      
+                                </div>    
+                                <div class="row">
+                                    <div class="form-group col-md-8">
+                                        <label><strong>Domicilio Legal</strong></label>
+                                        <div class="form-control">{{$legajo->direccion}}</div>
+                                    </div> 
+                                    <div class="form-group col-md-4">
+                                        <label><strong>Zona</strong></label>
+                                        <div class="form-control">{{$legajo->zona}}</div>
+                                    </div>                                                             
+                                </div>
+                                <div class="row">
+                                    <div class="form-group col-md-6">
+                                        <label><strong>Jurisdicción</strong></label>
+                                        <div class="form-control">{{$legajo->juridiccion}}</div>
+                                    </div> 
+                                    <div class="form-group col-md-3">
+                                        <label><strong>N° Resolución</strong></label>
+                                        <div class="form-control">{{$legajo->resolucion}}</div>
+                                    </div>
+                                    <div class="form-group col-md-3">
+                                        <label><strong>Inicio de Actividad</strong></label>
+                                        <div class="form-control">{{date('d/m/Y', strtotime($legajo->fecha_inicio))}}</div>
+                                    </div>
+                                </div>                     
+                                <div class="col-md-4">
+                                    <button type="button" class="btn btn-outline-primary my-2" onclick="edit('{{$legajo->numero}}', '{{$legajo->tipo}}', '{{$legajo->denominacion}}', '{{$legajo->zona}}', '{{$legajo->juridiccion}}', '{{$legajo->direccion}}', '{{$legajo->ubicacion}}', '{{$legajo->resolucion}}', '{{$legajo->fecha_inicio}}')" data-toggle="modal" data-target="#editModal">
+                                        Editar Legajo
+                                    </button>
+                                </div>                       
+                                <hr class="border-red">                       
                                  
-                        <h5 class="title"><strong>Datos de Autoridades</strong></h5><hr class="border-red">
-                        @if(count($legajo->cargos) > 0 )
-                        <div class="table-responsive mx-2">
-                            <table class="table">
-                                <thead class="thead-light">
-                                    <th>Cargo</th>
-                                    <th>Nombre</th>
-                                    <th>Apellidos</th>
-                                    <th>Inicio Mandato</th>
-                                    <th>Fin de Mandato</th>
-                                    <th>Acciones</th>
-                                </thead>
-                                <tbody>
-                                    @foreach($legajo->cargoActivos as $autoridad)
-                                    <tr>
-                                        <td>{{$autoridad->cargo}}</td>
-                                        <td>{{$autoridad->persona->name}}</td>
-                                        <td>{{$autoridad->persona->surname}}</td>
-                                        <td>{{date('d/m/Y', strtotime($autoridad->fecha_inicio))}}</td>
-                                        <td>{{date('d/m/Y', strtotime($autoridad->fecha_fin))}}</td>
-                                        <td>
-                                            <a href="{{route('person_edit', $autoridad->id)}}" class="btn btn-outline-primary" title="Editar Usuario" ><i class="fas fa-edit"></i></a>
-                                            <a href="#" class="btn btn-outline-danger" onclick="Borrar({{$autoridad->id}},{{$legajo->id}},'{{$autoridad->persona->name}}','{{$autoridad->persona->surname}}')" data-toggle="modal" data-target="#confirm" title="Eliminar Cargo"><i class="fas fa-trash-alt"></i></a>
-                                        </td>
-                                    </tr>
-                                    @endforeach
-                                </tbody>
-                            </table>
+                            </div>
+                            <div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">
+                                <h5 class="title"><strong>Datos de Autotidades</strong></h5><hr class="border-red">
+                                @if(count($legajo->cargos) > 0 )
+                                <div class="table-responsive mx-2">
+                                    <table class="table">
+                                        <thead class="thead-light">
+                                            <th>Cargo</th>
+                                            <th>Nombre</th>
+                                            <th>Apellidos</th>
+                                            <th>Inicio Mandato</th>
+                                            <th>Fin de Mandato</th>
+                                            <th>Acciones</th>
+                                        </thead>
+                                        <tbody>
+                                        @foreach($legajo->cargoActivos as $autoridad)
+                                            <tr>
+                                                <td>{{$autoridad->cargo}}</td>
+                                                <td>{{$autoridad->persona->name}}</td>
+                                                <td>{{$autoridad->persona->surname}}</td>
+                                                <td>{{date('d/m/Y', strtotime($autoridad->fecha_inicio))}}</td>
+                                                <td>{{date('d/m/Y', strtotime($autoridad->fecha_fin))}}</td>
+                                                <td>
+                                                    <a href="{{route('person_edit', $autoridad->id)}}" class="btn btn-outline-primary" title="Editar Usuario" ><i class="fas fa-edit"></i></a>
+                                                    <a href="#" class="btn btn-outline-danger" onclick="Borrar({{$autoridad->id}},{{$legajo->id}},'{{$autoridad->persona->name}}','{{$autoridad->persona->surname}}')" data-toggle="modal" data-target="#confirm" title="Eliminar Cargo"><i class="fas fa-trash-alt"></i></a>
+                                                </td>
+                                            </tr>
+                                        @endforeach
+                                        </tbody>
+                                    </table>
+                                </div>
+                                @else
+                                <div class="mx-5 text-center">
+                                    <h4 class="text-danger"><strong>No tiene autoridades cargadas...</strong></h4>
+                                </div>
+                                @endif
+                                <div class="col-md-4">
+                                    <button type="button" class="btn btn-outline-primary my-2" data-toggle="modal" data-target="#cargoModal">
+                                        Agregar Cargos
+                                    </button>
+                                </div>     
+                            </div>
+                            <div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">
+                                <h5 class="title"><strong>Datos de Expedientes</strong></h5><hr class="border-red">
+                                @if(count($legajo->expedientes) > 0 )
+                                <div class="table-responsive mx-2">
+                                    <table class="table">
+                                        <thead class="thead-light">
+                                            <th>N° Expediente</th>
+                                            <th>Adunto</th>
+                                            <th>Iniciador</th>
+                                            <th>Fecha de Entrada</th>
+                                            <th>Accion</th>
+                                        </thead>
+                                        <tbody>
+                                        @foreach($legajo->expedientes as $exp)
+                                            <tr>
+                                                <td>{{$exp->numero}}</td>
+                                                <td>{{$exp->asunto}}</td>
+                                                <td>{{$exp->iniciador}}</td>
+                                                <td>{{date('d/m/Y', strtotime($exp->created_at))}}</td>
+                                                <td><a href="{{route('exp_view', $exp->id)}}" class="btn btn-outline-info"><strong>VER</strong></a></td>
+                                            </tr>
+                                        @endforeach
+                                        </tbody>
+                                    </table>
+                                </div>
+                                @else
+                                <div class="mx-5 text-center">
+                                    <h4 class="text-danger"><strong>No tiene expedientes cargados...</strong></h4>
+                                </div>
+                                @endif                                     
+                            </div>
+                            <div class="tab-pane fade" id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-settings-tab">...</div>
                         </div>
-                        @else
-                        <div class="mx-5 text-center">
-                            <h4 class="text-danger"><strong>No tiene autoridades cargadas...</strong></h4>
-                        </div>
-                        @endif
-                        <div class="col-md-4">
-                            <button type="button" class="btn btn-outline-primary my-2" data-toggle="modal" data-target="#cargoModal">
-                                Agregar Cargos
-                            </button>
-                        </div>     
-                        <hr class="border-red">   
-                        <h5 class="title"><strong>Datos de Expedientes</strong></h5><hr class="border-red">
-                        @if(count($legajo->expedientes) > 0 )
-                        <div class="table-responsive mx-2">
-                            <table class="table">
-                                <thead class="thead-light">
-                                    <th>N° Expediente</th>
-                                    <th>Adunto</th>
-                                    <th>Iniciador</th>
-                                    <th>Fecha de Entrada</th>
-                                    <th>Accion</th>
-                                </thead>
-                                <tbody>
-                                    @foreach($legajo->expedientes as $exp)
-                                    <tr>
-                                        <td>{{$exp->numero}}</td>
-                                        <td>{{$exp->asunto}}</td>
-                                        <td>{{$exp->iniciador}}</td>
-                                        <td>{{date('d/m/Y', strtotime($exp->created_at))}}</td>
-                                        <td> 
-                                            <a href="{{route('exp_view', $exp->id)}}" class="btn btn-outline-info"><strong>VER</strong></a>
-                                        </td>
-                                    </tr>
-                                    @endforeach
-                                </tbody>
-                            </table>
-                        </div>
-                        @else
-                        <div class="mx-5 text-center row">
-                            <a href="{{route('exp_new', $legajo->id)}}" class="btn btn-outline-dark col-md-3">
-                                <strong><i class="fas fa-folder"></i> Iniciar Expediente</strong>
-                            </a>
-                            <h4 class="text-danger col-md-8 my-1">
-                                <strong class="">No tiene expedientes cargados...</strong>
-                            </h4>
-                        </div>
-                        @endif                                     
-                            
-                        <hr class="border-red">
+                        
+                        <br>
                         <h5 class="title"><strong><i class="fas fa-map-marker-alt">  </i> Ubicación</strong></h5><hr class="border-red">
                         <input type="hidden" id="umap" value="{{$legajo->ubicacion}}">
                         @if($legajo->ubicacion != '')
@@ -166,7 +177,7 @@
                               
             <!-- Modal Header -->
             <div class="modal-header grey text-white">
-                <h4 class="modal-title"><strong>Cargar Cargo</strong></h4>
+                <h4 class="modal-title title"><strong>Cargar Cargo</strong></h4>
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
             </div>
                                 

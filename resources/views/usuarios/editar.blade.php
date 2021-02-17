@@ -41,10 +41,7 @@
                         <div class="form-group row">
                             <label for="dni" class="col-md-3 col-form-label text-md-right"><strong>{{ __('DNI') }}</strong></label>       
                             <div class="col-md-7">
-                                <input id="dni" type="text" class="form-control @error('dni') is-invalid @enderror" name="dni" value="{{$persona->dni}}" size="10"  maxlength="8" pattern="[0-9]{8}" required autocomplete="dni">
-                                <div class="alert-danger my-2" style="display: none;" id="mess">
-                                    <strong class="mx-3">* DNI no valido</strong>
-                                </div>
+                                <input id="dni" type="text" class="form-control @error('dni') is-invalid @enderror" name="dni" value="{{$persona->dni}}" required autocomplete="dni">
                                 @error('dni')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>

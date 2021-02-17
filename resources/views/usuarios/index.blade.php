@@ -125,7 +125,7 @@
                                 <select id="role" class="form-control @error('role') is-invalid @enderror" name="role" value="{{ old('role') }}" required autocomplete="role" autofocus>
                                     <option value="Secretaria">Secretaria</option>
                                     <option value="Director">Director</option>
-                                    <option value="Mesa">Mesa de Entrada</option>
+                                    <option value="Mesa_Entrada">Mesa de Entrada</option>
                                     <option value="Sección">Sección</option>
                                     <option value="Dpto._SA">Dpto. SA</option>
                                     <option value="Dpto._Asesoría">Dpto. Asesoría</option>

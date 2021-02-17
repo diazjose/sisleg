@@ -21,6 +21,7 @@
                                 <select id="tipo" type="text" class="form-control @error('tipo') is-invalid @enderror" name="tipo" value="{{ old('tipo') }}" required autocomplete="tipo">
                                     <option disabled>--Seleccionar--</option>
                                     <option value="CENTRO VECINAL">CENTRO VECINAL</option>
+                                    <option value="UNION VECINAL">UNION VECINAL</option>
                                     <option value="CLUB">CLUB</option>
                                     <option value="BIBLOTECA">BIBLOTECA</option>
                                     <option value="COOPERADORA">COOPERADORA</option>
@@ -29,7 +30,7 @@
                                     <option value="SAPEM">SAPEM</option>
                                     <option value="SAS">SAS</option>
                                     <option value="SAU">SAU</option>
-                                    <option value="ONG">ONG</option>
+                                    <option value="ASOCIACIONES CIVILES">ASOCIACIONES CIVILES</option>
                                     <option value="SOC. ANONIMA">SOC. ANONIMA</option>
                                     <option value="SOC. EXTRANJE">SOC. EXTRANJE</option>
                                 </select>
@@ -116,12 +117,6 @@
 
                             <div class="col-md-6">
                                 <input id="ubicacion" type="text" class="form-control @error('ubicacion') is-invalid @enderror" name="ubicacion" value="{{ old('ubicacion') }}" style="text-transform:uppercase;" autocomplete="ubicacion">
-
-                                @error('ubicacion')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
                             </div>
                         </div>
 
@@ -148,5 +143,17 @@
                                         <strong>{{ $message }}</strong>
                                     </span>
                                 @enderror
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="fecha_inicio" class="col-md-4 col-form-label text-md-right"><strong>{{ __('Programa Punto Cero') }}</strong></label>
+
+                            <div class="col-md-6">
+                                <select id="zona" class="form-control" name="punto_cero">
+                                    <option selected disabled >--Seleccionar--</option>
+                                    <option value="Si">Si</option>
+                                    <option value="No">No</option>
+                                </select>
                             </div>
                         </div>
