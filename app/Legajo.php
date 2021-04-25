@@ -32,6 +32,10 @@ class Legajo extends Model
         return $this->hasMany('App\Asamblea')->orderBy('fecha','DESC');   
     }
 
+    public function caja(){
+        return $this->hasMany('App\Caja')->orderBy('fecha','DESC');   
+    }   
+    
     public function colaboraciones(){
         return $this->hasMany('App\Colaboracion')->orderBy('fecha','DESC');   
     }

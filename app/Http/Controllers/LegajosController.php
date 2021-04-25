@@ -167,6 +167,7 @@ direccion text,
 zona varchar(50),
 resolucion varchar(255),
 fecha_inicio date,
+user_id int(255),
 created_at datetime,
 updated_at datetime,
 CONSTRAINT pk_legajos PRIMARY KEY(id)    
@@ -253,6 +254,20 @@ created_at datetime,
 updated_at datetime,
 CONSTRAINT pk_colaboracion PRIMARY KEY(id),
 CONSTRAINT fk_colaboracion_legajo FOREIGN KEY(legajo_id) REFERENCES legajos(id)
+)ENGINE=InnoDB;
+
+create table caja(
+id int(255) auto_increment not null,
+legajo_id int(255),
+entidad varchar(255),
+monto varchar(255),
+formulario varchar(255),
+observacion text,
+fecha date,
+created_at datetime,
+updated_at datetime,
+CONSTRAINT pk_caja PRIMARY KEY(id),
+CONSTRAINT fk_caja_legajo FOREIGN KEY(legajo_id) REFERENCES legajos(id)
 )ENGINE=InnoDB;
 
 */

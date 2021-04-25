@@ -116,3 +116,6 @@ Route::post('/asamblea/update', 'AsambleasController@update')->name('asamblea.up
 Route::post('/colaboracion/create', 'ColaboracionController@create')->name('col.create');
 Route::post('/colaboracion/update', 'ColaboracionController@update')->name('col.update');
 
+/*CAJA*/
+Route::get('/caja/{fecha?}', 'CajaController@index')->name('caja.index');
+Route::post('/caja/create', 'CajaController@create')->name('caja.create');

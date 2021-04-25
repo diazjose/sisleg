@@ -74,6 +74,9 @@
                                                     </a>
                                                 </div>
                                             </li>
+                                            <li class="nav-item links">
+                                                <a class="nav-link text-white" href="{{ route('caja.index') }}"><i class="fas fa-cash-register"></i> Caja</a>
+                                            </li>
                                             @break
                                         @case('Secretaria')
                                             <li class="nav-item links">

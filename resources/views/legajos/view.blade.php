@@ -12,7 +12,10 @@
                     <div class="mx-md-5">
                         <div class="card-body d-flex justify-content-between align-items-center">
                             <h5 class="title"><strong>Datos del Legajo</strong></h5>
-                            <a href="#" id="pdf" target="_black" class="btn btn-outline-dark title"><strong><i class="fas fa-file-pdf"></i> Exportar a PDF</strong></a>
+                            <div>
+                                <a href="#" id="compra_formulario" class="btn btn-outline-dark title" data-toggle="modal" data-target="#compraModal"><strong><i class="far fa-money-bill-alt"></i> Compra de Formulario</strong></a>
+                                <a href="#" id="pdf" target="_black" class="btn btn-outline-dark title"><strong><i class="fas fa-file-pdf"></i> Exportar a PDF</strong></a>
+                            </div>
                         </div>
                         <input type="hidden" id="legPdf" value="{{$legajo->id}}">
                         <hr class="border-red">
@@ -112,7 +115,7 @@
                             </button>
                         </div>   
                         <hr class="border-red">         
-                        <h5 class="title"><strong>Datos de Autoridades</strong></h5><hr class="border-red">
+                        <h5 class="title"><strong><i class="fas fa-user-tie"></i> Datos de Autoridades</strong></h5><hr class="border-red">
                         @if(count($legajo->cargos) > 0 )
                         <div class="table-responsive mx-2">
                             <table class="table">
@@ -152,7 +155,7 @@
                             </button>
                         </div>     
                         <hr class="border-red">   
-                        <h5 class="title"><strong>Datos de Expedientes</strong></h5><hr class="border-red">
+                        <h5 class="title"><strong><i class="fas fa-folder"></i> Datos de Expedientes</strong></h5><hr class="border-red">
                         @if(count($legajo->expedientes) > 0 )
                         <div class="table-responsive mx-2">
                             <table class="table">
@@ -188,15 +191,49 @@
                             </h4>
                         </div>
                         @endif             
-
                         <hr class="border-red">
-                        <h5 class="title"><strong><i class="fas fa-map-marker-alt"></i> Colaboración</strong></h5><hr class="border-red">                        
+                        <h5 class="title"><strong><i class="far fa-money-bill-alt"></i> Compra de Formularios</strong></h5><hr class="border-red">                        
+                             
+                        @if(count($legajo->caja) > 0 )
+                        <div class="table-responsive mx-2">
+                            <table class="table">
+                                <thead class="thead-light">
+                                    <th>Fecha</th>
+                                    <th>Formulario</th>
+                                    <th>Monto</th>
+                                    <th>Observación</th>
+                                    <th>Accion</th>
+                                </thead>
+                                <tbody>
+                                    @foreach($legajo->caja as $c)
+                                    <tr>
+                                        <td>{{date('d/m/Y', strtotime($c->created_at))}}</td>
+                                        <td>{{$c->formulario}}</td>
+                                        <td>{{$c->monto}}</td>
+                                        <td>{{$c->observacion}}</td>
+                                        <td> 
+                                            <a href="{{route('exp_view', $c->id)}}" class="btn btn-outline-success">Editar</a>
+                                            <a href="{{route('exp_view', $c->id)}}" class="btn btn-outline-danger">Eliminar</a>
+                                        </td>
+                                    </tr>
+                                    @endforeach
+                                </tbody>
+                            </table>
+                        </div>
+                        @else
+                        <h4 class="text-danger col-md-8 my-1">
+                            <strong class="">No tiene expedientes cargados...</strong>
+                        </h4>
+                        @endif
+                        
+                        <hr class="border-red">
+                        <h5 class="title"><strong><i class="far fa-money-bill-alt"></i> Colaboración</strong></h5><hr class="border-red">                        
                         <div class="mx-5 text-center row">
                             <a href="#" class="btn btn-outline-primary" onclick="newCol()" data-toggle="modal" data-target="#colModal">
                                 <strong> Nueva Colaboración</strong>
                             </a>
                         </div><br>     
-                        @if(count($legajo->expedientes) > 0 )
+                        @if(count($legajo->colaboraciones) > 0 )
                         <div class="table-responsive mx-2">
                             <table class="table">
                                 <thead class="thead-light">
@@ -245,7 +282,7 @@
     </form>
 </div>
 
-
+<!-- Form Autoridad -->
 <div class="modal fade" id="cargoModal">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
@@ -315,7 +352,7 @@
                     <div class="form-group row">
                         <label for="email" class="col-md-3 col-form-label text-md-right">{{ __('Correo Electrónico') }}</label>        
                         <div class="col-md-7">
-                            <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required autocomplete="email">
+                            <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" autocomplete="email">
                             @error('email')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
@@ -326,7 +363,7 @@
                     <div class="form-group row">
                         <label for="address" class="col-md-3 col-form-label text-md-right">{{ __('Dirección') }}</label>        
                         <div class="col-md-7">
-                            <input id="address" type="text" class="form-control" name="address" value="{{ old('address') }}"  style="text-transform:uppercase;" required autocomplete="adress">
+                            <input id="address" type="text" class="form-control" name="address" value="{{ old('address') }}"  style="text-transform:uppercase;" autocomplete="adress">
                             @error('adress')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
@@ -337,7 +374,7 @@
                     <div class="form-group row">
                         <label for="phone" class="col-md-3 col-form-label text-md-right">{{ __('Teléfono') }}</label>        
                         <div class="col-md-7">
-                            <input id="phone" type="text" class="form-control" name="phone" value="{{ old('phone') }}" required autocomplete="phone">
+                            <input id="phone" type="text" class="form-control" name="phone" value="{{ old('phone') }}" autocomplete="phone">
                             @error('phone')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
@@ -413,7 +450,7 @@
         </div>
     </div>
 </div>
-
+<!-- Form Actualizar Legajo -->
 <div class="modal fade" id="editModal">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
@@ -443,7 +480,7 @@
         </div>
     </div>
 </div>
-
+<!-- Form Asamblea -->
 <div class="modal fade" id="asambleaModal">
     <div class="modal-dialog modal-md">
         <div class="modal-content">
@@ -491,7 +528,7 @@
         </div>
     </div>
 </div>
-
+<!-- Form Colaboracion -->
 <div class="modal fade" id="colModal">
     <div class="modal-dialog modal-md">
         <div class="modal-content">
@@ -532,8 +569,7 @@
         </div>
     </div>
 </div>
-
-<!--Confirm-->
+<!-- Confirm -->
 <div class="modal fade" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true" id="confirm">
   <div class="modal-dialog modal-md">
     <div class="modal-content">
@@ -567,7 +603,54 @@
     </div>
   </div>
 </div>  
-
+<!-- Compra -->
+<div class="modal fade" id="compraModal">
+    <div class="modal-dialog modal-md">
+        <div class="modal-content">                              
+            <!-- Modal Header -->
+            <div class="modal-header grey text-white">
+                <h4 class="modal-title title"><strong id="aTitle">Nuevo Movimiento</strong></h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>                                
+            <!-- Modal body -->
+            <div class="modal-body my-3">
+                <form method="POST" action="{{route('caja.create')}}">
+                    @csrf                    
+                    <div class="form-group">
+                        <label><strong>Formulario </strong></label>
+                        <select id="formulario" name="formulario" required class="form-control">
+                            <option value="01">o1</option>
+                            <option value="02">02</option>
+                            <option value="03">o3</option>
+                            <option value="04">04</option>
+                            <option value="05">o5</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label><strong>Monto </strong></label>
+                        <input type="number" name="monto" id="monto" step="0.01" required class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label><strong>Observación </strong></label>
+                        <textarea id="compobservacion" name="observacion" class="form-control" rows="7" cols="20">
+                            
+                        </textarea>
+                    </div>
+                    <input type="hidden" name="leg_id" id="leg_id" value="{{$legajo->id}}">
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-primary" id="abtn">Comprar</button>
+                    </div>
+                </form>
+            </div>
+                               
+            <!-- Modal footer 
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+            -->                    
+        </div>
+    </div>
+</div>
 @endsection
 
 @section('script')
